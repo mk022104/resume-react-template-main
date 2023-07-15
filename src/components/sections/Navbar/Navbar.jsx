@@ -6,7 +6,6 @@ import {
   Switch,
 } from "react-router-dom";
 import About from "../../pages/About/About";
-import Blog from "../../pages/Blog/Blog";
 import Contact from "../../pages/Contact/Contact";
 import Portfolio from "../../pages/Portfolio/Portfolio";
 import Service from "../../pages/Service/Service";
@@ -25,13 +24,8 @@ const navbarData = [
   },
   {
     id: 3,
-    title: "Works",
+    title: "Experience",
     to: "/works",
-  },
-  {
-    id: 4,
-    title: "Blogs",
-    to: "/blogs",
   },
   {
     id: 6,
@@ -65,9 +59,6 @@ const Navbar = () => {
         </Route>
         <Route path="/works">
           <Portfolio />
-        </Route>
-        <Route path="/blogs">
-          <Blog />
         </Route>
         <Route path="/contact">
           <Contact />

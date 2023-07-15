@@ -9,15 +9,15 @@ const serviceData = [
     icon: <FaCode />,
     title: "Web Design",
     description:
-      "Lorem ipsum dolor sit aconsect dipisicing elit, sed do eiusmod to incididunt uabore etdolore magna aliqua.",
+      "Web design refers to the process of creating and designing websites. It involves planning and arranging various elements such as layout, colors, graphics, fonts, and interactive features to create an aesthetically appealing and user-friendly website.",
   },
   {
     id: 2,
     icon: <FaHtml5 />,
     title: "Web Development",
     description:
-      "Lorem ipsum dolor sit aconsect dipisicing elit, sed do eiusmod to incididunt uabore etdolore magna aliqua.",
-  },
+      "Web development refers to the process of building and maintaining websites and web applications. It involves the creation of both the front-end (client-side) and back-end (server-side) components of a website or web application.",
+    },
   {
     id: 3,
     icon: <FaReact />,
