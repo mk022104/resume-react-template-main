@@ -38,7 +38,7 @@ const Sidebar = () => {
         <img src={Madhukar} alt="shafiqhammad" className="w-full" />
       </div>
       <div className="text-center">
-        <h1 className="text-xl text-gray-800 font-bold mb-1">Madhukar Reddy Gangapuram</h1>
+        <h1 className="text-xl text-gray-800 font-bold mb-1">Madhukar Ganga</h1>
         <p className="text-sm text-gray-700 mb-3">
           Frontend React Developer at
           <a href={coxurl} className="text-purple-600 pl-1">

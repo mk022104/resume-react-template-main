@@ -6,14 +6,7 @@ const Footer = () => {
       <div className="container px-4">
         <p className="text-sm text-gray-400 text-center">
           Designed and Developed by
-          <a
-            className="text-purple-600"
-            href="https://uideck.com/"
-            rel="nofollow"
-          >
-            {" "}
             Madhukar Reddy.
-          </a>
         </p>
       </div>
     </footer>
