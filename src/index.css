@@ -30,3 +30,7 @@ body {
   font-size: 13px;
   color: black;
 }
+
+.animate{
+  transition-duration: 2s;
+}

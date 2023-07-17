@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useTransition } from "react";
 // import ProgressBar from "@ramonak/react-progress-bar";
 
 const SkillItem = (props) => {
@@ -13,8 +13,13 @@ const SkillItem = (props) => {
           </span>
         </div>
         <div class="relative rounded-full bg-gray-200">
-          <div class="h-5 rounded-full bg-purple-600" style={{width:`${percentage}`}}></div>
-          <span class="absolute inset-0 flex items-center justify-center text-sm font-medium text-blue-100">{percentage}</span>
+          <div
+            class="animate h-5 rounded-full bg-purple-600"
+            style={{ width: `${percentage}` }}
+          ></div>
+          <span class="absolute inset-0 flex items-center justify-center text-sm font-medium text-blue-100">
+            {percentage}
+          </span>
         </div>
       </div>
     </div>

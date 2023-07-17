@@ -29,7 +29,7 @@ const navbarData = [
   },
   {
     id: 6,
-    title: "Qualification",
+    title: "Education Details",
     to: "/Qualification",
   },
   {
