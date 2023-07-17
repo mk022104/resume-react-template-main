@@ -59,7 +59,7 @@ const Sidebar = () => {
         </ul>
       </div>
       <div className="text-start pt-4">
-        <h3 className="text-md mb-2 uppercase font-medium text-gray-800">
+        <h3 className="text-md mb-2 uppercase font-medium text-gray-800 hover:text-indigo-400">
           About Me
         </h3>
         <p className="text-gray-900 leading-relaxed fontDecoration">
