@@ -1,28 +1,42 @@
-import React,{useRef} from "react";
-import emailjs from '@emailjs/browser';
-import { ToastContainer,toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const form = useRef();
-  const notify =() => toast("Contact successfully sent to!!!");
+  const notify = () => toast("Contact successfully sent!!!");
   const sendEmail = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_dr6helr', 'template_sbkquck', form.current, 'm_I8C0iHhEz9VvIp1')
-      .then((result) => {
+    emailjs
+      .sendForm(
+        "service_dr6helr",
+        "template_sbkquck",
+        form.current,
+        "m_I8C0iHhEz9VvIp1"
+      )
+      .then(
+        (result) => {
           console.log(result.text);
           console.log("OK");
           console.log("success message sent");
-      }, (error) => {
+        },
+        (error) => {
           console.log(error.text);
-      });
-      e.target.reset();
+        }
+      );
+    e.target.reset();
   };
 
   return (
     <section className="pb-10">
       <div className="flex flex-wrap md:px-4">
-        <form className="p-8 md:mx-4 bg-white rounded-md shadow-md" ref={form} onSubmit={sendEmail} id="create-course-form">
+        <form
+          className="p-8 md:mx-4 bg-white rounded-md shadow-md"
+          ref={form}
+          onSubmit={sendEmail}
+          id="create-course-form"
+        >
           <div className="m-3">
             <h3 className="text-2xl text-gray-800 font-bold mb-6">
               Get in Touch

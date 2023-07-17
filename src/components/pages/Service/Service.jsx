@@ -17,34 +17,34 @@ const serviceData = [
     title: "Web Development",
     description:
       "Web development refers to the process of building and maintaining websites and web applications. It involves the creation of both the front-end (client-side) and back-end (server-side) components of a website or web application.",
-    },
+  },
   {
     id: 3,
     icon: <FaReact />,
     title: "Frontend Development",
     description:
-      "Lorem ipsum dolor sit aconsect dipisicing elit, sed do eiusmod to incididunt uabore etdolore magna aliqua.",
+      "Front-end development focuses on the visual and interactive aspects of a website. It involves writing code in languages such as HTML (Hypertext Markup Language), CSS (Cascading Style Sheets), and JavaScript to create the user interface and implement interactive features.",
   },
   {
     id: 4,
     icon: <FaBootstrap />,
     title: "Bootstrap Template",
     description:
-      "Lorem ipsum dolor sit aconsect dipisicing elit, sed do eiusmod to incididunt uabore etdolore magna aliqua.",
+      "Bootstrap offers a wide range of pre-built components and styles, it's essential to customize it to match your project's specific requirements. By modifying the default styles and adding your branding elements, you can create a unique and professional look for your website.",
   },
   {
     id: 4,
     icon: <SiTailwindcss />,
     title: "Tailwindcss Template",
     description:
-      "Lorem ipsum dolor sit aconsect dipisicing elit, sed do eiusmod to incididunt uabore etdolore magna aliqua.",
+      "Tailwind CSS can generate extensive CSS files, you can optimize the build by purging unused classes. Tailwind CSS includes a purge feature that removes unused styles from your production build, resulting in smaller file sizes and improved performance. ",
   },
   {
     id: 4,
     icon: <FaReact />,
     title: "React Template",
     description:
-      "Lorem ipsum dolor sit aconsect dipisicing elit, sed do eiusmod to incididunt uabore etdolore magna aliqua.",
+      "React's popularity stems from its ability to efficiently build complex, interactive, and high-performance user interfaces. It provides a declarative and component-based approach, making it easier to reason about and maintain code.",
   },
 ];
 

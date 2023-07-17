@@ -7,3 +7,26 @@
 body {
   font-family: "Rubik", sans-serif;
 }
+.fontDecoration {
+  text-align: justify;
+  hyphens: auto;
+  word-spacing: -0.05em;
+  line-height: 39px;
+  font-size: 13px;
+}
+
+.serviceFontDecoration {
+  text-align: justify;
+  hyphens: auto;
+  word-spacing: -0.05em;
+  line-height: 41px;
+  font-size: 14px;
+}
+.aboutFontDecoration {
+  text-align: justify;
+  hyphens: auto;
+  word-spacing: -0.05em;
+  line-height: 41px;
+  font-size: 13px;
+  color: black;
+}

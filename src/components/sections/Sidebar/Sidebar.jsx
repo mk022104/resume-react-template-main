@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 import Madhukar from "../../../images/portfolio/Madhukar.jpg";
 
-const coxurl ="https://www.coxautoinc.com";
+const coxurl = "https://www.coxautoinc.com";
 const socials = [
   {
     id: 1,
@@ -42,7 +42,7 @@ const Sidebar = () => {
         <p className="text-sm text-gray-700 mb-3">
           Frontend React Developer at
           <a href={coxurl} className="text-purple-600 pl-1">
-           Cox Auto Inc.
+            Cox Auto Inc.
           </a>
         </p>
         <a
@@ -62,16 +62,18 @@ const Sidebar = () => {
         <h3 className="text-md mb-2 uppercase font-medium text-gray-800">
           About Me
         </h3>
-        <p className="text-gray-900 leading-relaxed">
-          I specialize in React and Redux development and have 
-          extensive experience in building robust and efficient 
-          web applications using these technologies. I possess a deep 
-          understanding of React's component-based architecture, 
-          virtual DOM, and its ecosystem of libraries and tools. 
-          Additionally, I'm well-versed in Redux, a state management 
-          library commonly used with React to handle complex application 
-          states. I can assist you with designing scalable application 
-          architectures, optimizing performance, implementing best practices, and tackling any challenges you may encounter during your development journey. Feel free to ask me anything related to React or Redux development—I'm here to lend a hand!
+        <p className="text-gray-900 leading-relaxed fontDecoration">
+          I specialize in React and Redux development and have extensive
+          experience in building robust and efficient web applications using
+          these technologies. I possess a deep understanding of React's
+          component-based architecture, virtual DOM, and its ecosystem of
+          libraries and tools. Additionally, I'm well-versed in Redux, a state
+          management library commonly used with React to handle complex
+          application states. I can assist you with designing scalable
+          application architectures, optimizing performance, implementing best
+          practices, and tackling any challenges you may encounter during your
+          development journey. Feel free to ask me anything related to React or
+          Redux development—I'm here to lend a hand!
         </p>
       </div>
     </aside>
