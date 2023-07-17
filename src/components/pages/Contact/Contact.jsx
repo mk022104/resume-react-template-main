@@ -38,7 +38,7 @@ const Contact = () => {
           id="create-course-form"
         >
           <div className="m-3">
-            <h3 className="text-2xl text-gray-800 font-bold mb-6">
+            <h3 className="text-2xl text-gray-800 font-bold mb-6 hover:text-indigo-400">
               Get in Touch
             </h3>
           </div>

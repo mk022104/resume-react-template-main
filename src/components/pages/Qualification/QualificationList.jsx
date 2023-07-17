@@ -26,7 +26,7 @@ const QualificationList =(props)=>{
               </ul>
             </div>
           </div>
-          <h3 className="text-lg font-medium text-gray-800 mb-2">{title}</h3>
+          <h3 className="text-lg font-medium text-gray-800 mb-2 hover:text-indigo-400">{title}</h3>
           <p className="text-gray-900">{description}</p>
         </div>
       </div>
