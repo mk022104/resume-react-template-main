@@ -24,6 +24,9 @@ const AccordionItem = ({ header, ...rest }) => (
 export default function Portfolio() {
   return (
     <div>
+      <div className="md:mx-8">
+            <h3 className="text-8l font-bold text-gray-800 mb-2 hover:text-indigo-400">Experience</h3>
+          </div>
       <div className={styles.accordion}>
         {/* `transitionTimeout` prop should be equal to the transition duration in CSS */}
         <Accordion transition transitionTimeout={250}>
