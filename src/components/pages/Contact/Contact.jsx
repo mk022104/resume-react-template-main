@@ -5,7 +5,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const form = useRef();
-  const notify = () => toast("Contact successfully sent!!!");
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
@@ -15,14 +14,13 @@ const Contact = () => {
         form.current,
         "m_I8C0iHhEz9VvIp1"
       )
-      .then(
-        (result) => {
+      .then(result=>{
+        if(result){
           console.log(result.text);
-          console.log("OK");
-          console.log("success message sent");
-        },
+          toast("Contact successfully sent!!!");
+        }},
         (error) => {
-          console.log(error.text);
+          toast.error("Please fill contact details correctly"+error);
         }
       );
     e.target.reset();
@@ -105,7 +103,6 @@ const Contact = () => {
                 <input
                   type="submit"
                   value="Send"
-                  onClick={notify}
                   className="rounded bg-purple-600 text-center border-0 py-3 px-6 text-white leading-7 tracking-wide hover:bg-purple-800 cursor-pointer"
                 />
               </div>
