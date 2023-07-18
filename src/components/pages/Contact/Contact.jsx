@@ -20,7 +20,7 @@ const Contact = () => {
           toast("Contact successfully sent!!!");
         }},
         (error) => {
-          toast.error("Please fill contact details correctly"+error);
+          toast.error("Please fill contact details correctly",+error);
         }
       );
     e.target.reset();
