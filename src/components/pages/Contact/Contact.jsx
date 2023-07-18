@@ -1,9 +1,13 @@
-import React, { useRef } from "react";
+import React, { useRef,useState } from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
+  const [input, setInput] = useState("");
+  const inputHandler = (e) => {
+    setInput(e.target.value);
+  };
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
@@ -17,7 +21,7 @@ const Contact = () => {
       .then(result=>{
         if(result){
           console.log(result.text);
-          toast("Contact successfully sent!!!");
+          toast("Contact successfully sent!!!",{ autoClose: false });
         }},
         (error) => {
           toast.error("Please fill contact details correctly",+error);
@@ -96,9 +100,12 @@ const Contact = () => {
                   name="user_message"
                   required
                   placeholder="Your Message"
+                  onChange={inputHandler}
                   rows="6"
+                  maxLength="500"
                   className="w-full border border-gray-800 rounded py-4 px-6 text-sm bg-white"
                 />
+                <span className="charLeft">{500 - input.length} Characters</span>
               </div>
             </div>
             <div className="w-full">

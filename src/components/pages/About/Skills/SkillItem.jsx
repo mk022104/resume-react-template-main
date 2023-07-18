@@ -1,4 +1,4 @@
-import React, { useTransition } from "react";
+import React from "react";
 // import ProgressBar from "@ramonak/react-progress-bar";
 
 const SkillItem = (props) => {

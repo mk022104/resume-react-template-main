@@ -1561,6 +1561,72 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@material/animation@^14.0.0":
+  "integrity" "sha512-VlYSfUaIj/BBVtRZI8Gv0VvzikFf+XgK0Zdgsok5c1v5DDnNz5tpB8mnGrveWz0rHbp1X4+CWLKrTwNmjrw3Xw=="
+  "resolved" "https://registry.npmjs.org/@material/animation/-/animation-14.0.0.tgz"
+  "version" "14.0.0"
+  dependencies:
+    "tslib" "^2.1.0"
+
+"@material/base@^14.0.0":
+  "integrity" "sha512-Ou7vS7n1H4Y10MUZyYAbt6H0t67c6urxoCgeVT7M38aQlaNUwFMODp7KT/myjYz2YULfhu3PtfSV3Sltgac9mA=="
+  "resolved" "https://registry.npmjs.org/@material/base/-/base-14.0.0.tgz"
+  "version" "14.0.0"
+  dependencies:
+    "tslib" "^2.1.0"
+
+"@material/dom@^14.0.0":
+  "integrity" "sha512-8t88XyacclTj8qsIw9q0vEj4PI2KVncLoIsIMzwuMx49P2FZg6TsLjor262MI3Qs00UWAifuLMrhnOnfyrbe7Q=="
+  "resolved" "https://registry.npmjs.org/@material/dom/-/dom-14.0.0.tgz"
+  "version" "14.0.0"
+  dependencies:
+    "@material/feature-targeting" "^14.0.0"
+    "tslib" "^2.1.0"
+
+"@material/feature-targeting@^14.0.0":
+  "integrity" "sha512-a5WGgHEq5lJeeNL5yevtgoZjBjXWy6+klfVWQEh8oyix/rMJygGgO7gEc52uv8fB8uAIoYEB3iBMOv8jRq8FeA=="
+  "resolved" "https://registry.npmjs.org/@material/feature-targeting/-/feature-targeting-14.0.0.tgz"
+  "version" "14.0.0"
+  dependencies:
+    "tslib" "^2.1.0"
+
+"@material/linear-progress@^14.0.0":
+  "integrity" "sha512-MGIAWMHMW6TSV/TNWyl5N/escpDHk3Rq6hultFif+D9adqbOXrtfZZIFPLj1FpMm1Ucnj6zgOmJHgCDsxRVNIA=="
+  "resolved" "https://registry.npmjs.org/@material/linear-progress/-/linear-progress-14.0.0.tgz"
+  "version" "14.0.0"
+  dependencies:
+    "@material/animation" "^14.0.0"
+    "@material/base" "^14.0.0"
+    "@material/dom" "^14.0.0"
+    "@material/feature-targeting" "^14.0.0"
+    "@material/progress-indicator" "^14.0.0"
+    "@material/rtl" "^14.0.0"
+    "@material/theme" "^14.0.0"
+    "tslib" "^2.1.0"
+
+"@material/progress-indicator@^14.0.0":
+  "integrity" "sha512-09JRTuIySxs670Tcy4jVlqCUbyrO+Ad6z3nHnAi8pYl74duco4n/9jTROV0mlFdr9NIFifnd08lKbiFLDmfJGQ=="
+  "resolved" "https://registry.npmjs.org/@material/progress-indicator/-/progress-indicator-14.0.0.tgz"
+  "version" "14.0.0"
+  dependencies:
+    "tslib" "^2.1.0"
+
+"@material/rtl@^14.0.0":
+  "integrity" "sha512-xl6OZYyRjuiW2hmbjV2omMV8sQtfmKAjeWnD1RMiAPLCTyOW9Lh/PYYnXjxUrNa0cRwIIbOn5J7OYXokja8puA=="
+  "resolved" "https://registry.npmjs.org/@material/rtl/-/rtl-14.0.0.tgz"
+  "version" "14.0.0"
+  dependencies:
+    "@material/theme" "^14.0.0"
+    "tslib" "^2.1.0"
+
+"@material/theme@^14.0.0":
+  "integrity" "sha512-6/SENWNIFuXzeHMPHrYwbsXKgkvCtWuzzQ3cUu4UEt3KcQ5YpViazIM6h8ByYKZP8A9d8QpkJ0WGX5btGDcVoA=="
+  "resolved" "https://registry.npmjs.org/@material/theme/-/theme-14.0.0.tgz"
+  "version" "14.0.0"
+  dependencies:
+    "@material/feature-targeting" "^14.0.0"
+    "tslib" "^2.1.0"
+
 "@nicolo-ribaudo/semver-v6@^6.3.3":
   "integrity" "sha512-3Yc1fUTs69MG/uZbJlLSI3JISMn2UV2rg+1D/vROUqZyh3l6iYHCs7GMp+M40ZD7yOdDbYjJcU1oTJhrc+dGKg=="
   "resolved" "https://registry.npmjs.org/@nicolo-ribaudo/semver-v6/-/semver-v6-6.3.3.tgz"
@@ -11586,6 +11652,11 @@
   "version" "1.14.1"
 
 "tslib@^2.0.3":
+  "integrity" "sha512-7At1WUettjcSRHXCyYtTselblcHl9PJFFVKiCAy/bY97+BPZXSQ2wbq0P9s8tK2G7dFQfNnlJnPAiArVBVBsfA=="
+  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.6.0.tgz"
+  "version" "2.6.0"
+
+"tslib@^2.1.0":
   "integrity" "sha512-7At1WUettjcSRHXCyYtTselblcHl9PJFFVKiCAy/bY97+BPZXSQ2wbq0P9s8tK2G7dFQfNnlJnPAiArVBVBsfA=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.6.0.tgz"
   "version" "2.6.0"
