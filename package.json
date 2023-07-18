@@ -5,7 +5,10 @@
   "dependencies": {
     "@craco/craco": "^6.1.2",
     "@emailjs/browser": "^3.11.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@material/linear-progress": "^14.0.0",
+    "@mui/material": "^5.14.0",
     "@ramonak/react-progress-bar": "^5.0.3",
     "@szhsin/react-accordion": "^1.2.2",
     "@testing-library/jest-dom": "^5.11.4",
