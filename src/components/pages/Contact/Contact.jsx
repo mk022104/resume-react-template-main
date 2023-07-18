@@ -47,6 +47,7 @@ const Contact = () => {
                 <input
                   type="text"
                   name="user_name"
+                  maxlength = "30"
                   placeholder="Your Name"
                   required
                   className="w-full border border-gray-800 rounded py-4 px-6 text-sm bg-white"
@@ -69,6 +70,7 @@ const Contact = () => {
                 <input
                   type="text"
                   name="user_phone"
+                  maxlength = "10"
                   pattern="^(1\s?)?(\d{3}|\(\d{3}\))[\s\-]?\d{3}[\s\-]?\d{4}$"
                   required
                   placeholder="Phone Number"
@@ -81,6 +83,7 @@ const Contact = () => {
                 <input
                   type="text"
                   name="user_subject"
+                  maxlength = "100"
                   required
                   placeholder="Subject"
                   className="w-full border border-gray-800 rounded py-4 px-6 text-sm bg-white"
