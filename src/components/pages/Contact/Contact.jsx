@@ -82,7 +82,7 @@ const Contact = () => {
               <div className="m-3">
                 <input
                   type="text"
-                  name="subject"
+                  name="user_subject"
                   required
                   placeholder="Subject"
                   className="w-full border border-gray-800 rounded py-4 px-6 text-sm bg-white"
@@ -92,7 +92,7 @@ const Contact = () => {
             <div className="w-full">
               <div className="m-3">
                 <textarea
-                  name="message"
+                  name="user_message"
                   required
                   placeholder="Your Message"
                   rows="6"
