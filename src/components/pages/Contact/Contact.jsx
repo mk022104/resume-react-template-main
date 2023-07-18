@@ -2,7 +2,6 @@ import React, { useRef,useState } from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import LinearProgress from "@mui/material/LinearProgress";
 
 const Contact = () => {
   const [input, setInput] = useState("");
@@ -107,11 +106,6 @@ const Contact = () => {
                   className="w-full border border-gray-800 rounded py-4 px-6 text-sm bg-white"
                 />
                 <span className="charLeft">{500 - input.length} Characters</span>
-                <LinearProgress
-                   className="charProgress"
-                   variant="determinate"
-                   value={input.length}    
-                  />
               </div>
             </div>
             <div className="w-full">
