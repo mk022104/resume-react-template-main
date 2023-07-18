@@ -54,7 +54,7 @@ const skillData = [
   },
   {
     id: 11,
-    title: "Rest, Graph Ql",
+    title: "Rest, Graph Ql,Aws",
     percentage: "70%",
   },
 ];
