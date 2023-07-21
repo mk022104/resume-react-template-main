@@ -1,5 +1,5 @@
 import React from "react";
-import unsplash from "../../../images/unsplash.jpg";
+import unsplash from "../../../images/Nature.jpg";
 
 const ProfileCover = () => {
   return (
