@@ -1,11 +1,11 @@
 import React from "react";
-import unsplash from "../../../images/Nature.jpg";
+import Nature from "../../../images/Nature.jpg";
 
 const ProfileCover = () => {
   return (
     <div className="h-60 w-full">
       <img
-        src={unsplash}
+        src={Nature}
         alt="cover"
         className="w-full h-full object-cover object-center"
       />
