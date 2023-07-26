@@ -36,13 +36,13 @@ const navbarData = [
     id: 5,
     title: "Contact",
     to: "/contact",
-  },  
+  },
 ];
 
 const Navbar = () => {
   return (
     <Router>
-      <nav className="md:mx-8 mb-3 px-6 py-2 z-10 sticky top-0 bg-white shadow rounded">
+      <nav className="md:mx-8 mb-3 px-6 py-2 z-10 sticky top-0 bg-white shadow rounded font-serif">
         <ul className="flex flex-wrap">
           {navbarData.map((el, id) => (
             <LinkItem el={el} key={id} />
