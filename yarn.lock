@@ -1003,6 +1003,14 @@
     "@babel/helper-create-regexp-features-plugin" "^7.22.5"
     "@babel/helper-plugin-utils" "^7.22.5"
 
+"@babel/polyfill@^7.12.1":
+  "integrity" "sha512-X0pi0V6gxLi6lFZpGmeNa4zxtwEmCs42isWLNjZZDE0Y8yVfgu0T2OAHlzBbdYlqbW/YXVvoBHpATEM+goCj8g=="
+  "resolved" "https://registry.npmjs.org/@babel/polyfill/-/polyfill-7.12.1.tgz"
+  "version" "7.12.1"
+  dependencies:
+    "core-js" "^2.6.5"
+    "regenerator-runtime" "^0.13.4"
+
 "@babel/preset-env@^7.12.1", "@babel/preset-env@^7.16.4", "@babel/preset-env@^7.8.4":
   "integrity" "sha512-wNi5H/Emkhll/bqPjsjQorSykrlfY5OWakd6AulLvMEytpKasMVUpVy8RL4qBIBs5Ac6/5i0/Rv0b/Fg6Eag/g=="
   "resolved" "https://registry.npmjs.org/@babel/preset-env/-/preset-env-7.22.9.tgz"
@@ -4129,7 +4137,12 @@
   "resolved" "https://registry.npmjs.org/core-js/-/core-js-2.6.12.tgz"
   "version" "2.6.12"
 
-"core-js@^3.6.5":
+"core-js@^2.6.5":
+  "integrity" "sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ=="
+  "resolved" "https://registry.npmjs.org/core-js/-/core-js-2.6.12.tgz"
+  "version" "2.6.12"
+
+"core-js@^3.16.0", "core-js@^3.6.5":
   "integrity" "sha512-2sKLtfq1eFST7l7v62zaqXacPc7uG8ZAya8ogijLhTtaKNcpzpB4TMoTw2Si+8GYKRwFPMMtUT0263QFWFfqyQ=="
   "resolved" "https://registry.npmjs.org/core-js/-/core-js-3.31.1.tgz"
   "version" "3.31.1"
@@ -8562,6 +8575,11 @@
   dependencies:
     "boolbase" "^1.0.0"
 
+"nuka-carousel@^6.0.3":
+  "integrity" "sha512-DYxCTp4xIv9/vfrfOr9FAmYizMr7AefL7mbqsBaBTwdrZ77mAsR/SNZtk+/KHJSuH+9gZLrugj/RC6qM8MJr+Q=="
+  "resolved" "https://registry.npmjs.org/nuka-carousel/-/nuka-carousel-6.0.3.tgz"
+  "version" "6.0.3"
+
 "num2fraction@^1.2.2":
   "integrity" "sha512-Y1wZESM7VUThYY+4W+X4ySH2maqcA+p7UR+w8VWNWVAd6lwuXXWz/w/Cz43J/dI2I+PS6wD5N+bJUF+gjWvIqg=="
   "resolved" "https://registry.npmjs.org/num2fraction/-/num2fraction-1.2.2.tgz"
@@ -9881,7 +9899,7 @@
     "kleur" "^3.0.3"
     "sisteransi" "^1.0.5"
 
-"prop-types@^15.6.2", "prop-types@^15.8.1":
+"prop-types@^15.5.8", "prop-types@^15.6.2", "prop-types@^15.8.1":
   "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
   "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   "version" "15.8.1"
@@ -10071,6 +10089,18 @@
     "regenerator-runtime" "^0.13.7"
     "whatwg-fetch" "^3.4.1"
 
+"react-carousel-minimal@^1.4.1":
+  "integrity" "sha512-M1O5HRoY50im+2P0gTuEcFVxxb/W9Mqlh1na0xbPVoD/eyzNOfrlXjpGAeZnWcHN8Ak+gHwYjZbzs0daFl0qpw=="
+  "resolved" "https://registry.npmjs.org/react-carousel-minimal/-/react-carousel-minimal-1.4.1.tgz"
+  "version" "1.4.1"
+  dependencies:
+    "@babel/polyfill" "^7.12.1"
+    "@testing-library/jest-dom" "^5.11.4"
+    "@testing-library/react" "^11.1.0"
+    "@testing-library/user-event" "^12.1.10"
+    "core-js" "^3.16.0"
+    "react-easy-swipe" "0.0.22"
+
 "react-dev-utils@^11.0.3":
   "integrity" "sha512-dx0LvIGHcOPtKbeiSUM4jqpBl3TcY7CDjZdfOIcKeznE7BWr9dg0iPG90G5yfVQ+p/rGNMXdbfStvzQZEVEi4A=="
   "resolved" "https://registry.npmjs.org/react-dev-utils/-/react-dev-utils-11.0.4.tgz"
@@ -10101,7 +10131,7 @@
     "strip-ansi" "6.0.0"
     "text-table" "0.2.0"
 
-"react-dom@*", "react-dom@^16.0.0 || ^17 || ^18", "react-dom@^16.14 || ^17.0 || ^18.0", "react-dom@^17.0.0 || ^18.0.0", "react-dom@^17.0.2", "react-dom@>=16", "react-dom@>=16.6.0", "react-dom@>=16.8.0":
+"react-dom@*", "react-dom@^16.0.0 || ^17 || ^18", "react-dom@^16.14 || ^17.0 || ^18.0", "react-dom@^17.0.0 || ^18.0.0", "react-dom@^17.0.2", "react-dom@>=16", "react-dom@>=16.6.0", "react-dom@>=16.8.0", "react-dom@>=18.0.0":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -10109,6 +10139,13 @@
     "loose-envify" "^1.1.0"
     "object-assign" "^4.1.1"
     "scheduler" "^0.20.2"
+
+"react-easy-swipe@0.0.22":
+  "integrity" "sha512-7dJXnHVmfqyPb+Gzf4GTTuPoqDz2jLW7huRq6gcZKeg2QxamC3zWJOucMyWunPoPgqDScwIM2wwf4WvFA2bayw=="
+  "resolved" "https://registry.npmjs.org/react-easy-swipe/-/react-easy-swipe-0.0.22.tgz"
+  "version" "0.0.22"
+  dependencies:
+    "prop-types" "^15.5.8"
 
 "react-error-overlay@^6.0.9":
   "integrity" "sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg=="
@@ -10266,7 +10303,7 @@
   "resolved" "https://registry.npmjs.org/react-transition-state/-/react-transition-state-2.1.1.tgz"
   "version" "2.1.1"
 
-"react@*", "react@^16.0.0 || ^17 || ^18", "react@^16.14 || ^17.0 || ^18.0", "react@^17.0.0 || ^18.0.0", "react@^17.0.2", "react@>= 16", "react@>=15", "react@>=16", "react@>=16.6.0", "react@>=16.8.0", "react@17.0.2":
+"react@*", "react@^16.0.0 || ^17 || ^18", "react@^16.14 || ^17.0 || ^18.0", "react@^17.0.0 || ^18.0.0", "react@^17.0.2", "react@>= 16", "react@>=15", "react@>=16", "react@>=16.6.0", "react@>=16.8.0", "react@>=18.0.0", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
@@ -10380,7 +10417,7 @@
   "resolved" "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz"
   "version" "0.11.1"
 
-"regenerator-runtime@^0.13.11", "regenerator-runtime@^0.13.7":
+"regenerator-runtime@^0.13.11", "regenerator-runtime@^0.13.4", "regenerator-runtime@^0.13.7":
   "integrity" "sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg=="
   "resolved" "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz"
   "version" "0.13.11"
