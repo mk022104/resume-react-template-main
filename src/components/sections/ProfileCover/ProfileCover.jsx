@@ -1,11 +1,11 @@
 import React from "react";
-import Nature from "../../../images/Nature.jpg";
+import Mountains from "../../../images/Mountains.jpeg";
 
 const ProfileCover = () => {
   return (
     <div className="h-60 w-full">    
          <img
-          src={Nature}
+          src={Mountains}
           alt="cover"
           className="w-full h-full object-cover object-center"
          />
