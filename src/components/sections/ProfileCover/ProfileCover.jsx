@@ -1,4 +1,5 @@
 import React from "react";
+import Nature from "../../../images/Nature.jpg";
 
 const ProfileCover = () => {
   return (
