@@ -10,20 +10,14 @@ import sun from "../../../images/portfolio/sun.jpeg";
 // import Carousel from 'nuka-carousel';
 
 const ProfileCover = () => {
-  const pictures = [Nature,Flowers, Greenway, Mountains, Rocks, Trees, lateNight,sun];
+  //const pictures = [Nature,Flowers, Greenway, Mountains, Rocks, Trees, lateNight,sun];
   return (
-    <div className="h-60 w-full">
-     
-      { pictures.map((picture)=>{
-       return (
-        <div className="h-10 w-full">
+    <div className="h-60 w-full">    
          <img
-          src={picture}
+          src={Nature}
           alt="cover"
           className="w-full h-full object-cover object-center"
          />
-        </div>
-        )})}
     </div>
   );
 };
