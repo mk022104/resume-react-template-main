@@ -1,5 +1,5 @@
-# Getting Started with Create React App
-    Set up this project:
+
+# Set up the React project:
     1. Clone the project using git clone.
     2. Install the dependencies using npm install.
     3. Start the server using the npm start command.
