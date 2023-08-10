@@ -16,6 +16,7 @@ const Footer = () => {
     const now = new Date().toLocaleTimeString();
     setTime(now);
     count++;
+    console.log(count);
   }
   return (
     <footer className="bg-amber-950 p-4 absolute bottom-0 left-0 w-full">
