@@ -7,6 +7,8 @@
     Open [http://localhost:3000] (http://localhost:3000) to view it in the browser.
 
  # Deploy the application using Netlify.
+ Deployed Site URL: https://l537zc-3000.csb.app/about
+ 
 
 
 
