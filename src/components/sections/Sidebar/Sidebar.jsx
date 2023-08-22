@@ -46,9 +46,9 @@ const Sidebar = () => {
           </a>
         </p>
         <a
-          href="/MadhuReactDevResume.docx"
+          href="/MadhuDevsReactResume.docx"
           className="inline-block mb-3 rounded bg-blue-900 text-center border-0 py-2 px-6 text-white leading-7 tracking-wide active:bg-blue-900 hover:bg-blue-900"
-          download="MadhuReactDevResume"
+          download="MadhuDevsReactResume"
         >
           Download Resume
         </a>
