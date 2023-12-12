@@ -8,7 +8,6 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@material/linear-progress": "^14.0.0",
-    "@mui/material": "^5.14.0",
     "@ramonak/react-progress-bar": "^5.0.3",
     "@szhsin/react-accordion": "^1.2.2",
     "@testing-library/jest-dom": "^5.11.4",
@@ -52,6 +51,7 @@
     ]
   },
   "devDependencies": {
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
+    "babel-preset-react-app":"@babel/plugin-proposal-private-property-in-object"
   }
 }
