@@ -25,7 +25,7 @@ const navbarData = [
   {
     id: 3,
     title: "Experience",
-    to: "/works",
+    to: "/Portfolio",
   },
   {
     id: 6,
