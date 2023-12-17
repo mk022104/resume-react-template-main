@@ -10,11 +10,19 @@ const Contact = () => {
   };
   const form = useRef();
   const useFocus=useRef(null);
+  const focusInput=()=>{
+    if(useFocus.current){
+      useFocus.current.focus();
+    }
+  }
   useEffect(()=>{
-    useFocus.current.focus();
+    focusInput()//focus onload the page.
   },[])
+
   const sendEmail = (e) => {
     e.preventDefault();
+    //Focus input onSubmit
+    focusInput()
     emailjs
       .sendForm(
         "service_dr6helr",
