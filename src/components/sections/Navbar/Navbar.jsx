@@ -57,7 +57,7 @@ const Navbar = () => {
         <Route path="/services">
           <Service />
         </Route>
-        <Route path="/works">
+        <Route path="/portfolio">
           <Portfolio />
         </Route>
         <Route path="/contact">

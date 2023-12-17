@@ -1,4 +1,4 @@
-import React, { useRef,useState } from "react";
+import React, { useRef,useState,useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,6 +9,10 @@ const Contact = () => {
     setInput(e.target.value);
   };
   const form = useRef();
+  const useFocus=useRef(null);
+  useEffect(()=>{
+    useFocus.current.focus();
+  },[])
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
@@ -50,6 +54,7 @@ const Contact = () => {
               <div className="m-3">
                 <input
                   type="text"
+                  ref={useFocus}
                   name="user_name"
                   maxlength = "30"
                   placeholder="Your Name"
