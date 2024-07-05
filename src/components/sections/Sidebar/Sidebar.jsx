@@ -38,13 +38,16 @@ const Sidebar = () => {
         <img src={Madhukar} alt="shafiqhammad" className="w-full" />
       </div>
       <div className="text-center">
-        <h1 className="text-xl text-gray-800 font-bold mb-1">Madhukar Ganga</h1>
+        <h1 className="text-xl text-gray-800 font-bold mb-1">Madhukar Ganga </h1>
         <p className="text-sm text-gray-700 mb-3">
           Frontend React Developer at
           <a href={coxurl} className="text-purple-600 pl-1">
             Cox Auto Inc.
           </a>
         </p>
+        <p className="text-sm text-gray-700 mb-3">
+          Email and Phone Number details madhu.ganga2018@gmail.com, 
+          PH:984-377-1236</p>
         <a
           href="/MadhuDevsReactResume.docx"
           className="inline-block mb-3 rounded bg-blue-900 text-center border-0 py-2 px-6 text-white leading-7 tracking-wide active:bg-blue-900 hover:bg-blue-900"

@@ -81,7 +81,7 @@ body {
     padding-top: 5px;
   }
   .expBorder{
-    margin-left: -37px;;
+    margin-left: -37px;
   }
   .expBorder .panel-accordion{
     margin: 17px 63px;
@@ -89,7 +89,7 @@ body {
     font-size: 14px;
     word-spacing: -0.05em;
     background: none;
-    line-height: 28px;
+    line-height: 30px;
   }
 }
 @media (min-width: 768px) {
@@ -99,15 +99,17 @@ body {
     padding-right: 35px;
   }
   .expBorder {
-    margin-top: 13px;   
+    margin-top: 16px;
+    width: 102%;
+    margin-left: 4px;   
   }
   .expBorder .panel-accordion {
     margin: 0 19px;
     color: black;
-    font-size: 11px;
+    font-size: 13px;
     hyphens: auto;
     word-spacing: -0.05em;
     background: none;
-    line-height: 29px;
+    line-height: 34px;
 }
 }

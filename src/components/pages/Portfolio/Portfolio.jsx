@@ -15,7 +15,7 @@ function Portfolio() {
           <CollapsibleHead className="additionalClassForHead " >
             Senior Frontend developer, Cox Auto Inc.
             (Mobility and Fleet operations),Remote
-            initialEntered
+            Altanta, GA
           </CollapsibleHead>
             <CollapsibleContent className="additionalClassForContent " >
               <p>
