@@ -33,10 +33,10 @@ const Contact = () => {
       .then(result=>{
         if(result){
           console.log(result.text);
-          toast("Contact successfully sent!!!",{ autoClose: false });
+          toast.success("Contact successfully sent!!!",{ autoClose: false });
         }},
         (error) => {
-          toast.error("Please fill contact details correctly",+error);
+          toast.error("Please fill contact details correctly",+error.message);
         }
       );
     e.target.reset();
