@@ -1,29 +1,29 @@
 {
   "files": {
     "main.css": "/static/css/main.a1294a5e.chunk.css",
-    "main.js": "/static/js/main.d2325764.chunk.js",
-    "main.js.map": "/static/js/main.d2325764.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.2a53fd36.js",
-    "runtime-main.js.map": "/static/js/runtime-main.2a53fd36.js.map",
+    "main.js": "/static/js/main.71695a54.chunk.js",
+    "main.js.map": "/static/js/main.71695a54.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.25d745b6.js",
+    "runtime-main.js.map": "/static/js/runtime-main.25d745b6.js.map",
     "static/css/2.0182de31.chunk.css": "/static/css/2.0182de31.chunk.css",
-    "static/js/2.de9bbe3e.chunk.js": "/static/js/2.de9bbe3e.chunk.js",
-    "static/js/2.de9bbe3e.chunk.js.map": "/static/js/2.de9bbe3e.chunk.js.map",
-    "static/js/3.83c88667.chunk.js": "/static/js/3.83c88667.chunk.js",
-    "static/js/3.83c88667.chunk.js.map": "/static/js/3.83c88667.chunk.js.map",
+    "static/js/2.188aff6e.chunk.js": "/static/js/2.188aff6e.chunk.js",
+    "static/js/2.188aff6e.chunk.js.map": "/static/js/2.188aff6e.chunk.js.map",
+    "static/js/3.c7ea51ef.chunk.js": "/static/js/3.c7ea51ef.chunk.js",
+    "static/js/3.c7ea51ef.chunk.js.map": "/static/js/3.c7ea51ef.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.0182de31.chunk.css.map": "/static/css/2.0182de31.chunk.css.map",
     "static/css/main.a1294a5e.chunk.css.map": "/static/css/main.a1294a5e.chunk.css.map",
-    "static/js/2.de9bbe3e.chunk.js.LICENSE.txt": "/static/js/2.de9bbe3e.chunk.js.LICENSE.txt",
+    "static/js/2.188aff6e.chunk.js.LICENSE.txt": "/static/js/2.188aff6e.chunk.js.LICENSE.txt",
     "static/media/ChicagoStateUniversity.c9c13167.jpg": "/static/media/ChicagoStateUniversity.c9c13167.jpg",
     "static/media/Madhukar.97365667.jpg": "/static/media/Madhukar.97365667.jpg",
     "static/media/Mountains.d5674b37.jpeg": "/static/media/Mountains.d5674b37.jpeg",
     "static/media/ScientInstituteOfTechnology.fa2f4f87.jpg": "/static/media/ScientInstituteOfTechnology.fa2f4f87.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.2a53fd36.js",
+    "static/js/runtime-main.25d745b6.js",
     "static/css/2.0182de31.chunk.css",
-    "static/js/2.de9bbe3e.chunk.js",
+    "static/js/2.188aff6e.chunk.js",
     "static/css/main.a1294a5e.chunk.css",
-    "static/js/main.d2325764.chunk.js"
+    "static/js/main.71695a54.chunk.js"
   ]
 }
