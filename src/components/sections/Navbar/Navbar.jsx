@@ -25,7 +25,7 @@ const navbarData = [
   {
     id: 3,
     title: "Experience",
-    to: "/Portfolio",
+    to: "/portfolio",
   },
   {
     id: 6,
@@ -57,7 +57,7 @@ const Navbar = () => {
         <Route path="/services">
           <Service />
         </Route>
-        <Route path="/portfolio">
+        <Route path="/Portfolio">
           <Portfolio />
         </Route>
         <Route path="/contact">

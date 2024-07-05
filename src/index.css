@@ -36,3 +36,78 @@ body {
 .animate{
   transition-duration: 2s;
 }
+.expBorder .accordion-head{
+  background-color: darkgreen;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 93%;
+  height:87px;
+  margin-left:37px;
+  margin-bottom:10px;
+  transition: 0.4s;
+}
+
+.expBorder .additionalClassForCollapsible{
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+  align-items: center;
+  margin-left:10px;
+}
+.expBorder{
+  margin-top:50px;
+  margin-bottom: 24px;
+}
+
+.expBorder .panel-accordion {
+  margin: 0 55px;
+  color: black;
+  font-size: 15px;
+  hyphens: auto;
+  word-spacing: -0.05em;
+  background:none;
+  line-height: 35px;
+}
+
+@media (min-width: 468px) {
+  .expBorder .accordion-head {
+    margin-left: 33px;
+    width: 91%;
+  }
+}
+@media (max-width: 468px) {
+  .expBorder .accordion-head {
+    padding-top: 5px;
+  }
+  .expBorder{
+    margin-left: -37px;;
+  }
+  .expBorder .panel-accordion{
+    margin: 17px 63px;
+    color: black;
+    font-size: 14px;
+    word-spacing: -0.05em;
+    background: none;
+    line-height: 28px;
+  }
+}
+@media (min-width: 768px) {
+  .accordion-head  {
+    padding-left: 26px;
+    padding-top: 5px;
+    padding-right: 35px;
+  }
+  .expBorder {
+    margin-top: 13px;   
+  }
+  .expBorder .panel-accordion {
+    margin: 0 19px;
+    color: black;
+    font-size: 11px;
+    hyphens: auto;
+    word-spacing: -0.05em;
+    background: none;
+    line-height: 29px;
+}
+}
