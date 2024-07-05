@@ -28,7 +28,7 @@ const Contact = () => {
         "service_dr6helr",
         "template_sbkquck",
         form.current,
-        "m_I8C0iHhEz9VvIp1"
+        "s67cWdfEwD0mib1iF"
       )
       .then(result=>{
         if(result){
