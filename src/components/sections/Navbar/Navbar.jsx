@@ -10,6 +10,7 @@ import Contact from "../../pages/Contact/Contact";
 import Portfolio from "../../pages/Portfolio/Portfolio";
 import Service from "../../pages/Service/Service";
 import Qualification from "../../pages/Qualification/Qualification.jsx";
+import Group from "../../pages/Group/Group.js";
 
 const navbarData = [
   {
@@ -37,6 +38,11 @@ const navbarData = [
     title: "Contact",
     to: "/contact",
   },
+  {
+    id:6,
+    title:"Info",
+    to:"/group"
+  }
 ];
 
 const Navbar = () => {
@@ -68,6 +74,9 @@ const Navbar = () => {
         </Route>
         <Route path="/Qualification">
           <Qualification />
+        </Route>
+        <Route path="/Group">
+          <Group/>
         </Route>
       </Switch>
     </Router>
