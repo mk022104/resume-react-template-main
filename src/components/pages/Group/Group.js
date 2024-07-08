@@ -6,7 +6,7 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 
 const Group =()=>{
     return (
-        <div className="bg-cover bg-center h-96 mr-8 ml-8 mb-8 lg:mb-8 rounded-sm rounded-md rounded-lg" style={{ backgroundImage: `url(${mountain})`  }}>
+        <div className="bg-cover bg-center h-96 md:mr-8 md:ml-8 md:mb-8 lg:mb-8 sm:mx-0 rounded-sm rounded-md rounded-lg" style={{ backgroundImage: `url(${mountain})`  }}>
           <div className="flex items-center justify-center h-full bg-black bg-opacity-10">
              <h1 className="text-white font-serif text-left	text-center">
                 <div className="flex items-center space-x-4 p-4"> <AiOutlineInfoCircle className="h-5 w-5"/><div className="text-l hover:text-purple-40">Madhukar Reddy Gangapuram</div></div>
