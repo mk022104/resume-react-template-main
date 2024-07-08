@@ -7,7 +7,7 @@ const About = () => {
       <div className="flex flex-wrap md:px-4">
         <div className="w-full">
           <div className="md:mx-4">
-            <h3 className="text-2xl text-gray-800 font-bold mb-4 hover:text-indigo-400">Who am I?</h3>
+            <h3 className="text-2xl text-gray-800 font-bold mb-4 hover:text-purple-400">Who am I?</h3>
             <p className="text-sm text-gray-400 leading-6 mb-3 aboutFontDecoration">
               Highly skilled React JS developer with 8 years of experience in
               building robust and user-friendly web applications. Seeking a
