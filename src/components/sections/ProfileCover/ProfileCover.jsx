@@ -1,11 +1,11 @@
 import React from "react";
-import Mountains from "../../../images/Mountains.jpeg";
+import Souvenirpixels from "../../../images/pexels-souvenirpixels.jpg";
 
 const ProfileCover = () => {
   return (
     <div className="h-60 w-full">    
          <img
-          src={Mountains}
+          src={Souvenirpixels}
           alt="cover"
           className="w-full h-full object-cover object-center"
          />
