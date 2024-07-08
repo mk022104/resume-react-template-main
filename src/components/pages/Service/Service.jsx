@@ -51,7 +51,7 @@ const serviceData = [
 const Service = () => {
   return (
     <section className="pb-10">
-      <div className="flex flex-wrap md:px-4">
+      <div className="flex flex-wrap md:px-5">
         {serviceData.map((service, id) => (
           <ServiceItem service={service} key={id} />
         ))}
