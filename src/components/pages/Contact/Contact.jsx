@@ -2,12 +2,13 @@ import React, { useRef,useState,useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import "./contact.css"
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
+      
       <div className="bg-white p-5 rounded-lg shadow-lg relative w-96">
         <button onClick={onClose} className="absolute top-2 right-4 text-gray-600 text-lg">&times;</button>
         {children}
@@ -54,7 +55,7 @@ const Contact = () => {
         if(result){
           setIsModalOpen(true);
           console.log(result.text);
-          setMessage('You have successfully sent email.');
+          setMessage('successfully sent email.');
           // toast.success("Contact successfully sent!!!",{ autoClose: false });
         }},
         (error) => {
@@ -157,14 +158,20 @@ const Contact = () => {
           </div>
         </form>
         <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-            <h2 className="text-2xl font-bold mb-4">Successfully submitted!!</h2>
-            <p className="mb-4">{message}</p>
-           <button
-             onClick={handleCloseModal}
-              className="bg-blue-900 text-white p-2 rounded float-right"
-            >
-              Close
-            </button>
+          <div class="wrapper">
+            <div class="circle">
+              <div class="checkMark"></div>
+            </div>
+          </div>
+          <h2 className="text-2xl font-bold mb-4">Success!!</h2>
+          <p class="fa fa-check-circle" style={{fontSize:"80px",color:"green"}}></p>
+          <p className="mb-4">{message}</p>
+          <button
+            onClick={handleCloseModal}
+            className="sticky bg-green-900 text-white p-2 rounded float-right"
+          >
+            Close
+          </button>
         </Modal>
       </div>
     </section>
