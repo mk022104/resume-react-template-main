@@ -23,3 +23,9 @@
     border-bottom: 5px solid #fff;
     border-right: 5px solid #fff;
   }
+  .text-alignment{
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    align-items:center;
+  }

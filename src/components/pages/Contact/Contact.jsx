@@ -163,9 +163,8 @@ const Contact = () => {
               <div class="checkMark"></div>
             </div>
           </div>
-          <h2 className="text-2xl font-bold mb-4">Success!!</h2>
-          <p class="fa fa-check-circle" style={{fontSize:"80px",color:"green"}}></p>
-          <p className="mb-4">{message}</p>
+          <h2 className="text-2xl font-bold mb-4 text-alignment">Success!!</h2>
+          <p className="mb-4 text-alignment">{message}</p>
           <button
             onClick={handleCloseModal}
             className="sticky bg-green-900 text-white p-2 rounded float-right"
