@@ -9,7 +9,7 @@ const Modal = ({ isOpen, onClose, children }) => {
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
       
-      <div className="bg-white p-5 rounded-lg shadow-lg relative w-96">
+      <div className="bg-white p-5 rounded-lg shadow-lg relative l:w-96	w-72 ml-0 md:w-96 md:ml-24 sm:p-6 md:p-8 lg:p-10 xl:p-12">
         <button onClick={onClose} className="absolute top-2 right-4 text-gray-600 text-lg">&times;</button>
         {children}
       </div>
@@ -20,7 +20,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 
 const Contact = () => {
   const [input, setInput] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
   const [message, setMessage] = useState('');
 
   const handleCloseModal = () => {
