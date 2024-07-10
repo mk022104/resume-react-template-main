@@ -91,7 +91,7 @@ const LinkItem = (props) => {
     <li className="m-3 lg:mx-5">
       <NavLink
         to={to}
-        activeClassName="text-purple-600"
+        activeClassName="text-purple-900"
         className="text-gray-800 text-medium hover:text-purple-600"
       >
         {title}

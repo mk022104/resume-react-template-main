@@ -14,7 +14,7 @@ const SkillItem = (props) => {
         </div>
         <div class="relative rounded-full bg-gray-200">
           <div
-            class="animate h-5 rounded-full bg-purple-600"
+            class="animate h-5 rounded-full bg-purple-900"
             style={{ width: `${percentage}` }}
           ></div>
           <span class="absolute inset-0 flex items-center justify-center text-sm font-medium text-blue-100">
