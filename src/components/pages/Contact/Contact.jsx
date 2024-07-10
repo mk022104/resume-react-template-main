@@ -150,7 +150,7 @@ const Contact = () => {
                 <input
                   type="submit"
                   value="Send"
-                  className="rounded bg-purple-600 text-center border-0 py-3 px-6 text-white leading-7 tracking-wide hover:bg-purple-800 cursor-pointer"
+                  className="rounded bg-purple-900 text-center border-0 py-3 px-6 text-white leading-7 tracking-wide hover:bg-purple-800 cursor-pointer"
                 />
               </div>
             </div>
@@ -161,7 +161,7 @@ const Contact = () => {
             <p className="mb-4">{message}</p>
            <button
              onClick={handleCloseModal}
-              className="active:bg-blue-90 text-white p-2 rounded float-right"
+              className="bg-blue-900 text-white p-2 rounded float-right"
             >
               Close
             </button>
