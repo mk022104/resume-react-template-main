@@ -41,7 +41,7 @@ body {
   color: white;
   cursor: pointer;
   padding: 18px;
-  width: 93%;
+  width: 91%;
   height:87px;
   margin-left:37px;
   margin-bottom:10px;
@@ -91,7 +91,7 @@ body {
 
 @media (max-width: 620px) {
   .expBorder .accordion-head {
-    margin-left: 5px;
+    margin-left: 1px;
     width: 100%;
   }
 }
