@@ -56,7 +56,7 @@ body {
   margin-left:10px;
 }
 .expBorder{
-  margin-top:50px;
+  margin-top:17px;
   margin-bottom: 24px;
 }
 
@@ -70,18 +70,14 @@ body {
   line-height: 35px;
 }
 
-@media (min-width: 468px) {
-  .expBorder .accordion-head {
-    margin-left: 33px;
-    width: 91%;
-  }
-}
 @media (max-width: 468px) {
   .expBorder .accordion-head {
     padding-top: 5px;
+    margin-left: 33px;
+    width: 89%;
   }
   .expBorder{
-    margin-left: -37px;
+    margin-left: 0px;
   }
   .expBorder .panel-accordion{
     margin: 17px 63px;
@@ -92,7 +88,14 @@ body {
     line-height: 30px;
   }
 }
-@media (min-width: 768px) {
+
+@media (max-width: 620px) {
+  .expBorder .accordion-head {
+    margin-left: 5px;
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
   .accordion-head  {
     padding-left: 26px;
     padding-top: 5px;
@@ -100,8 +103,8 @@ body {
   }
   .expBorder {
     margin-top: 16px;
-    width: 102%;
-    margin-left: 4px;   
+    width: 97%;
+    margin-left: 1px;  
   }
   .expBorder .panel-accordion {
     margin: 0 19px;
@@ -112,4 +115,9 @@ body {
     background: none;
     line-height: 34px;
 }
+}
+@media (min-width: 1024px){
+  .expBorder .accordion-head {
+    width: 93%;
+  }
 }

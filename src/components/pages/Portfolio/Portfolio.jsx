@@ -11,7 +11,7 @@ import "./style.module.css";
 function Portfolio() {
   return (
     <div className="expBorder">
-      <h3 className="text-md mb-4 truncate ml-9 uppercase font-medium text-gray-800 hover:text-indigo-400">
+      <h3 className="text-md mb-4 truncate md:ml-9 lg:ml-9 ml-1	uppercase font-medium text-gray-800 hover:text-indigo-400">
           Experience
         </h3>
       <CollapsibleComponent className="additionalClassForCollapsible ">
@@ -21,7 +21,7 @@ function Portfolio() {
             Altanta, GA
           </CollapsibleHead>
             <CollapsibleContent className="additionalClassForContent " >
-              <p>
+              <p className="m-4">
               Cox Automotive Mobility specialized in comprehensive fleet services
               and operations. They provide a SaaS solution for the customers to
               keep fleets moving safely and sustainably for the next generation.
@@ -36,7 +36,7 @@ function Portfolio() {
             Senior React developer, StateFarm, Remote
           </CollapsibleHead>
             <CollapsibleContent className="additionalClassForContent " >
-              <p>
+              <p className="m-4">
               AQP (Auto Quote purchase) is automatic quotation 
               management platform from statefarm, enabling its 
               user to explore, prepare, submit, negotiate 
@@ -51,7 +51,7 @@ function Portfolio() {
             Senior UI developer, Fidelity Investments, Durham, Nc
           </CollapsibleHead>
             <CollapsibleContent className="additionalClassForContent " >
-              <p>
+              <p className="m-4">
               Working on react js based web applications 
               providing user interface for different 
               functionalities like PI-Login Experience, 
@@ -66,7 +66,7 @@ function Portfolio() {
             UI/React DEVELOPER, Ford- Dearborn, MI          
           </CollapsibleHead>
             <CollapsibleContent className="additionalClassForContent " >
-              <p>
+              <p className="m-4">
               SYNC is an integrated in-vehicle communications
                and entertainment system embedded in Ford and 
                Lincoln vehicles. SYNC handles all of the commands 
@@ -82,7 +82,7 @@ function Portfolio() {
             SR. UI/ React Developer, IBM, San Jose, CA
           </CollapsibleHead>
             <CollapsibleContent className="additionalClassForContent " >
-              <p>
+              <p className="m-4">
               The IBM Quantum Experience launched in May, 
               giving researchers, students, and enthusiasts 
               cloud-based access to an experimental quantum 
@@ -97,7 +97,7 @@ function Portfolio() {
             UI DEVELOPER, Bench Tech Software Pvt Ltd, Bengaluru, India
           </CollapsibleHead>
             <CollapsibleContent className="additionalClassForContent " >
-              <p>
+              <p className="m-4">
               Ben Tech offers full-service technology
                support from the switch to wire, wire to Wi-Fi, 
                server to desktop, cloud to the employee,
