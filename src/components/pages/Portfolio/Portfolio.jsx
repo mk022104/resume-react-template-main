@@ -11,7 +11,7 @@ import "./style.module.css";
 function Portfolio() {
   return (
     <div className="expBorder">
-      <h3 className="text-md mb-4 ml-9 uppercase font-medium text-gray-800 hover:text-indigo-400">
+      <h3 className="text-md mb-4 truncate ml-9 uppercase font-medium text-gray-800 hover:text-indigo-400">
           Experience
         </h3>
       <CollapsibleComponent className="additionalClassForCollapsible ">

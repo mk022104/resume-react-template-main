@@ -3,8 +3,28 @@ import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const Modal = ({ isOpen, onClose, children }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
+      <div className="bg-white p-5 rounded-lg shadow-lg relative w-96">
+        <button onClick={onClose} className="absolute top-2 right-4 text-gray-600 text-lg">&times;</button>
+        {children}
+      </div>
+    </div>
+  );
+};
+
+
 const Contact = () => {
   const [input, setInput] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [message, setMessage] = useState('');
+
+  const handleCloseModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   const inputHandler = (e) => {
     setInput(e.target.value);
   };
@@ -32,11 +52,15 @@ const Contact = () => {
       )
       .then(result=>{
         if(result){
+          setIsModalOpen(true);
           console.log(result.text);
-          toast.success("Contact successfully sent!!!",{ autoClose: false });
+          setMessage('You have successfully sent email.');
+          // toast.success("Contact successfully sent!!!",{ autoClose: false });
         }},
         (error) => {
           toast.error("Please fill contact details correctly",+error.message);
+          setMessage('You are having errors to submit a form.'+error.message);
+
         }
       );
     e.target.reset();
@@ -132,6 +156,16 @@ const Contact = () => {
             </div>
           </div>
         </form>
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+            <h2 className="text-2xl font-bold mb-4">Successfully submitted!!</h2>
+            <p className="mb-4">{message}</p>
+           <button
+             onClick={handleCloseModal}
+              className="active:bg-blue-90 text-white p-2 rounded float-right"
+            >
+              Close
+            </button>
+        </Modal>
       </div>
     </section>
   );
