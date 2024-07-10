@@ -20,7 +20,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 
 const Contact = () => {
   const [input, setInput] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [message, setMessage] = useState('');
 
   const handleCloseModal = () => {
