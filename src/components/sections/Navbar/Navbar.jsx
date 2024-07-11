@@ -48,7 +48,7 @@ const navbarData = [
 const Navbar = () => {
   return (
     <Router>
-      <nav className="md:mx-8 mb-3 px-6 py-2 z-10 sticky top-0 bg-white shadow rounded font-serif">
+      <nav className="md:mx-8 mb-3 px-6 py-2 z-10 sticky top-0 bg-white shadow rounded-l  font-serif rounded-xl bg-size-200">
         <ul className="flex flex-wrap">
           {navbarData.map((el, id) => (
             <LinkItem el={el} key={id} />
@@ -92,7 +92,7 @@ const LinkItem = (props) => {
       <NavLink
         to={to}
         activeClassName="text-purple-900"
-        className="text-gray-800 text-medium hover:text-purple-600"
+        className="text-gray-900 text-medium hover:from-pink-900 hover:shadow-lg hover:border-transparent"
       >
         {title}
       </NavLink>
