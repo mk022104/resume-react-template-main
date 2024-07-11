@@ -23,6 +23,7 @@ const Contact = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [message, setMessage] = useState('');
 
+  const maxCharacters= 500;
   const handleCloseModal = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -39,11 +40,12 @@ const Contact = () => {
   useEffect(()=>{
     focusInput()//focus onload the page.
   },[])
-
+   
   const sendEmail = (e) => {
     e.preventDefault();
     //Focus input onSubmit
-    focusInput()
+    focusInput();
+    setInput('');
     emailjs
       .sendForm(
         "service_dr6helr",
@@ -66,7 +68,7 @@ const Contact = () => {
       );
     e.target.reset();
   };
-
+  const numberofCharacters = maxCharacters - input.length;
   return (
     <section className="pb-10">
       <div className="flex flex-wrap md:px-4">
@@ -143,7 +145,7 @@ const Contact = () => {
                   maxLength="500"
                   className="w-full border border-gray-800 rounded py-4 px-6 text-sm bg-white"
                 />
-                <span className="charLeft">{500 - input.length} Characters</span>
+                <span className="charLeft">{numberofCharacters} Characters</span>
               </div>
             </div>
             <div className="w-full">
