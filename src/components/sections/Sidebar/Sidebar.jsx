@@ -35,7 +35,7 @@ const Sidebar = () => {
   return (
     <aside className="sticky top-0 bg-white md:mx-8 lg:mx-4 mb-8 p-6 shadow-md rounded-md -mt-40">
       <div className="w-24 h-24 rounded-md overflow-hidden mx-auto mb-5">
-        <img src={Madhukar} alt="shafiqhammad" className="w-full" />
+        <img src={Madhukar} alt="shafiqhammad" className="w-full cursor-pointer" />
       </div>
       <div className="text-center">
         <h1 className="text-xl text-gray-800 font-bold mb-1">Madhukar Ganga </h1>
