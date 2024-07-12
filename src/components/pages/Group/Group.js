@@ -5,7 +5,7 @@ import { AiOutlineMail } from "react-icons/ai";
 
 const Group =()=>{
     return (
-        <div className="bg-cover bg-center h-96 md:mr-8 md:ml-8 md:mb-8 lg:mb-8 sm:mx-0 shadow-md shadow-l shadow
+        <div className="bg-cover bg-center h-96 md:mr-8 md:ml-8 md:mb-8 lg:mb-8 sm:mx-0 shadow-md shadow-lg shadow
           rounded-sm rounded-md rounded-lg" style={{ backgroundImage: `url(${mountain})`  }}>
           <div className="flex items-center justify-center h-full bg-black bg-opacity-10">
              <h1 className="text-white font-serif text-left	text-center">
