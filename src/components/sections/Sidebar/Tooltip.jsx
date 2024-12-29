@@ -6,9 +6,8 @@ const Tooltip = ({ text, link, icon }) => {
     <div className="tooltip">
       <li className="m-2">
         <a
-          style={{ textDecoration: "none" }}
           href={link}
-          className="w-8 h-8 bg-white-100 rounded text-black-800 flex items-center justify-center hover:text-white hover:bg-purple-900"
+          className="w-8 h-8 bg-white-100 rounded text-black-800 flex items-center justify-center hover:text-white hover:bg-purple-950"
         >
           {icon}
         </a>
