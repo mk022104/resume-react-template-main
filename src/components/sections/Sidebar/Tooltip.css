@@ -1,37 +1,37 @@
 .tooltip {
-    position: relative;
-    display: block;
-    cursor: pointer;
-    font-size: 14px;
-    line-height: 2;
-    background-color: rgba(30, 58, 138, var(--tw-bg-opacity));
-    color: #fff;
-    border-radius: 10px;
-    text-align: center;
-    margin-left: 3px;
-    list-style: none;
-    text-decoration: none;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 2;
+  background-color: rgba(30, 58, 138, var(--tw-bg-opacity));
+  color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 3px;
+  list-style: none;
+  text-decoration: none;
 }
 
 .tooltip-text {
-    visibility: hidden;
-    width: 85px;
-    background-color: grey;
-    color: #fff;
-    text-align: center;
-    border-radius: 5px;
-    padding: 5px 10px;
-    position: absolute;
-    top: 125%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.3s;
+  visibility: hidden;
+  width: 85px;
+  background-color: grey;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 10px;
+  position: absolute;
+  top: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 .tooltip-text::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 100%; /* Arrow pointing to the element */
   left: 50%;
