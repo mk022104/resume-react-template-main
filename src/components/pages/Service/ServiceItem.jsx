@@ -11,7 +11,7 @@ const ServiceItem = (props) => {
         <h3 className="text-lg font-medium text-gray-800 mb-2 hover:text-indigo-400">
           {title}
         </h3>
-        <p className="text-gray-400 serviceFontDecoration">{description}</p>
+        <p className="text-blue-900 serviceFontDecoration">{description}</p>
       </div>
     </div>
   );
