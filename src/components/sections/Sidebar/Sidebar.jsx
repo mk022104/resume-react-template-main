@@ -6,28 +6,32 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 import Madhukar from "../../../images/portfolio/Madhukar.jpg";
-
+import Tooltip from "./Tooltip";
 const coxurl = "https://www.coxautoinc.com";
 const socials = [
   {
     id: 1,
     icon: <FaFacebookF />,
     link: "https://www.facebook.com/?react=AQAZDm4XIn_VKrxMR10",
+    text:"Facebook"
   },
   {
     id: 2,
     icon: <FaGithub />,
     link: "https://github.com/madhukarGanga?tab=repositories",
+    text:"Github"
   },
   {
     id: 3,
     icon: <FaLinkedinIn />,
     link: "https://www.linkedin.com/in/madhukar-g-61865a160",
+    text:"LinkedIn"
   },
   {
     id: 4,
     icon: <FaInstagram />,
     link: "https://www.instagram.com/",
+    text:"Instagram"
   },
 ];
 
@@ -54,9 +58,15 @@ const Sidebar = () => {
           Download Resume
         </a>
         <ul className="flex flex-wrap justify-center">
-          {socials.map((social, id) => (
-            <SocialIcon social={social} key={id} />
-          ))}
+          {socials.map((social) => {
+            const { id, icon, link, text } = social;
+           return <Tooltip
+              key={id}
+              text={text}
+              link={link}
+              icon={icon}
+            />
+          })}
         </ul>
       </div>
       <div className="text-start pt-4">
@@ -83,16 +93,16 @@ const Sidebar = () => {
 
 export default Sidebar;
 
-const SocialIcon = (props) => {
-  const { icon, link } = props.social;
-  return (
-    <li className="m-2">
-      <a
-        href={link}
-        className="w-8 h-8 bg-white-100 rounded text-black-800 flex items-center justify-center hover:text-white hover:bg-blue-600"
-      >
-        {icon}
-      </a>
-    </li>
-  );
-};
+// const SocialIcon = (props) => {
+//   const { icon, link } = props.social;
+//   return (
+//     <li className="m-2">
+//       <a
+//         href={link}
+//         className="w-8 h-8 bg-white-100 rounded text-black-800 flex items-center justify-center hover:text-white hover:bg-blue-600"
+//       >
+//         {icon}
+//       </a>
+//     </li>
+//   );
+// };
