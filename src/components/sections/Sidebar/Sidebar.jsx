@@ -18,13 +18,13 @@ const socials = [
   {
     id: 2,
     icon: <FaGithub />,
-    link: "https://github.com/madhukarGanga?tab=repositories",
+    link: "https://github.com/mk022104/resume-react-template-main",
     text:"Github"
   },
   {
     id: 3,
     icon: <FaLinkedinIn />,
-    link: "https://www.linkedin.com/in/madhukar-g-61865a160",
+    link: "https://www.linkedin.com/in/ganga1935/",
     text:"LinkedIn"
   },
   {
