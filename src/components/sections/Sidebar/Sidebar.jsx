@@ -7,7 +7,8 @@ import {
 } from 'react-icons/fa';
 import Madhukar from '../../../images/portfolio/Madhukar.jpg';
 import Tooltip from './Tooltip';
-const coxurl = 'https://www.coxautoinc.com';
+const coxurl =
+  'https://www.pearson.com/en-us.html?srsltid=AfmBOopwZSntt62el17ePQOX0dYCH0X6o1B4osXkYcHYZkYq9qO8LJau';
 const socials = [
   {
     id: 1,
@@ -52,7 +53,7 @@ const Sidebar = () => {
         <p className="text-sm text-gray-700 mb-3">
           Frontend React Developer at
           <a href={coxurl} className="text-purple-600 pl-1">
-            Cox Auto Inc.
+            Pearson Educational.
           </a>
         </p>
         <a
