@@ -1,4 +1,4 @@
-import React, { useRef,useState,useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -31,12 +31,10 @@ const Contact = () => {
     setInput(e.target.value);
   };
   const form = useRef();
-  const useFocus=useRef(null);
-  const focusInput=()=>{
-    if(useFocus.current){
-      useFocus.current.focus();
-    }
-  }
+  const useFocus = useRef(null);
+  const focusInput = () => {
+    useFocus.current?.focus();
+  };
   useEffect(()=>{
     focusInput()//focus onload the page.
   },[])
