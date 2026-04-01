@@ -33,11 +33,7 @@ function Portfolio() {
             verified get the success. Users enter 5 times wrong OTP will get
             error screen. User can skip mobile screen won’t need it we can see
             only 7days after cannot see the mobile screen. Then it will navigate
-<<<<<<< HEAD
-            to user Profile Screen.            npm install react-collapsible-component
-=======
             to user Profile Screen.
->>>>>>> c9b8197936da6081da9391d537b6fb388f380a60
           </p>
         </CollapsibleContent>
         <CollapsibleHead className="additionalClassForHead ">
@@ -56,10 +52,6 @@ function Portfolio() {
             service schedule, generate report and analytics etc.
           </p>
         </CollapsibleContent>
-<<<<<<< HEAD
-
-=======
->>>>>>> c9b8197936da6081da9391d537b6fb388f380a60
         <CollapsibleHead className="additionalClassForHead ">
           Senior React developer, StateFarm, Remote
         </CollapsibleHead>

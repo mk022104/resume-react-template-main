@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import { render, screen } from "@testing-library/react";
-import Portfolio from "./Portfolio";
-
-describe("Portfolio", () => {
-  it("renders experience section and first role", () => {
-    render(<Portfolio />);
-    expect(screen.getByRole("heading", { name: /experience/i })).toBeInTheDocument();
-    expect(
-      screen.getByText(/Senior UI developer,Pearson/i)
-=======
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Portfolio from './Portfolio';
@@ -52,7 +40,6 @@ describe('Portfolio Component', () => {
     ).toBeInTheDocument();
     expect(
       screen.getByText('Senior React developer, StateFarm, Remote')
->>>>>>> c9b8197936da6081da9391d537b6fb388f380a60
     ).toBeInTheDocument();
   });
 });
