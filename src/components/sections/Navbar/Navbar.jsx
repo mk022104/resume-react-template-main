@@ -92,7 +92,7 @@ const LinkItem = (props) => {
       <NavLink
         to={to}
         activeClassName="text-purple-900"
-        className="text-gray-900 text-medium hover:from-pink-900 hover:shadow-lg hover:border-transparent"
+        className="text-medium hover:from-pink-900 hover:underline hover:decoration-blue-900 hover:border-transparent"
       >
         {title}
       </NavLink>
