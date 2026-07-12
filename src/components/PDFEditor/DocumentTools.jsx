@@ -14,12 +14,21 @@ export default function DocumentTools({ onClose }) {
   const [activeTab, setActiveTab] = useState('editor');
 
   return (
-    <div className="pdf-editor-overlay">
+    <div
+      className="pdf-editor-overlay"
+      onClick={(e) => {
+        if (e.target === e.currentTarget && onClose) onClose();
+      }}
+    >
       <div className="pdf-editor-modal document-tools-modal">
         <button
           className="pdf-editor-close"
-          onClick={() => onClose && onClose()}
+          onClick={(e) => {
+            e.stopPropagation();
+            if (onClose) onClose();
+          }}
           type="button"
+          aria-label="Close"
         >
           ×
         </button>
