@@ -59,7 +59,7 @@ const Sidebar = () => {
         <a
           href="/MadhuKUpdated Resume.docx"
           className="inline-flex mb-3 rounded bg-blue-900 text-center border-0 py-2 px-6 text-white leading-7 tracking-wide active:bg-blue-900 hover:bg-blue-900"
-          download="MadhuResumeUpdated"
+          download="Madhukar Resume"
         >
           <svg
             class="fill-current w-4 h-7 mr-2"
