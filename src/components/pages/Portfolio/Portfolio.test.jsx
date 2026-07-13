@@ -31,15 +31,19 @@ describe('Portfolio Component', () => {
   test('renders job titles', () => {
     render(<Portfolio />);
     expect(
-      screen.getByText('Senior UI developer,Pearson, Hybrid, NC')
-    ).toBeInTheDocument();
-    expect(
       screen.getByText(
-        'Senior Frontend developer, Cox Auto Inc. (Mobility and Fleet operations),Remote Altanta, GA'
+        /Senior UI Developer, Pearson, Hybrid, Durham, NC/
       )
     ).toBeInTheDocument();
     expect(
-      screen.getByText('Senior React developer, StateFarm, Remote')
+      screen.getByText(
+        /Senior React Developer, Cox Automotive, Atlanta, GA/
+      )
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /Senior React Developer, State Farm, Richardson, TX/
+      )
     ).toBeInTheDocument();
   });
 });

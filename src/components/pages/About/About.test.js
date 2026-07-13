@@ -10,7 +10,10 @@ test('renders About component', () => {
   render(<About />);
   expect(screen.getByText('Who am I?')).toBeInTheDocument();
   expect(
-    screen.getByText(/Highly skilled React JS developer/)
+    screen.getByText(/Senior React JS \/ Frontend Developer with 10\+ years/)
+  ).toBeInTheDocument();
+  expect(
+    screen.getByText(/Currently Senior UI Developer at Pearson/)
   ).toBeInTheDocument();
   expect(screen.getByTestId('skills')).toBeInTheDocument();
 });

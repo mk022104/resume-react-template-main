@@ -2,11 +2,9 @@ import React from 'react';
 import {
   CollapsibleComponent,
   CollapsibleHead,
-  CollapsibleContent
-} from "react-collapsible-component";
-import "./style.module.css";
-
-
+  CollapsibleContent,
+} from 'react-collapsible-component';
+import './style.module.css';
 
 function Portfolio() {
   return (
@@ -16,105 +14,101 @@ function Portfolio() {
       </h3>
       <CollapsibleComponent className="additionalClassForCollapsible ">
         <CollapsibleHead className="additionalClassForHead ">
-          Senior UI developer,Pearson, Hybrid, NC
+          Senior UI Developer, Pearson, Hybrid, Durham, NC (Oct 2024 –
+          Present)
         </CollapsibleHead>
         <CollapsibleContent className="additionalClassForContent ">
           <p className="m-4">
-            Centralized login: Customizable application developed using React
-            based on Partner need. 1. Certiport. 2. Compass local 3. Certiport
-            cloud Scheduler. 4. Certiport cloud Candidate. AMXUI: ForgeRock.
-            Access Management &SSO: Enables secure single sign on, multi factor
-            & password less authentication. Single Sign in: We been implemented
-            Sign in with code authenticated the user using Email and SMS. Once
-            it authenticated one of those asking the user MFA to add next level
-            of authentication based on Partner (REVIBE, KIBO, HK LONGMAN).
-            Progressive Profile: Allow the user to add Mobile number after the
-            registration. We are allowing most of the countries. Once it gets
-            verified get the success. Users enter 5 times wrong OTP will get
-            error screen. User can skip mobile screen won’t need it we can see
-            only 7days after cannot see the mobile screen. Then it will navigate
-            to user Profile Screen.
+            <strong>Project:</strong> Access Management & Authentication
+            Platform. Built secure auth flows with React.js and TypeScript —
+            SSO, MFA, OTP, and passwordless login. Progressive profile /
+            mobile verification, WCAG accessibility (keyboard navigation,
+            Lighthouse, NVDA), Storybook component libraries, REST APIs for
+            auth and partner onboarding, Generative AI assistance (OpenAI,
+            Claude, Gemini), Micro Frontends with Module Federation, React 18
+            / Vite, and Cypress/Playwright in CI/CD.
           </p>
         </CollapsibleContent>
+
         <CollapsibleHead className="additionalClassForHead ">
-          Senior Frontend developer, Cox Auto Inc. (Mobility and Fleet
-          operations),Remote Altanta, GA
+          Senior React Developer, Cox Automotive, Atlanta, GA (Aug 2021 – Oct
+          2024)
         </CollapsibleHead>
         <CollapsibleContent className="additionalClassForContent ">
           <p className="m-4">
-            Cox Automotive Mobility specialized in comprehensive fleet services
-            and operations. They provide a SaaS solution for the customers to
-            keep fleets moving safely and sustainably for the next generation.
-            Maximize fleet uptime with the premier partner in maintenance
-            service. Manage scheduled and emergency maintenance. The project is
-            to develop interface for the customers to manage vehicles
-            information, schedule preventative maintenance, define automated
-            service schedule, generate report and analytics etc.
+            <strong>Project:</strong> Fleet Management & Vehicle Maintenance
+            Platform. Developed enterprise apps with React.js, Next.js, Redux,
+            TypeScript, and Node.js — reusable UI, dashboards, reporting, and
+            analytics for fleet operations. State management with Redux /
+            Thunk / Context API; Jest, React Testing Library, Playwright, and
+            Cypress automation; performance via lazy loading and memoization.
           </p>
         </CollapsibleContent>
+
         <CollapsibleHead className="additionalClassForHead ">
-          Senior React developer, StateFarm, Remote
+          Senior React Developer, State Farm, Richardson, TX (Mar 2020 – Aug
+          2021)
         </CollapsibleHead>
         <CollapsibleContent className="additionalClassForContent ">
           <p className="m-4">
-            AQP (Auto Quote purchase) is automatic quotation management platform
-            from statefarm, enabling its user to explore, prepare, submit,
-            negotiate and purchase different insurance product, like Auto
-            Insurance, Home Insurance, Medical insurance etc. Front-end
-            developed in React JS, some user faced pages are written in plain
-            JSP and backend apis are developed with Spring based framework.
+            <strong>Project:</strong> Auto Quote Purchase (AQP) Platform.
+            Built SPA quote/purchase flows for insurance products with
+            React.js, TypeScript, Redux, and React Router. Integrated Spring
+            Boot REST APIs, HTTPS/token auth, Jest/RTL testing, and WCAG 2.1
+            AA accessibility.
           </p>
         </CollapsibleContent>
+
         <CollapsibleHead className="additionalClassForHead ">
-          Senior UI developer, Fidelity Investments, Durham, Nc
+          Senior UI Developer, Fidelity Investments, Durham, NC (Jun 2019 –
+          Mar 2020)
         </CollapsibleHead>
         <CollapsibleContent className="additionalClassForContent ">
           <p className="m-4">
-            Working on react js based web applications providing user interface
-            for different functionalities like PI-Login Experience, 2FA,
-            Security center, DAE, NUR - related to the user security of Fid.com.
-            Additionally, working on Inactivity timeout and DBS (Delegated
-            Brokerage Service) enhancements that are part of Fid.com and moving
-            application on-premises to AWS.
+            <strong>Project:</strong> Security & Authentication Applications.
+            React apps for login, 2FA, and security workflows — Hooks
+            migration, Redux, Storybook/Pattern Lab, Cypress E2E, TypeScript /
+            LESS / SASS, on-prem to AWS migration, and Micro Frontends with
+            Docker/CI/CD.
           </p>
         </CollapsibleContent>
+
         <CollapsibleHead className="additionalClassForHead ">
-          UI/React DEVELOPER, Ford- Dearborn, MI
+          UI Developer, Ford, Dearborn, MI (Dec 2018 – May 2019)
         </CollapsibleHead>
         <CollapsibleContent className="additionalClassForContent ">
           <p className="m-4">
-            SYNC is an integrated in-vehicle communications and entertainment
-            system embedded in Ford and Lincoln vehicles. SYNC handles all of
-            the commands sent from an App Link application and delivers the
-            intended message inside the vehicle. All UI including commands,
-            display requests, vehicle data authorization, and responses are
-            managed by the SYNC system on behalf of the mobile application and
-            communicated over App Link.
+            <strong>Project:</strong> SYNC In-Vehicle Communication Platform.
+            Frontend for Ford/Lincoln SYNC and App Link — React.js, Redux,
+            HTML5/CSS3, token-based auth, Node.js modules, LESS/SASS, and
+            Micro Frontend performance (lazy loading, code splitting,
+            memoization).
           </p>
         </CollapsibleContent>
+
         <CollapsibleHead className="additionalClassForHead ">
-          SR. UI/ React Developer, IBM, San Jose, CA
+          Sr. UI / React Developer, IBM, San Jose, CA (Apr 2016 – Dec 2018)
         </CollapsibleHead>
         <CollapsibleContent className="additionalClassForContent ">
           <p className="m-4">
-            The IBM Quantum Experience launched in May, giving researchers,
-            students, and enthusiasts cloud-based access to an experimental
-            quantum computing platform. As computing moves beyond the classic
-            binary system, bits with infinite positions will unlock infinite
-            possibilities. Platform users can learn quantum principles,
-            experiment with new algorithms, and more.
+            <strong>Project:</strong> IBM Quantum Experience Platform.
+            Cloud-based quantum computing UI with React.js, JavaScript,
+            HTML5/CSS3, and Node.js — reusable enterprise portal components,
+            REST APIs, Webpack builds, and unit/snapshot tests across the full
+            SDLC.
           </p>
         </CollapsibleContent>
+
         <CollapsibleHead className="additionalClassForHead ">
-          UI DEVELOPER, Bench Tech Software Pvt Ltd, Bengaluru, India
+          UI Developer, Bench Tech Software Pvt Ltd, Bangalore, India (Jan
+          2013 – Dec 2015)
         </CollapsibleHead>
         <CollapsibleContent className="additionalClassForContent ">
           <p className="m-4">
-            Ben Tech offers full-service technology support from the switch to
-            wire, wire to Wi-Fi, server to desktop, cloud to the employee,
-            employee to productivity. Benjamin Keith brings 20+ years of
-            technical knowledge, professionalism, and business experience to
-            you.
+            <strong>Project:</strong> Web applications. Built responsive sites
+            with HTML5, CSS3, JavaScript, jQuery, and Bootstrap — form
+            validation, reusable UI, Jasmine/Karma testing, and stakeholder
+            requirement analysis.
           </p>
         </CollapsibleContent>
       </CollapsibleComponent>

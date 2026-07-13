@@ -3,7 +3,7 @@ import { getAssistantReply } from './portfolioKnowledge';
 import './ChatWidget.css';
 
 const WELCOME =
-  "Hi! Ask me anything — Madhukar's background, or general questions like ChatGPT (tech, science, how-to, and more).";
+  "Hi! Ask me about Madhukar's resume (skills, jobs, education, contact) or any general question.";
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
