@@ -136,3 +136,14 @@
 .chat-send:hover {
   background: #5b21b6;
 }
+
+.chat-send:disabled,
+.chat-input:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.chat-typing {
+  opacity: 0.75;
+  font-style: italic;
+}

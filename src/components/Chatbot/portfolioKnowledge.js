@@ -172,13 +172,67 @@ function scoreEntry(question, entry) {
   return score;
 }
 
+const PERSONAL_HINTS = [
+  'madhukar',
+  'ganga',
+  'your',
+  'you ',
+  ' you',
+  'his ',
+  'him',
+  'he ',
+  'resume',
+  'cv',
+  'portfolio',
+  'contact you',
+  'hire you',
+  'about you',
+  'about him',
+  'who are you',
+  'who is he',
+  'who is madhukar',
+];
+
+const GENERAL_PATTERNS = [
+  /^what is\b/,
+  /^what's\b/,
+  /^who (is|was|invented|discovered)\b/,
+  /^how (do|does|did|can|to)\b/,
+  /^explain\b/,
+  /^define\b/,
+  /^when (was|did|is)\b/,
+  /^where (is|was|are)\b/,
+  /^why (is|are|do|does)\b/,
+  /^tell me about (?!madhukar|you|him|his)/,
+];
+
+function looksPersonal(question) {
+  const q = question.toLowerCase();
+  return PERSONAL_HINTS.some((h) => q.includes(h));
+}
+
+function looksGeneral(question) {
+  const q = question.toLowerCase().trim();
+  if (looksPersonal(q)) return false;
+  return GENERAL_PATTERNS.some((re) => re.test(q));
+}
+
 /**
- * Return a reply for a user question based on portfolio knowledge.
+ * Match a personal/portfolio question. Returns { matched, answer }.
  */
-export function getChatReply(question) {
+export function getPersonalReply(question) {
   const trimmed = (question || '').trim();
   if (!trimmed) {
-    return 'Please type a question about Madhukar — for example skills, experience, education, or contact.';
+    return {
+      matched: true,
+      answer:
+        'Please type a question — about Madhukar (skills, experience, education) or any general topic.',
+    };
+  }
+
+  // Definition-style / general questions skip portfolio FAQ (e.g. "What is React?")
+  if (looksGeneral(trimmed)) {
+    return { matched: false, answer: null };
   }
 
   let best = null;
@@ -191,14 +245,129 @@ export function getChatReply(question) {
     }
   }
 
+  // Bare tech keywords (react, javascript) only count as personal if the
+  // question clearly refers to Madhukar / this portfolio.
+  const techOnlyKeys = ['react', 'redux', 'javascript', 'typescript', 'frontend'];
   if (best && bestScore > 0) {
-    return typeof best.answer === 'function' ? best.answer(trimmed) : best.answer;
+    if (
+      best.keys.every((k) => techOnlyKeys.includes(k)) &&
+      !looksPersonal(trimmed)
+    ) {
+      return { matched: false, answer: null };
+    }
+
+    return {
+      matched: true,
+      answer: typeof best.answer === 'function' ? best.answer(trimmed) : best.answer,
+    };
   }
 
+  return { matched: false, answer: null };
+}
+
+/** @deprecated use getPersonalReply / getAssistantReply */
+export function getChatReply(question) {
+  const personal = getPersonalReply(question);
+  if (personal.matched) return personal.answer;
   return (
-    `I can answer questions about ${PROFILE.name} based on this portfolio — ` +
-    `his background, skills, work experience (Pearson, Cox, StateFarm, Fidelity, Ford, IBM), ` +
-    `education, services, resume, or how to contact him. Try asking something like ` +
-    `"What are his skills?" or "Where does he work?"`
+    `I can answer questions about ${PROFILE.name} and general topics. ` +
+    `Try asking about his skills, or something like "What is React?"`
+  );
+}
+
+/**
+ * Look up a general topic on Wikipedia (no API key). Used when the question
+ * is not about Madhukar / this portfolio.
+ */
+export async function getWikipediaReply(question) {
+  const q = (question || '').trim();
+  if (!q) return null;
+
+  try {
+    const searchUrl =
+      'https://en.wikipedia.org/w/api.php?' +
+      new URLSearchParams({
+        action: 'opensearch',
+        search: q,
+        limit: '1',
+        namespace: '0',
+        format: 'json',
+        origin: '*',
+      });
+
+    const searchRes = await fetch(searchUrl);
+    if (!searchRes.ok) return null;
+    const searchData = await searchRes.json();
+    const title = searchData?.[1]?.[0];
+    if (!title) return null;
+
+    const summaryUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(
+      title
+    )}`;
+    const summaryRes = await fetch(summaryUrl);
+    if (!summaryRes.ok) return null;
+    const summary = await summaryRes.json();
+
+    const extract = summary.extract || summary.description;
+    if (!extract) return null;
+
+    const pageUrl = summary.content_urls?.desktop?.page;
+    return pageUrl
+      ? `${extract}\n\nSource: ${pageUrl}`
+      : extract;
+  } catch (err) {
+    return null;
+  }
+}
+
+/**
+ * Prefer AI (ChatGPT-style). Fallbacks: personal FAQ, then Wikipedia.
+ */
+export async function getGeneralReply(question) {
+  const { askChatGPTStyle } = await import('./askAI');
+  const aiReply = await askChatGPTStyle(question);
+  if (aiReply) return aiReply;
+
+  const wiki = await getWikipediaReply(question);
+  if (wiki) return wiki;
+
+  return null;
+}
+
+/**
+ * Full assistant — AI first for every question (like ChatGPT).
+ * Offline fallbacks: portfolio FAQ for personal topics, then Wikipedia.
+ */
+export async function getAssistantReply(question) {
+  const trimmed = (question || '').trim();
+  if (!trimmed) {
+    return 'Please type a question — about Madhukar or any general topic.';
+  }
+
+  // 1) Real AI (Netlify Gateway or REACT_APP_GEMINI_API_KEY)
+  try {
+    const { askChatGPTStyle } = await import('./askAI');
+    const aiReply = await askChatGPTStyle(trimmed);
+    if (aiReply) return aiReply;
+  } catch (err) {
+    // continue to fallbacks
+  }
+
+  // 2) Personal FAQ only if AI is unavailable
+  const personal = getPersonalReply(trimmed);
+  if (personal.matched) return personal.answer;
+
+  // 3) Wikipedia for general topics
+  const wiki = await getWikipediaReply(trimmed);
+  if (wiki) return wiki;
+
+  return (
+    'I need an AI connection to answer that like ChatGPT.\n\n' +
+    'Option A (recommended for local): create a free Gemini key at https://aistudio.google.com/apikey\n' +
+    'then add to .env.local:\n' +
+    'REACT_APP_GEMINI_API_KEY=your_key_here\n' +
+    'and restart npm start.\n\n' +
+    'Option B (Netlify): enable AI on your site, deploy once, then run: npx netlify dev\n\n' +
+    'Meanwhile I can still answer Madhukar questions like "What are his skills?" without AI.'
   );
 }

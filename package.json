@@ -7,6 +7,7 @@
     "@emailjs/browser": "^3.11.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@google/genai": "^2.11.0",
     "@material-tailwind/react": "^2.1.9",
     "@material/linear-progress": "^14.0.0",
     "@ramonak/react-progress-bar": "^5.0.3",
@@ -39,7 +40,8 @@
     "build": "craco build",
     "test": "craco test",
     "test:coverage": "craco test --coverage --watchAll=false",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "netlify:dev": "npx netlify dev"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -75,6 +77,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@netlify/functions": "^5.3.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   }
 }

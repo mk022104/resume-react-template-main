@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { getChatReply } from './portfolioKnowledge';
+import { getAssistantReply } from './portfolioKnowledge';
 import './ChatWidget.css';
 
 const WELCOME =
-  "Hi! Ask me anything about Madhukar — skills, experience, education, services, or how to get in touch.";
+  "Hi! Ask me anything — Madhukar's background, or general questions like ChatGPT (tech, science, how-to, and more).";
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
+  const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([
     { id: 1, role: 'bot', text: WELCOME },
   ]);
@@ -18,7 +19,7 @@ export default function ChatWidget() {
     if (listRef.current) {
       listRef.current.scrollTop = listRef.current.scrollHeight;
     }
-  }, [messages, open]);
+  }, [messages, open, loading]);
 
   useEffect(() => {
     if (open) {
@@ -26,20 +27,34 @@ export default function ChatWidget() {
     }
   }, [open]);
 
-  const sendMessage = (e) => {
+  const sendMessage = async (e) => {
     e.preventDefault();
     const text = input.trim();
-    if (!text) return;
+    if (!text || loading) return;
 
     const userMsg = { id: Date.now(), role: 'user', text };
-    const botMsg = {
-      id: Date.now() + 1,
-      role: 'bot',
-      text: getChatReply(text),
-    };
-
-    setMessages((prev) => [...prev, userMsg, botMsg]);
+    setMessages((prev) => [...prev, userMsg]);
     setInput('');
+    setLoading(true);
+
+    try {
+      const reply = await getAssistantReply(text);
+      setMessages((prev) => [
+        ...prev,
+        { id: Date.now() + 1, role: 'bot', text: reply },
+      ]);
+    } catch (err) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: Date.now() + 1,
+          role: 'bot',
+          text: 'Something went wrong answering that. Please try again.',
+        },
+      ]);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -70,8 +85,8 @@ export default function ChatWidget() {
         <div className="chat-panel" role="dialog" aria-label="Portfolio chatbot">
           <div className="chat-header">
             <div>
-              <div className="chat-title">Ask Madhukar</div>
-              <div className="chat-subtitle">Portfolio assistant</div>
+              <div className="chat-title">Chat assistant</div>
+              <div className="chat-subtitle">Madhukar + general (ChatGPT-style)</div>
             </div>
             <button
               type="button"
@@ -88,12 +103,19 @@ export default function ChatWidget() {
               <div
                 key={msg.id}
                 className={
-                  msg.role === 'user' ? 'chat-bubble chat-bubble-user' : 'chat-bubble chat-bubble-bot'
+                  msg.role === 'user'
+                    ? 'chat-bubble chat-bubble-user'
+                    : 'chat-bubble chat-bubble-bot'
                 }
               >
                 {msg.text}
               </div>
             ))}
+            {loading && (
+              <div className="chat-bubble chat-bubble-bot chat-typing">
+                Thinking…
+              </div>
+            )}
           </div>
 
           <form className="chat-form" onSubmit={sendMessage}>
@@ -102,12 +124,13 @@ export default function ChatWidget() {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask about skills, experience..."
+              placeholder="Ask anything like ChatGPT…"
               className="chat-input"
               maxLength={500}
               autoComplete="off"
+              disabled={loading}
             />
-            <button type="submit" className="chat-send">
+            <button type="submit" className="chat-send" disabled={loading}>
               Send
             </button>
           </form>
