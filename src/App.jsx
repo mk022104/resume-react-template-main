@@ -2,7 +2,7 @@ import Footer from "./components/sections/Footer/Footer";
 import Navbar from "./components/sections/Navbar/Navbar";
 import ProfileCover from "./components/sections/ProfileCover/ProfileCover";
 import Sidebar from "./components/sections/Sidebar/Sidebar";
-import PDFEditorButton from './components/PDFEditor/PDFEditorButton';
+import ChatWidget from './components/Chatbot/ChatWidget';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         </div>
       </div>
       <Footer />
-      <PDFEditorButton />
+      <ChatWidget />
     </main>
   );
 }
