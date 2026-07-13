@@ -1,11 +1,11 @@
 import React from "react";
-import tajmahal from '../../../images/tajmahal.jpg';
+import londonbuilding from '../../../images/londonbuilding.jpg';
 
 const ProfileCover = () => {
   return (
     <div className="h-60 w-full">
       <img
-        src={tajmahal}
+        src={londonbuilding}
         alt="cover"
         className="w-full h-full object-cover object-center"
       />
