@@ -29,3 +29,24 @@
     text-align:center;
     align-items:center;
   }
+
+  .contact-phone-input {
+    width: 100%;
+    min-height: 3.5rem;
+    padding: 0 1.5rem;
+    border: 1px solid #111827;
+    border-radius: 0.25rem;
+    background: #fff;
+  }
+
+  .contact-phone-input .PhoneInputCountry {
+    margin-right: 0.75rem;
+  }
+
+  .contact-phone-input .PhoneInputInput {
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font-size: 0.875rem;
+  }

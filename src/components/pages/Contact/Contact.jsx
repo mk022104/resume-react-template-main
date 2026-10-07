@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import PhoneInput, { isPossiblePhoneNumber } from "react-phone-number-input";
 import { ToastContainer, toast } from "react-toastify";
+import "react-phone-number-input/style.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./contact.css"
 const Modal = ({ isOpen, onClose, children }) => {
@@ -20,6 +22,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 
 const Contact = () => {
   const [input, setInput] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [message, setMessage] = useState('');
 
@@ -41,6 +44,10 @@ const Contact = () => {
    
   const sendEmail = (e) => {
     e.preventDefault();
+    if (!phoneNumber || !isPossiblePhoneNumber(phoneNumber)) {
+      toast.error("Please enter a phone number with a valid length for its country.");
+      return;
+    }
     //Focus input onSubmit
     focusInput();
     setInput('');
@@ -66,6 +73,7 @@ const Contact = () => {
         }
       );
     e.target.reset();
+    setPhoneNumber(undefined);
   };
   const numberofCharacters = maxCharacters - input.length;
   return (
@@ -110,15 +118,16 @@ const Contact = () => {
             </div>
             <div className="w-full">
               <div className="m-3">
-                <input
-                  type="phone"
-                  name="phone"
-                  maxlength="10"
-                  pattern="^(1\s?)?(\d{3}|\(\d{3}\))[\s\-]?\d{3}[\s\-]?\d{4}$"
+                <PhoneInput
+                  className="contact-phone-input"
+                  defaultCountry="US"
+                  value={phoneNumber}
+                  onChange={setPhoneNumber}
                   required
                   placeholder="Phone Number"
-                  className="w-full border border-gray-900 rounded py-4 px-6 text-sm bg-white"
+                  aria-label="Phone Number"
                 />
+                <input type="hidden" name="phone" value={phoneNumber || ""} />
               </div>
             </div>
             <div className="w-full">

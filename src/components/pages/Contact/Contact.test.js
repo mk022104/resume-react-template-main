@@ -54,7 +54,7 @@ describe('Contact Component', () => {
       target: { value: 'john@example.com' },
     });
     fireEvent.change(screen.getByPlaceholderText('Phone Number'), {
-      target: { value: '1234567890' },
+      target: { value: '2025550123' },
     });
     fireEvent.change(screen.getByPlaceholderText('Subject'), {
       target: { value: 'Test Subject' },
@@ -86,7 +86,7 @@ describe('Contact Component', () => {
       target: { value: 'john@example.com' },
     });
     fireEvent.change(screen.getByPlaceholderText('Phone Number'), {
-      target: { value: '1234567890' },
+      target: { value: '2025550123' },
     });
     fireEvent.change(screen.getByPlaceholderText('Subject'), {
       target: { value: 'Test Subject' },
@@ -119,7 +119,7 @@ describe('Contact Component', () => {
       target: { value: 'john@example.com' },
     });
     fireEvent.change(screen.getByPlaceholderText('Phone Number'), {
-      target: { value: '1234567890' },
+      target: { value: '2025550123' },
     });
     fireEvent.change(screen.getByPlaceholderText('Subject'), {
       target: { value: 'Test Subject' },
