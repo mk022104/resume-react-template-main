@@ -46,22 +46,23 @@ const Contact = () => {
     setInput('');
     emailjs
       .sendForm(
-        "service_dr6helr",
-        "template_sbkquck",
+        'service_7mcn71l',
+        'template_35k6w7v',
         form.current,
-        "s67cWdfEwD0mib1iF"
+        '_NtaKoGAAqdPTeVWv'
       )
-      .then(result=>{
-        if(result){
-          setIsModalOpen(true);
-          console.log(result.text);
-          setMessage('successfully sent email.');
-          // toast.success("Contact successfully sent!!!",{ autoClose: false });
-        }},
+      .then(
+        (result) => {
+          if (result) {
+            setIsModalOpen(true);
+            console.log(result.text);
+            setMessage('successfully sent email.');
+            // toast.success("Contact successfully sent!!!",{ autoClose: false });
+          }
+        },
         (error) => {
-          toast.error("Please fill contact details correctly",+error.message);
-          setMessage('You are having errors to submit a form.'+error.message);
-
+          toast.error('Please fill contact details correctly', +error.message);
+          setMessage('You are having errors to submit a form.' + error.message);
         }
       );
     e.target.reset();
@@ -89,7 +90,7 @@ const Contact = () => {
                   type="text"
                   ref={useFocus}
                   name="user_name"
-                  maxlength = "30"
+                  maxlength="30"
                   placeholder="Your Name"
                   required
                   className="w-full border border-gray-800 rounded py-4 px-6 text-sm bg-white"
@@ -110,9 +111,9 @@ const Contact = () => {
             <div className="w-full">
               <div className="m-3">
                 <input
-                  type="text"
+                  type="phone"
                   name="user_phone"
-                  maxlength = "10"
+                  maxlength="10"
                   pattern="^(1\s?)?(\d{3}|\(\d{3}\))[\s\-]?\d{3}[\s\-]?\d{4}$"
                   required
                   placeholder="Phone Number"
@@ -125,7 +126,7 @@ const Contact = () => {
                 <input
                   type="text"
                   name="user_subject"
-                  maxlength = "100"
+                  maxlength="100"
                   required
                   placeholder="Subject"
                   className="w-full border border-gray-800 rounded py-4 px-6 text-sm bg-white"
@@ -143,7 +144,9 @@ const Contact = () => {
                   maxLength="500"
                   className="w-full border border-gray-800 rounded py-4 px-6 text-sm bg-white"
                 />
-                <span className="charLeft">{numberofCharacters} Characters</span>
+                <span className="charLeft">
+                  {numberofCharacters} Characters
+                </span>
               </div>
             </div>
             <div className="w-full">
