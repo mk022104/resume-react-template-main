@@ -89,7 +89,7 @@ const Contact = () => {
                 <input
                   type="text"
                   ref={useFocus}
-                  name="user_name"
+                  name="name"
                   maxlength="30"
                   placeholder="Your Name"
                   required
@@ -102,7 +102,7 @@ const Contact = () => {
                 <input
                   type="email"
                   required
-                  name="user_email"
+                  name="email"
                   placeholder="Your Email"
                   className="w-full border border-gray-800 rounded py-4 px-6 text-sm bg-white"
                 />
@@ -112,7 +112,7 @@ const Contact = () => {
               <div className="m-3">
                 <input
                   type="phone"
-                  name="user_phone"
+                  name="phone"
                   maxlength="10"
                   pattern="^(1\s?)?(\d{3}|\(\d{3}\))[\s\-]?\d{3}[\s\-]?\d{4}$"
                   required
@@ -125,7 +125,7 @@ const Contact = () => {
               <div className="m-3">
                 <input
                   type="text"
-                  name="user_subject"
+                  name="subject"
                   maxlength="100"
                   required
                   placeholder="Subject"
@@ -136,7 +136,7 @@ const Contact = () => {
             <div className="w-full">
               <div className="m-3">
                 <textarea
-                  name="user_message"
+                  name="message"
                   required
                   placeholder="Your Message"
                   onChange={inputHandler}
