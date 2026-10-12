@@ -1,8 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import ProfileCover from './ProfileCover';
 
-// Mock the image
-jest.mock('../../../images/pexels-souvenirpixels.jpg', () => 'mock-image');
+jest.mock('../../../images/londonbuilding.jpg', () => 'mock-image');
 
 test('renders ProfileCover component with image', () => {
   render(<ProfileCover />);
