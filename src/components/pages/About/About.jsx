@@ -12,7 +12,7 @@ const About = () => {
             </h3>
             <p className="text-sm text-gray-400 leading-6 mb-3 aboutFontDecoration">
               Senior React JS / Frontend Developer with 11+ years of IT
-              experience including 10+ years specializing in React.js, Next.js,
+              experience including 10+ years specializing in React.js,
               TypeScript, and modern frontend architecture. Builds scalable,
               secure, high-performance enterprise web apps across insurance,
               finance, automotive, education, and cloud platforms.
