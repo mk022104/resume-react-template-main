@@ -19,3 +19,13 @@ This project supports privacy-focused, cookieless traffic analytics with Plausib
    Restart `npm start` after changing environment variables. Do not use your production domain for local testing if you want to keep development traffic separate. Local tracking is disabled unless explicitly opted in; test runs never load the analytics script.
 
 Do not send names, email addresses, passkeys, or other personal data as analytics event properties. Review applicable privacy notice and consent requirements for your audience.
+
+## Optional Google Analytics 4
+
+Google Analytics 4 can run alongside Plausible, but this sends analytics data to both providers. Configure consent and privacy disclosures for your audience before enabling Google Analytics.
+
+1. In Google Analytics, create or select a GA4 property, then add a Web data stream for your deployed site. Copy its Measurement ID, which starts with `G-`.
+2. In Netlify, add `REACT_APP_GA_MEASUREMENT_ID` with that ID under **Site configuration → Environment variables**, then redeploy.
+3. For local testing, use a separate GA4 property/Measurement ID in `.env.local` and set `REACT_APP_GA_ENABLE_IN_DEV=true`. Restart `npm start` afterward so CRA reloads the environment. Do not use the production Measurement ID for development if you want to keep local hits out of production reports.
+
+GA4's automatic page-view tracking is enabled by default. For client-side route changes, open the GA4 Web data stream's **Enhanced measurement** settings and ensure page views based on browser history changes are enabled.

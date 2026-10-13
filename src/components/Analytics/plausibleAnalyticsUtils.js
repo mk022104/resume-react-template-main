@@ -36,3 +36,41 @@ export const installPlausibleAnalytics = (
 
   return true;
 };
+
+export const normalizeGoogleMeasurementId = (measurementId) => {
+  const value = measurementId?.trim().toUpperCase();
+  return value && /^G-[A-Z0-9]+$/.test(value) ? value : '';
+};
+
+export const installGoogleAnalytics = (
+  measurementId,
+  {
+    environment = process.env.NODE_ENV,
+    enabledInDevelopment = false,
+    documentRef = document,
+    windowRef = window,
+  } = {}
+) => {
+  const id = normalizeGoogleMeasurementId(measurementId);
+  const shouldLoad =
+    environment === 'production' ||
+    (environment === 'development' && enabledInDevelopment);
+
+  if (!shouldLoad || !id) return false;
+  if (documentRef.querySelector('script[data-google-analytics]')) return false;
+
+  windowRef.dataLayer = windowRef.dataLayer || [];
+  windowRef.gtag = function gtag() {
+    windowRef.dataLayer.push(arguments);
+  };
+  windowRef.gtag('js', new Date());
+  windowRef.gtag('config', id);
+
+  const script = documentRef.createElement('script');
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
+  script.dataset.googleAnalytics = 'true';
+  documentRef.head.appendChild(script);
+
+  return true;
+};
