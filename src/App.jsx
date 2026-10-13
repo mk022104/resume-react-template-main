@@ -1,12 +1,14 @@
-import Footer from "./components/sections/Footer/Footer";
-import Navbar from "./components/sections/Navbar/Navbar";
-import ProfileCover from "./components/sections/ProfileCover/ProfileCover";
-import Sidebar from "./components/sections/Sidebar/Sidebar";
+import Footer from './components/sections/Footer/Footer';
+import Navbar from './components/sections/Navbar/Navbar';
+import ProfileCover from './components/sections/ProfileCover/ProfileCover';
+import Sidebar from './components/sections/Sidebar/Sidebar';
 import ChatWidget from './components/Chatbot/ChatWidget';
+import PlausibleAnalytics from './components/Analytics/PlausibleAnalytics.jsx';
 
 function App() {
   return (
     <main className="min-h-screen relative bg-gray-50 pb-10">
+      <PlausibleAnalytics />
       <ProfileCover />
       <div className="container px-4">
         <div className="flex flex-wrap px-4">

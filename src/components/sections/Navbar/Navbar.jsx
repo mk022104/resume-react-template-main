@@ -1,48 +1,53 @@
-import React from "react";
+import React from 'react';
 import {
   BrowserRouter as Router,
   NavLink,
   Route,
   Switch,
-} from "react-router-dom";
-import About from "../../pages/About/About";
-import Contact from "../../pages/Contact/Contact";
-import Portfolio from "../../pages/Portfolio/Portfolio";
-import Service from "../../pages/Service/Service";
-import Qualification from "../../pages/Qualification/Qualification.jsx";
-import Group from "../../pages/Group/Group.js";
-
+} from 'react-router-dom';
+import About from '../../pages/About/About';
+import Contact from '../../pages/Contact/Contact';
+import Portfolio from '../../pages/Portfolio/Portfolio';
+import Service from '../../pages/Service/Service';
+import Qualification from '../../pages/Qualification/Qualification.jsx';
+import Group from '../../pages/Group/Group.js';
+import Authentication from '../../pages/Authentication/Authentication.jsx';
 const navbarData = [
   {
     id: 1,
-    title: "About",
-    to: "/about",
+    title: 'About',
+    to: '/about',
   },
   {
     id: 2,
-    title: "Services",
-    to: "/services",
+    title: 'Services',
+    to: '/services',
   },
   {
     id: 3,
-    title: "Experience",
-    to: "/portfolio",
+    title: 'Experience',
+    to: '/portfolio',
   },
   {
     id: 6,
-    title: "Education Details",
-    to: "/Qualification",
+    title: 'Education Details',
+    to: '/Qualification',
   },
   {
     id: 5,
-    title: "Contact",
-    to: "/contact",
+    title: 'Contact',
+    to: '/contact',
   },
   {
-    id:6,
-    title:"Info",
-    to:"/group"
-  }
+    id: 6,
+    title: 'Info',
+    to: '/group',
+  },
+  {
+    id: 7,
+    title: 'Authentication',
+    to: '/Authentication',
+  },
 ];
 
 const Navbar = () => {
@@ -76,7 +81,10 @@ const Navbar = () => {
           <Qualification />
         </Route>
         <Route path="/Group">
-          <Group/>
+          <Group />
+        </Route>
+        <Route path="/Authentication">
+          <Authentication />
         </Route>
       </Switch>
     </Router>
