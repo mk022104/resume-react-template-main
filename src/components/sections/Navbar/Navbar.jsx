@@ -11,7 +11,6 @@ import Portfolio from '../../pages/Portfolio/Portfolio';
 import Service from '../../pages/Service/Service';
 import Qualification from '../../pages/Qualification/Qualification.jsx';
 import Group from '../../pages/Group/Group.js';
-import Authentication from '../../pages/Authentication/Authentication.jsx';
 const navbarData = [
   {
     id: 1,
@@ -42,11 +41,6 @@ const navbarData = [
     id: 6,
     title: 'Info',
     to: '/group',
-  },
-  {
-    id: 7,
-    title: 'Authentication',
-    to: '/Authentication',
   },
 ];
 
@@ -82,9 +76,6 @@ const Navbar = () => {
         </Route>
         <Route path="/Group">
           <Group />
-        </Route>
-        <Route path="/Authentication">
-          <Authentication />
         </Route>
       </Switch>
     </Router>

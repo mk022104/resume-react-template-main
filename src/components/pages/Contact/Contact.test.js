@@ -54,7 +54,7 @@ describe('Contact Component', () => {
       target: { value: 'john@example.com' },
     });
     fireEvent.change(screen.getByPlaceholderText('Phone Number'), {
-      target: { value: '2025550123' },
+      target: { value: '+12025550123' },
     });
     fireEvent.change(screen.getByPlaceholderText('Subject'), {
       target: { value: 'Test Subject' },
@@ -86,7 +86,7 @@ describe('Contact Component', () => {
       target: { value: 'john@example.com' },
     });
     fireEvent.change(screen.getByPlaceholderText('Phone Number'), {
-      target: { value: '2025550123' },
+      target: { value: '+12025550123' },
     });
     fireEvent.change(screen.getByPlaceholderText('Subject'), {
       target: { value: 'Test Subject' },

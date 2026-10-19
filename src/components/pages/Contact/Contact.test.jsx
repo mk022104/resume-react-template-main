@@ -21,7 +21,7 @@ const fillValidForm = () => {
     target: { value: "test@example.com" },
   });
   fireEvent.change(screen.getByPlaceholderText("Phone Number"), {
-    target: { value: "9843771236" },
+    target: { value: "+19843771236" },
   });
   fireEvent.change(screen.getByPlaceholderText("Subject"), {
     target: { value: "Hello" },
@@ -42,6 +42,21 @@ describe("Contact", () => {
     const msg = screen.getByPlaceholderText("Your Message");
     fireEvent.change(msg, { target: { value: "abc" } });
     expect(screen.getByText(/497 Characters/)).toBeInTheDocument();
+  });
+
+  it("validates phone number length as the value changes", () => {
+    render(<Contact />);
+    const phoneInput = screen.getByPlaceholderText("Phone Number");
+
+    fireEvent.change(phoneInput, { target: { value: "123" } });
+    expect(screen.getByRole("alert")).toHaveTextContent(
+      "This number has an invalid length for the selected country."
+    );
+    expect(phoneInput).toHaveAttribute("aria-invalid", "true");
+
+    fireEvent.change(phoneInput, { target: { value: "2025550123" } });
+    expect(screen.queryByRole("alert")).not.toBeInTheDocument();
+    expect(phoneInput).toHaveAttribute("aria-invalid", "false");
   });
 
   it("opens success modal when email sends successfully", async () => {

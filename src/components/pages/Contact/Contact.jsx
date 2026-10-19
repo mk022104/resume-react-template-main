@@ -1,32 +1,44 @@
-import React, { useRef, useState, useEffect } from "react";
-import emailjs from "@emailjs/browser";
-import PhoneInput, { isPossiblePhoneNumber } from "react-phone-number-input";
-import { ToastContainer, toast } from "react-toastify";
-import "react-phone-number-input/style.css";
-import "react-toastify/dist/ReactToastify.css";
-import "./contact.css"
+import React, { useRef, useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
+import PhoneInput, { isPossiblePhoneNumber } from 'react-phone-number-input';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-phone-number-input/style.css';
+import 'react-toastify/dist/ReactToastify.css';
+import './contact.css';
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
-      
       <div className="bg-white p-5 rounded-lg shadow-lg relative l:w-96	w-72 ml-0 md:w-96 md:ml-24 sm:p-6 md:p-8 lg:p-10 xl:p-12">
-        <button onClick={onClose} className="absolute top-2 right-4 text-gray-600 text-lg">&times;</button>
+        <button
+          onClick={onClose}
+          className="absolute top-2 right-4 text-gray-600 text-lg"
+        >
+          &times;
+        </button>
         {children}
       </div>
     </div>
   );
 };
 
-
 const Contact = () => {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const [phoneNumber, setPhoneNumber] = useState();
+  const [phoneNumberError, setPhoneNumberError] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [message, setMessage] = useState('');
 
-  const maxCharacters= 500;
+  const maxCharacters = 500;
+  const getPhoneNumberError = (value) =>
+    value && !isPossiblePhoneNumber(value)
+      ? 'This number has an invalid length for the selected country.'
+      : '';
+  const handlePhoneNumberChange = (value) => {
+    setPhoneNumber(value);
+    setPhoneNumberError(getPhoneNumberError(value));
+  };
   const handleCloseModal = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -38,14 +50,18 @@ const Contact = () => {
   const focusInput = () => {
     useFocus.current?.focus();
   };
-  useEffect(()=>{
-    focusInput()//focus onload the page.
-  },[])
-   
+  useEffect(() => {
+    focusInput(); //focus onload the page.
+  }, []);
+
   const sendEmail = (e) => {
     e.preventDefault();
-    if (!phoneNumber || !isPossiblePhoneNumber(phoneNumber)) {
-      toast.error("Please enter a phone number with a valid length for its country.");
+    const phoneError = getPhoneNumberError(phoneNumber);
+    if (!phoneNumber || phoneError) {
+      setPhoneNumberError(phoneError);
+      toast.error(
+        'Please enter a phone number with a valid length for its country.'
+      );
       return;
     }
     //Focus input onSubmit
@@ -74,8 +90,10 @@ const Contact = () => {
       );
     e.target.reset();
     setPhoneNumber(undefined);
+    setPhoneNumberError('');
   };
   const numberofCharacters = maxCharacters - input.length;
+  const hasInvalidPhoneNumberLength = Boolean(phoneNumberError);
   return (
     <section className="pb-10">
       <div className="flex flex-wrap md:px-4">
@@ -121,13 +139,29 @@ const Contact = () => {
                 <PhoneInput
                   className="contact-phone-input"
                   defaultCountry="US"
+                  international
                   value={phoneNumber}
-                  onChange={setPhoneNumber}
+                  onChange={handlePhoneNumberChange}
                   required
                   placeholder="Phone Number"
                   aria-label="Phone Number"
+                  aria-invalid={Boolean(hasInvalidPhoneNumberLength)}
+                  aria-describedby={
+                    hasInvalidPhoneNumberLength
+                      ? 'phone-number-error'
+                      : undefined
+                  }
                 />
-                <input type="hidden" name="phone" value={phoneNumber || ""} />
+                <input type="hidden" name="phone" value={phoneNumber || ''} />
+                {hasInvalidPhoneNumberLength && (
+                  <p
+                    id="phone-number-error"
+                    className="mt-2 text-sm text-red-600"
+                    role="alert"
+                  >
+                    {phoneNumberError}
+                  </p>
+                )}
               </div>
             </div>
             <div className="w-full">
