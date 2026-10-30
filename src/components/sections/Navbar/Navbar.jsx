@@ -28,7 +28,7 @@ const navbarData = [
     to: '/portfolio',
   },
   {
-    id: 6,
+    id: 4,
     title: 'Education Details',
     to: '/Qualification',
   },
@@ -49,8 +49,8 @@ const Navbar = () => {
     <Router>
       <nav className="md:mx-8 lg:ml-0 mb-3 px-6 py-2 z-10 sticky top-0 bg-white shadow lg:rounded-full md:rounded-full font-serif rounded-xl bg-size-200">
         <ul className="flex flex-wrap">
-          {navbarData.map((el, id) => (
-            <LinkItem el={el} key={id} />
+          {navbarData.map((item) => (
+            <LinkItem item={item} key={item.id} />
           ))}
         </ul>
       </nav>
@@ -84,8 +84,8 @@ const Navbar = () => {
 
 export default Navbar;
 
-const LinkItem = (props) => {
-  const { title, to } = props.el;
+const LinkItem = ({ item }) => {
+  const { title, to } = item;
   return (
     <li className="m-3 lg:mx-5">
       <NavLink

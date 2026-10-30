@@ -24,8 +24,11 @@ const Qualification = () => {
   return (
     <section className="pb-10">
       <div className="flex flex-wrap md:px-4 fontDecoration">
-        {QualificationData.map((desc, id) => (
-          <QualificationList desc={desc} key={id}/>
+        {QualificationData.map((qualification) => (
+          <QualificationList
+            qualification={qualification}
+            key={qualification.id}
+          />
         ))}
       </div>
     </section>

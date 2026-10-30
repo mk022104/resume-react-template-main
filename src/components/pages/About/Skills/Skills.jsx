@@ -70,8 +70,8 @@ const Skills = () => {
             </h3>
           </div>
         </div>
-        {skillData.map((skill, id) => (
-          <SkillItem skill={skill} key={id} />
+        {skillData.map((skill) => (
+          <SkillItem skill={skill} key={skill.id} />
         ))}
       </div>
     </div>

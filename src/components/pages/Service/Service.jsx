@@ -33,14 +33,14 @@ const serviceData = [
       "Bootstrap offers a wide range of pre-built components and styles, it's essential to customize it to match your project's specific requirements. By modifying the default styles and adding your branding elements, you can create a unique and professional look for your website.",
   },
   {
-    id: 4,
+    id: 5,
     icon: <SiTailwindcss />,
     title: "Tailwindcss Template",
     description:
       "Tailwind CSS can generate extensive CSS files, you can optimize the build by purging unused classes. Tailwind CSS includes a purge feature that removes unused styles from your production build, resulting in smaller file sizes and improved performance. ",
   },
   {
-    id: 4,
+    id: 6,
     icon: <FaReact />,
     title: "React Template",
     description:
@@ -52,8 +52,8 @@ const Service = () => {
   return (
     <section className="pb-10">
       <div className="flex flex-wrap md:px-5">
-        {serviceData.map((service, id) => (
-          <ServiceItem service={service} key={id} />
+        {serviceData.map((service) => (
+          <ServiceItem service={service} key={service.id} />
         ))}
       </div>
     </section>
