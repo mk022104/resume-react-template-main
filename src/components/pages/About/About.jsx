@@ -13,9 +13,9 @@ const About = () => {
             <p className="text-sm text-gray-400 leading-6 mb-3 aboutFontDecoration">
               Senior React JS / Frontend Developer with 11+ years of IT
               experience including 10+ years specializing in React.js,
-              TypeScript, and modern frontend architecture. Builds scalable,
-              secure, high-performance enterprise web apps across insurance,
-              finance, automotive, education, and cloud platforms.
+              TypeScript, Javascript and modern frontend architecture. Builds
+              scalable, secure, high-performance enterprise web apps across
+              insurance, finance, automotive, education, and cloud platforms.
             </p>
             <p className="text-sm text-gray-400 leading-6 mb-3 aboutFontDecoration">
               Currently Senior UI Developer at Pearson on the Access Management
