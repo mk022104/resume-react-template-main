@@ -1,7 +1,7 @@
 .chat-fab {
   position: fixed;
   right: 20px;
-  bottom: 20px;
+  bottom: 65px;
   z-index: 1100;
   background: #4c1d95;
   color: white;
