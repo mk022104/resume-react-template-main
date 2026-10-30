@@ -22,18 +22,6 @@ const Footer = () => {
             {time} {today} {timeZone}
           </span>
         </p>
-        <a
-          href="https://www.netlify.com/"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Deploys by Netlify"
-        >
-          <img
-            src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg"
-            alt="Deploys by Netlify"
-            className="h-8"
-          />
-        </a>
       </div>
     </footer>
   );
