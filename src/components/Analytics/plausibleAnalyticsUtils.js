@@ -37,6 +37,15 @@ export const installPlausibleAnalytics = (
   return true;
 };
 
+export const trackPortfolioEvent = (name, props = {}, windowRef = window) => {
+  if (typeof windowRef.plausible === 'function') {
+    windowRef.plausible(name, { props });
+  }
+  if (typeof windowRef.gtag === 'function') {
+    windowRef.gtag('event', name, props);
+  }
+};
+
 export const normalizeGoogleMeasurementId = (measurementId) => {
   const value = measurementId?.trim().toUpperCase();
   return value && /^G-[A-Z0-9]+$/.test(value) ? value : '';

@@ -7,6 +7,7 @@ import {
 } from 'react-icons/fa';
 import Madhukar from '../../../images/portfolio/Madhukar.jpg';
 import Tooltip from './Tooltip';
+import { trackPortfolioEvent } from '../../Analytics/plausibleAnalyticsUtils';
 const coxurl =
   'https://www.pearson.com/en-us.html?srsltid=AfmBOopwZSntt62el17ePQOX0dYCH0X6o1B4osXkYcHYZkYq9qO8LJau';
 const socials = [
@@ -42,7 +43,7 @@ const Sidebar = () => {
       <div className="w-24 h-24 rounded-md overflow-hidden mx-auto mb-5">
         <img
           src={Madhukar}
-          alt="shafiqhammad"
+          alt="Madhukar Ganga"
           className="w-full cursor-pointer"
         />
       </div>
@@ -58,11 +59,12 @@ const Sidebar = () => {
         </p>
         <a
           href="/MadhukarReddyUpdated Resume.docx"
+          onClick={() => trackPortfolioEvent('resume_download', { format: 'docx' })}
           className="inline-flex mb-3 rounded bg-blue-900 text-center border-0 py-2 px-6 text-white leading-7 tracking-wide active:bg-blue-900 hover:bg-blue-900"
           download="Madhukar Resume"
         >
           <svg
-            class="fill-current w-4 h-7 mr-2"
+            className="fill-current w-4 h-7 mr-2"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
           >
@@ -70,6 +72,15 @@ const Sidebar = () => {
           </svg>
           Download Resume
         </a>
+        <div className="mb-4">
+          <span className="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-800">
+            <span className="mr-2 h-2 w-2 rounded-full bg-green-500" aria-hidden="true" />
+            Open to senior frontend opportunities
+          </span>
+          <a href="/contact" className="mt-3 block text-sm font-medium text-purple-700 hover:underline">
+            Contact Madhukar
+          </a>
+        </div>
         <ul className="flex flex-wrap justify-center">
           {socials.map((social) => {
             const { id, icon, link, text } = social;

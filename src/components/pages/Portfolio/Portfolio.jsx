@@ -6,9 +6,51 @@ import {
 } from 'react-collapsible-component';
 import './style.module.css';
 
+const featuredProjects = [
+  {
+    id: 1,
+    title: 'Interactive React Portfolio',
+    description: 'A responsive career portfolio with experience, education, contact, and an AI resume assistant.',
+    technologies: ['React', 'Tailwind CSS', 'Jest', 'Playwright'],
+    repository: 'https://github.com/mk022104/resume-react-template-main',
+    highlights: ['Reusable UI cards', 'Responsive navigation', 'Automated component tests'],
+  },
+  {
+    id: 2,
+    title: 'Enterprise Authentication Platform',
+    description: 'Enterprise access-management experience covering secure sign-in, MFA, passwordless flows, and accessible onboarding.',
+    technologies: ['React', 'TypeScript', 'Micro Frontends', 'WCAG'],
+    highlights: ['SSO and MFA journeys', 'Accessible component library', 'CI/CD automation'],
+  },
+];
+
 function Portfolio() {
   return (
     <div className="expBorder">
+      <section className="px-1 md:px-9 mb-8" aria-labelledby="featured-work-heading">
+        <h3 id="featured-work-heading" className="text-md mb-4 uppercase font-medium text-gray-800">
+          Featured Work
+        </h3>
+        <div className="grid gap-4 md:grid-cols-2">
+          {featuredProjects.map((project) => (
+            <article key={project.id} className="rounded-md bg-white shadow-md p-5">
+              <h4 className="text-lg font-semibold text-gray-800 mb-2">{project.title}</h4>
+              <p className="text-sm text-gray-600 mb-3">{project.description}</p>
+              <ul className="flex flex-wrap gap-2 mb-3">
+                {project.technologies.map((technology) => (
+                  <li key={technology} className="rounded-full bg-purple-100 px-3 py-1 text-xs text-purple-900">{technology}</li>
+                ))}
+              </ul>
+              <ul className="text-sm text-gray-700 list-disc ml-5 mb-4">
+                {project.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+              </ul>
+              {project.repository && (
+                <a href={project.repository} target="_blank" rel="noreferrer" className="text-sm font-medium text-purple-700 hover:underline">View repository</a>
+              )}
+            </article>
+          ))}
+        </div>
+      </section>
       <h3 className="text-md mb-4 truncate md:ml-9 lg:ml-9 ml-1	uppercase font-medium text-gray-800 hover:text-indigo-400">
         Experience
       </h3>
