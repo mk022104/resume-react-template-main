@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-phone-number-input/style.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './contact.css';
+import { trackPortfolioEvent } from '../../Analytics/plausibleAnalyticsUtils';
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
@@ -78,6 +79,10 @@ const Contact = () => {
         (result) => {
           if (result) {
             setIsModalOpen(true);
+            trackPortfolioEvent('generate_lead', {
+              lead_source: 'contact_form',
+              form_status: 'success',
+            });
             console.log(result.text);
             setMessage('successfully sent email.');
             // toast.success("Contact successfully sent!!!",{ autoClose: false });
@@ -85,6 +90,9 @@ const Contact = () => {
         },
         (error) => {
           toast.error('Please fill contact details correctly', +error.message);
+          trackPortfolioEvent('contact_form_failure', {
+            error_type: error?.text ? 'email_service' : 'network_or_unknown',
+          });
           setMessage('You are having errors to submit a form.' + error.message);
         }
       );

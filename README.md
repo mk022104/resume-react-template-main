@@ -28,4 +28,41 @@ Google Analytics 4 can run alongside Plausible, but this sends analytics data to
 2. In Netlify, add `REACT_APP_GA_MEASUREMENT_ID` with that ID under **Site configuration → Environment variables**, then redeploy.
 3. For local testing, use a separate GA4 property/Measurement ID in `.env.local` and set `REACT_APP_GA_ENABLE_IN_DEV=true`. Restart `npm start` afterward so CRA reloads the environment. Do not use the production Measurement ID for development if you want to keep local hits out of production reports.
 
-GA4's automatic page-view tracking is enabled by default. For client-side route changes, open the GA4 Web data stream's **Enhanced measurement** settings and ensure page views based on browser history changes are enabled.
+### Consent and privacy behavior
+
+Plausible and Google Analytics do not load until the visitor accepts analytics consent. The first visit displays a consent dialog centered over the page. Accepting stores consent in the browser under `portfolio_analytics_consent`; declining stores the denied choice and keeps analytics disabled.
+
+When GA4 initializes, Consent Mode defaults analytics and advertising storage to denied. The implementation uses anonymous measurement settings and sends no names, email addresses, messages, passwords, or other personal form values to analytics.
+
+Remove or update these browser-stored choices when testing consent behavior:
+
+```js
+localStorage.removeItem('portfolio_analytics_consent');
+location.reload();
+```
+
+### Page-view tracking
+
+Automatic initial page views are disabled in the GA4 configuration to avoid duplicate hits. Client-side route changes are tracked separately as `page_view` events through the React Router integration.
+
+Tracked page paths include `/`, `/about`, `/services`, `/portfolio`, `/contact`, `/Qualification`, and `/Group`. Route titles are also attached for GA4 reports.
+
+### Custom events
+
+The portfolio currently records these GA4 events:
+
+| Event | Trigger | Parameters |
+| --- | --- | --- |
+| `page_view` | Route navigation | `page_location`, `page_path`, `page_title` |
+| `nav_click` | Portfolio navigation link | `page_path`, `navigation_label` |
+| `resume_download` | Resume download button | `format` |
+| `social_click` | Social-profile link | `platform`, `link_url` |
+| `generate_lead` | Contact form sent successfully | `lead_source`, `form_status` |
+| `contact_form_failure` | Contact form fails to send | `error_type` |
+| `project_repository_click` | Featured-project repository link | `project_title` |
+| `chatbot_opened` | Chat panel opened or closed | `action` |
+| `chatbot_message_sent` | Chat response succeeds or fails | `result` |
+
+To review these events in GA4, open **Reports → Realtime** and test each interaction in a production build, or use **Admin → DebugView** during development with a separately configured GA4 property.
+
+To use successful contact submissions as a conversion, open **Admin → Events** in GA4 and mark `generate_lead` as a key event. Do not enable enhanced user-data collection unless the applicable privacy notice and consent requirements have been reviewed.

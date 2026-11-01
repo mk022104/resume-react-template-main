@@ -4,6 +4,7 @@ import {
   NavLink,
   Route,
   Switch,
+  useLocation,
 } from 'react-router-dom';
 import About from '../../pages/About/About';
 import Contact from '../../pages/Contact/Contact';
@@ -11,6 +12,7 @@ import Portfolio from '../../pages/Portfolio/Portfolio';
 import Service from '../../pages/Service/Service';
 import Qualification from '../../pages/Qualification/Qualification.jsx';
 import Group from '../../pages/Group/Group.js';
+import AnalyticsRouteTracker from '../../Analytics/AnalyticsRouteTracker';
 const navbarData = [
   {
     id: 1,
@@ -54,6 +56,7 @@ const Navbar = () => {
           ))}
         </ul>
       </nav>
+      <AnalyticsRouteTrackerContainer />
 
       <Switch>
         <Route exact path="/">
@@ -82,6 +85,11 @@ const Navbar = () => {
   );
 };
 
+const AnalyticsRouteTrackerContainer = () => {
+  const location = useLocation();
+  return <AnalyticsRouteTracker locationRef={location} />;
+};
+
 export default Navbar;
 
 const LinkItem = ({ item }) => {
@@ -92,6 +100,12 @@ const LinkItem = ({ item }) => {
         to={to}
         activeClassName="text-purple-900"
         className="text-medium hover:from-pink-900 hover:underline hover:decoration-blue-900 hover:border-transparent"
+        onClick={() =>
+          window.gtag?.('event', 'nav_click', {
+            page_path: to,
+            navigation_label: title,
+          })
+        }
       >
         {title}
       </NavLink>

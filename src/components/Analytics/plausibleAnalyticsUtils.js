@@ -10,6 +10,21 @@ export const normalizePlausibleDomain = (domain) => {
   }
 };
 
+export const setGoogleConsent = (
+  granted,
+  { windowRef = window } = {}
+) => {
+  if (typeof windowRef.gtag !== 'function') return false;
+
+  windowRef.gtag('consent', 'update', {
+    analytics_storage: granted ? 'granted' : 'denied',
+    ad_storage: granted ? 'granted' : 'denied',
+    ad_user_data: granted ? 'granted' : 'denied',
+    ad_personalization: granted ? 'granted' : 'denied',
+  });
+  return true;
+};
+
 export const installPlausibleAnalytics = (
   domain,
   {
@@ -72,8 +87,17 @@ export const installGoogleAnalytics = (
   windowRef.gtag = function gtag() {
     windowRef.dataLayer.push(arguments);
   };
+  windowRef.gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+  });
   windowRef.gtag('js', new Date());
-  windowRef.gtag('config', id);
+  windowRef.gtag('config', id, {
+    send_page_view: false,
+    anonymize_ip: true,
+  });
 
   const script = documentRef.createElement('script');
   script.async = true;

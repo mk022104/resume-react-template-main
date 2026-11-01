@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { getAssistantReply } from './portfolioKnowledge';
 import './ChatWidget.css';
+import { trackPortfolioEvent } from '../Analytics/plausibleAnalyticsUtils';
 
 const WELCOME =
   "Hi! Ask me about Madhukar's resume (skills, jobs, education, contact) or any general question.";
@@ -39,11 +40,17 @@ export default function ChatWidget() {
 
     try {
       const reply = await getAssistantReply(text);
+      trackPortfolioEvent('chatbot_message_sent', {
+        result: 'success',
+      });
       setMessages((prev) => [
         ...prev,
         { id: Date.now() + 1, role: 'bot', text: reply },
       ]);
     } catch (err) {
+      trackPortfolioEvent('chatbot_message_sent', {
+        result: 'failure',
+      });
       setMessages((prev) => [
         ...prev,
         {
@@ -62,7 +69,12 @@ export default function ChatWidget() {
       <button
         type="button"
         className="chat-fab"
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          setOpen((v) => !v);
+          trackPortfolioEvent('chatbot_opened', {
+            action: open ? 'close' : 'open',
+          });
+        }}
         aria-label={open ? 'Close chat' : 'Open chat'}
       >
         <svg

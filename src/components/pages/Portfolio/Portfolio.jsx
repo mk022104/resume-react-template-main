@@ -5,6 +5,7 @@ import {
   CollapsibleContent,
 } from 'react-collapsible-component';
 import './style.module.css';
+import { trackPortfolioEvent } from '../../Analytics/plausibleAnalyticsUtils';
 
 const featuredProjects = [
   {
@@ -45,7 +46,19 @@ function Portfolio() {
                 {project.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
               </ul>
               {project.repository && (
-                <a href={project.repository} target="_blank" rel="noreferrer" className="text-sm font-medium text-purple-700 hover:underline">View repository</a>
+                <a
+                  href={project.repository}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() =>
+                    trackPortfolioEvent('project_repository_click', {
+                      project_title: project.title,
+                    })
+                  }
+                  className="text-sm font-medium text-purple-700 hover:underline"
+                >
+                  View repository
+                </a>
               )}
             </article>
           ))}

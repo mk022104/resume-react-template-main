@@ -81,9 +81,10 @@ test('installs Google Analytics once for a valid production measurement ID', () 
     'src',
     'https://www.googletagmanager.com/gtag/js?id=G-ABC123'
   );
-  expect(window.dataLayer).toHaveLength(2);
-  expect(window.dataLayer[1][0]).toBe('config');
-  expect(window.dataLayer[1][1]).toBe('G-ABC123');
+  expect(window.dataLayer).toHaveLength(3);
+  expect(window.dataLayer[0][0]).toBe('consent');
+  expect(window.dataLayer[2][0]).toBe('config');
+  expect(window.dataLayer[2][1]).toBe('G-ABC123');
 });
 
 test('keeps Google Analytics disabled outside production unless opted in', () => {
