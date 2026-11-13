@@ -1,10 +1,6 @@
 # Set up the React project:::
 
-    1. Clone the project using git clone.
-    2. Install the dependencies using npm install.
-    3. Start the server using the npm start command.
-    4. Runs the app in development mode.
-    Open https://madhuresume.netlify.app/ to view it in the browser.
+Start the project running using command `npm start`
 
 ## Optional traffic analytics
 
@@ -51,18 +47,38 @@ Tracked page paths include `/`, `/about`, `/services`, `/portfolio`, `/contact`,
 
 The portfolio currently records these GA4 events:
 
-| Event | Trigger | Parameters |
-| --- | --- | --- |
-| `page_view` | Route navigation | `page_location`, `page_path`, `page_title` |
-| `nav_click` | Portfolio navigation link | `page_path`, `navigation_label` |
-| `resume_download` | Resume download button | `format` |
-| `social_click` | Social-profile link | `platform`, `link_url` |
-| `generate_lead` | Contact form sent successfully | `lead_source`, `form_status` |
-| `contact_form_failure` | Contact form fails to send | `error_type` |
-| `project_repository_click` | Featured-project repository link | `project_title` |
-| `chatbot_opened` | Chat panel opened or closed | `action` |
-| `chatbot_message_sent` | Chat response succeeds or fails | `result` |
+| Event                      | Trigger                          | Parameters                                 |
+| -------------------------- | -------------------------------- | ------------------------------------------ |
+| `page_view`                | Route navigation                 | `page_location`, `page_path`, `page_title` |
+| `nav_click`                | Portfolio navigation link        | `page_path`, `navigation_label`            |
+| `resume_download`          | Resume download button           | `format`                                   |
+| `social_click`             | Social-profile link              | `platform`, `link_url`                     |
+| `generate_lead`            | Contact form sent successfully   | `lead_source`, `form_status`               |
+| `contact_form_failure`     | Contact form fails to send       | `error_type`                               |
+| `project_repository_click` | Featured-project repository link | `project_title`                            |
+| `chatbot_opened`           | Chat panel opened or closed      | `action`                                   |
+| `chatbot_message_sent`     | Chat response succeeds or fails  | `result`                                   |
 
 To review these events in GA4, open **Reports → Realtime** and test each interaction in a production build, or use **Admin → DebugView** during development with a separately configured GA4 property.
 
 To use successful contact submissions as a conversion, open **Admin → Events** in GA4 and mark `generate_lead` as a key event. Do not enable enhanced user-data collection unless the applicable privacy notice and consent requirements have been reviewed.
+
+### Production error monitoring
+
+The application reports browser errors to GA4 as `exception` events. Error tracking includes:
+
+- JavaScript runtime errors
+- Unhandled promise rejections
+- React rendering crashes
+- The affected route
+- A sanitized error message
+- A shortened browser or React component stack
+
+To inspect errors:
+
+1. Open **Google Analytics → Reports → Realtime** for immediate test events.
+2. Open **Explore → Blank exploration** for production analysis.
+3. Create an event filter where `Event name = exception`.
+4. Add dimensions for `page_path`, `source`, `description`, and `stack_trace`.
+
+Error reporting requires analytics consent. Error details are limited to their first 500–1500 characters, and names, email addresses, messages, passwords, and submitted form values are not intentionally included.
