@@ -7,15 +7,15 @@ import PlausibleAnalytics from './components/Analytics/PlausibleAnalytics.jsx';
 
 function App() {
   return (
-    <main className="min-h-screen relative bg-gray-50 pb-10">
+    <main className="min-h-screen relative overflow-x-hidden bg-slate-50 pb-16 md:pb-20">
       <PlausibleAnalytics />
       <ProfileCover />
-      <div className="container px-4">
-        <div className="flex flex-wrap px-4">
-          <div className="w-full lg:w-1/3 ">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="flex flex-wrap md:-mx-4">
+          <div className="w-full lg:w-1/3 md:px-4">
             <Sidebar />
           </div>
-          <div className="w-full lg:w-2/3 ">
+          <div className="w-full lg:w-2/3 md:px-4">
             <Navbar />
           </div>
         </div>

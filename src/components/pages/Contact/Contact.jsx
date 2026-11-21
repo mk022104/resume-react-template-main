@@ -106,7 +106,7 @@ const Contact = () => {
     <section className="pb-10">
       <div className="flex flex-wrap md:px-4">
         <form
-          className="p-8 md:mx-4 bg-white rounded-md shadow-md"
+          className="mt-8 p-8 md:mx-4 bg-white rounded-md shadow-md"
           ref={form}
           onSubmit={sendEmail}
           id="create-course-form"

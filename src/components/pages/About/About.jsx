@@ -3,21 +3,21 @@ import Skills from './Skills/Skills';
 
 const About = () => {
   return (
-    <section className="py-8">
+    <section className="px-5 py-8 md:px-8">
       <div className="flex flex-wrap md:px-4">
         <div className="w-full">
           <div className="md:mx-4">
-            <h3 className="text-2xl text-gray-800 font-bold mb-4 hover:text-purple-400">
+            <h3 className="mb-4 text-2xl font-bold tracking-tight text-slate-900">
               Who am I?
             </h3>
-            <p className="text-sm text-gray-400 leading-6 mb-3 aboutFontDecoration">
+            <p className="mb-4 text-base leading-7 text-slate-600 aboutFontDecoration">
               Senior React JS / Frontend Developer with 11+ years of IT
               experience including 10+ years specializing in React.js,
               TypeScript, Javascript and modern frontend architecture. Builds
               scalable, secure, high-performance enterprise web apps across
               insurance, finance, automotive, education, and cloud platforms.
             </p>
-            <p className="text-sm text-gray-400 leading-6 mb-3 aboutFontDecoration">
+            <p className="mb-4 text-base leading-7 text-slate-600 aboutFontDecoration">
               Currently Senior UI Developer at Pearson on the Access Management
               & Authentication Platform (SSO, MFA, passwordless, WCAG,
               Storybook, Micro Frontends, Vite, Cypress/Playwright). Strong in

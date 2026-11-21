@@ -39,32 +39,32 @@ const socials = [
 
 const Sidebar = () => {
   return (
-    <aside className="sticky top-0 bg-white md:mx-8 lg:mx-4 mb-8 p-6 shadow-md rounded-md -mt-40">
-      <div className="w-24 h-24 rounded-md overflow-hidden mx-auto mb-5">
+    <aside className="relative z-20 mb-8 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xl shadow-slate-900/10 lg:sticky lg:top-6 lg:-mt-36">
+      <div className="mx-auto mb-5 h-28 w-28 overflow-hidden rounded-2xl border-4 border-white shadow-lg ring-1 ring-slate-200">
         <img
           src={Madhukar}
           alt="Madhukar Ganga"
-          className="w-full cursor-pointer"
+          className="h-full w-full object-cover"
         />
       </div>
       <div className="text-center">
-        <h1 className="text-xl text-gray-800 font-bold mb-1">
-          Madhukar Ganga{' '}
+        <h1 className="mb-1 text-2xl font-bold tracking-tight text-slate-900">
+          Madhukar Ganga
         </h1>
-        <p className="text-sm text-gray-700 mb-3">
+        <p className="mb-4 text-sm text-slate-600">
           Senior UI Developer at
-          <a href={coxurl} className="text-purple-600 pl-1">
+          <a href={coxurl} className="pl-1 font-semibold text-indigo-700 hover:text-indigo-900">
             Pearson Educational.
           </a>
         </p>
         <a
           href="/MadhukarReddyUpdated Resume.docx"
           onClick={() => trackPortfolioEvent('resume_download', { format: 'docx' })}
-          className="inline-flex mb-3 rounded bg-blue-900 text-center border-0 py-2 px-6 text-white leading-7 tracking-wide active:bg-blue-900 hover:bg-blue-900"
+          className="inline-flex items-center justify-center rounded-lg bg-indigo-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-indigo-800"
           download="Madhukar Resume"
         >
           <svg
-            className="fill-current w-4 h-7 mr-2"
+            className="mr-2 h-4 w-4 fill-current"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
           >
@@ -72,12 +72,12 @@ const Sidebar = () => {
           </svg>
           Download Resume
         </a>
-        <div className="mb-4">
-          <span className="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-800">
-            <span className="mr-2 h-2 w-2 rounded-full bg-green-500" aria-hidden="true" />
+        <div className="mb-5 mt-4">
+          <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-medium text-emerald-700 ring-1 ring-emerald-600/20">
+            <span className="mr-2 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true" />
             Open to senior frontend opportunities
           </span>
-          <a href="/contact" className="mt-3 block text-sm font-medium text-purple-700 hover:underline">
+          <a href="/contact" className="mt-3 block text-sm font-semibold text-indigo-700 hover:text-indigo-900">
             Contact Madhukar
           </a>
         </div>
@@ -88,8 +88,8 @@ const Sidebar = () => {
           })}
         </ul>
       </div>
-      <div className="text-start pt-4">
-        <h3 className="text-md mb-2 uppercase font-medium text-gray-800 hover:text-indigo-400">
+      <div className="border-t border-slate-100 pt-5 text-start">
+        <h3 className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-800">
           About Me
         </h3>
         <p className="text-gray-900 leading-relaxed fontDecoration">

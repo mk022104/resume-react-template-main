@@ -49,8 +49,8 @@ const navbarData = [
 const Navbar = () => {
   return (
     <Router>
-      <nav className="md:mx-8 lg:ml-0 mb-3 px-6 py-2 z-10 sticky top-0 bg-white shadow lg:rounded-full md:rounded-full font-serif rounded-xl bg-size-200">
-        <ul className="flex flex-wrap">
+      <nav className="z-30 mb-5 mt-5 rounded-2xl border border-slate-200/80 bg-white/95 px-3 py-2 shadow-lg shadow-slate-900/5 backdrop-blur md:sticky md:top-4">
+        <ul className="flex flex-wrap items-center">
           {navbarData.map((item) => (
             <LinkItem item={item} key={item.id} />
           ))}
@@ -58,6 +58,7 @@ const Navbar = () => {
       </nav>
       <AnalyticsRouteTrackerContainer />
 
+      <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-lg shadow-slate-900/5">
       <Switch>
         <Route exact path="/">
           <About />
@@ -81,6 +82,7 @@ const Navbar = () => {
           <Group />
         </Route>
       </Switch>
+      </div>
     </Router>
   );
 };
@@ -95,11 +97,11 @@ export default Navbar;
 const LinkItem = ({ item }) => {
   const { title, to } = item;
   return (
-    <li className="m-3 lg:mx-5">
+    <li className="mx-1 my-1">
       <NavLink
         to={to}
-        activeClassName="text-purple-900"
-        className="text-medium hover:from-pink-900 hover:underline hover:decoration-blue-900 hover:border-transparent"
+        activeClassName="!bg-indigo-700 !text-white"
+        className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-indigo-50 hover:text-indigo-800"
         onClick={() =>
           window.gtag?.('event', 'nav_click', {
             page_path: to,

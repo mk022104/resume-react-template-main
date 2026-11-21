@@ -1,13 +1,12 @@
 import React from "react";
-import mountain from "./mountain.jpg"
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
+import "./Group.css";
 
 const Group =()=>{
     return (
-        <div className="bg-cover bg-center h-96 md:mr-8 md:ml-8 md:mb-8 lg:mb-8 sm:mx-0 shadow-md shadow-lg shadow
-          rounded-sm rounded-md rounded-lg" style={{ backgroundImage: `url(${mountain})`  }}>
-          <div className="flex items-center justify-center h-full bg-black bg-opacity-10">
+        <div className="group-card h-96 w-full overflow-hidden shadow-lg">
+          <div className="flex h-full items-center justify-center bg-black/10">
              <h1 className="text-white font-serif text-left	text-center">
                 <div className="flex items-center space-x-4 p-4">
                   <svg class="w-5 h-5 mb-1 text-white-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">

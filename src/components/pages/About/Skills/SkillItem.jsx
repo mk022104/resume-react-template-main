@@ -4,22 +4,19 @@ import React from "react";
 const SkillItem = (props) => {
   const { title, percentage } = props.skill;
   return (
-    <div className="w-full bg-neutral-200 dark:bg-neutral-600">
+    <div className="w-full">
       <div className="mb-4 md:mx-4">
         <div className="flex justify-between items-center mb-1">
-          <h5 className="text-md text-black-400 font-light">{title}</h5>
-          <span className="bg-primary p-0.5 text-center text-xs font-medium leading-none text-primary-100">
+          <h5 className="text-sm font-medium text-slate-700">{title}</h5>
+          <span className="text-xs font-semibold text-indigo-700">
             {percentage}
           </span>
         </div>
-        <div className="relative rounded-full bg-gray-200">
+        <div className="relative h-2 overflow-hidden rounded-full bg-slate-100">
           <div
-            className="animate h-5 rounded-full bg-purple-900"
+            className="animate h-full rounded-full bg-gradient-to-r from-indigo-700 to-violet-500"
             style={{ width: `${percentage}` }}
           />
-          <span className="absolute inset-0 flex items-center justify-center text-sm font-medium text-blue-100">
-            {percentage}
-          </span>
         </div>
       </div>
     </div>

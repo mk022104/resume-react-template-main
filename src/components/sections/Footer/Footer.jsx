@@ -1,26 +1,36 @@
 import React, { useEffect, useState } from 'react';
 
-const Footer = () => {
+const today = new Date().toDateString();
+const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+const LiveClock = () => {
   const [time, setTime] = useState(() => new Date().toLocaleTimeString());
-  const today = new Date().toDateString();
-  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTime(new Date().toLocaleTimeString());
+      setTime((currentTime) => {
+        const nextTime = new Date().toLocaleTimeString();
+        return nextTime === currentTime ? currentTime : nextTime;
+      });
     }, 1000);
 
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <footer className="bg-amber-950 p-4 absolute md:bottom-0 left-0 w-full">
+    <span className="tracking-tight md:tracking-wide text-black-900 text-center">
+      {time} {today} {timeZone}
+    </span>
+  );
+};
+
+const Footer = () => {
+  return (
+    <footer className="absolute bottom-0 left-0 w-full border-t border-slate-800 bg-slate-950 p-4">
       <div className="container px-4 flex flex-col items-center gap-2">
-        <p className="text-sm text-black-900 tracking-wide text-center">
+        <p className="text-center text-xs tracking-wide text-slate-300">
           Designed and Developed by Madhukar Reddy.:::{' '}
-          <span className="tracking-tight md:tracking-wide text-black-900 text-center">
-            {time} {today} {timeZone}
-          </span>
+          <LiveClock />
         </p>
       </div>
     </footer>
