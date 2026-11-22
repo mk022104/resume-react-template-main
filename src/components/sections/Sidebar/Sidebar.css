@@ -186,13 +186,46 @@
 }
 
 .sidebar-about-title {
-  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
   color: #334155;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   padding-left: 0.75rem;
+  list-style: none;
+}
+
+.sidebar-about-title::-webkit-details-marker {
+  display: none;
+}
+
+.sidebar-about-title::after {
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-right: 0.25rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  content: "";
+  transform: translateY(-0.1rem) rotate(45deg);
+  transition: transform 180ms ease;
+}
+
+.sidebar-about[open] .sidebar-about-title {
+  margin-bottom: 0.6rem;
+}
+
+.sidebar-about[open] .sidebar-about-title::after {
+  transform: translateY(0.1rem) rotate(225deg);
+}
+
+.sidebar-about-title:focus-visible {
+  border-radius: 0.2rem;
+  outline: 2px solid #6366f1;
+  outline-offset: 3px;
 }
 
 .sidebar-about-copy {

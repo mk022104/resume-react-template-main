@@ -28,6 +28,15 @@ describe('Portfolio Component', () => {
     expect(screen.getByText('Experience')).toBeInTheDocument();
   });
 
+  test('provides expandable project case studies and impact placeholders', () => {
+    render(<Portfolio />);
+
+    expect(screen.getAllByText('Read case study')).toHaveLength(2);
+    expect(
+      screen.getAllByText(/Add a verified result or metric for this project/)
+    ).toHaveLength(2);
+  });
+
   test('renders job titles', () => {
     render(<Portfolio />);
     expect(

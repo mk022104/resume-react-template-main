@@ -1,0 +1,15 @@
+.primary-nav-link:focus-visible,
+.primary-nav-toggle:focus-visible {
+  outline: 3px solid rgba(99, 102, 241, 0.55);
+  outline-offset: 3px;
+}
+
+.primary-nav-link--active {
+  background-color: #4338ca;
+  color: #fff;
+}
+
+.primary-nav-link--active:hover {
+  background-color: #3730a3;
+  color: #fff;
+}

@@ -47,6 +47,47 @@
   gap: 1rem;
 }
 
+.portfolio-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+}
+
+.portfolio-filter-button {
+  border: 1px solid #cbd5e1;
+  border-radius: 9999px;
+  background: #fff;
+  padding: 0.45rem 0.8rem;
+  color: #475569;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.portfolio-filter-button:hover {
+  border-color: #a5b4fc;
+  background: #eef2ff;
+  color: #3730a3;
+}
+
+.portfolio-filter-button:focus-visible {
+  outline: 3px solid rgba(99, 102, 241, 0.4);
+  outline-offset: 2px;
+}
+
+.portfolio-filter-button--active,
+.portfolio-filter-button--active:hover {
+  border-color: #4338ca;
+  background: #4338ca;
+  color: #fff;
+}
+
 .portfolio-project-card {
   position: relative;
   display: flex;
@@ -167,6 +208,46 @@
   border-radius: 0.2rem;
   outline: 2px solid #6366f1;
   outline-offset: 3px;
+}
+
+.portfolio-case-study {
+  margin-bottom: 1.15rem;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 0.85rem;
+  color: #475569;
+  font-size: 0.8rem;
+}
+
+.portfolio-case-study summary {
+  width: fit-content;
+  cursor: pointer;
+  color: #4338ca;
+  font-weight: 700;
+}
+
+.portfolio-case-study summary:focus-visible {
+  border-radius: 0.2rem;
+  outline: 2px solid #6366f1;
+  outline-offset: 3px;
+}
+
+.portfolio-case-study-content {
+  padding-top: 0.9rem;
+  line-height: 1.6;
+}
+
+.portfolio-case-study-content h4 {
+  margin: 0.75rem 0 0.25rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.portfolio-case-study-content ul {
+  display: grid;
+  gap: 0.25rem;
+  margin-top: 0.4rem;
+  list-style: disc;
+  padding-left: 1.25rem;
 }
 
 .portfolio-experience .accordion-head {

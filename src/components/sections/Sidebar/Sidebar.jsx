@@ -5,6 +5,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import Madhukar from '../../../images/portfolio/Madhukar.jpg';
 import Tooltip from './Tooltip';
 import { trackPortfolioEvent } from '../../Analytics/plausibleAnalyticsUtils';
@@ -53,12 +54,13 @@ const Sidebar = () => {
           <a href={coxurl}>Pearson Educational</a>
         </p>
         <a
-          href="/MadhukarReddyUpdated Resume.docx"
+          href="/MadhukarReddyUpdated%20Resume.docx"
           onClick={() =>
             trackPortfolioEvent('resume_download', { format: 'docx' })
           }
           className="sidebar-resume-button"
-          download="Madhukar Resume"
+          download="Madhukar-Ganga-Resume.docx"
+          aria-label="Download resume as DOCX"
         >
           <svg
             className="sidebar-download-icon"
@@ -68,16 +70,16 @@ const Sidebar = () => {
           >
             <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
           </svg>
-          Download Resume
+          Download Resume (DOCX)
         </a>
         <div className="sidebar-availability">
           <span className="sidebar-status">
             <span className="sidebar-status-dot" aria-hidden="true" />
             Open to senior frontend opportunities
           </span>
-          <a href="/contact" className="sidebar-contact-link">
+          <Link to="/contact" className="sidebar-contact-link">
             Contact Madhukar
-          </a>
+          </Link>
         </div>
         <ul className="sidebar-social-list" aria-label="Social profiles">
           {socials.map((social) => {
@@ -86,10 +88,8 @@ const Sidebar = () => {
           })}
         </ul>
       </div>
-      <section className="sidebar-about">
-        <h2 className="sidebar-about-title">
-          About Me
-        </h2>
+      <details className="sidebar-about">
+        <summary className="sidebar-about-title">About Me</summary>
         <div className="sidebar-about-copy">
           <p>
             I specialize in React and modern frontend architecture — Redux,
@@ -109,7 +109,7 @@ const Sidebar = () => {
             to help!
           </p>
         </div>
-      </section>
+      </details>
     </aside>
   );
 };
