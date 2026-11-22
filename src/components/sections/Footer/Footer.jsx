@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './Footer.css';
 
 const today = new Date().toDateString();
 const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -18,7 +19,7 @@ const LiveClock = () => {
   }, []);
 
   return (
-    <span className="tracking-tight md:tracking-wide text-black-900 text-center">
+    <span className="text-center tracking-tight text-slate-600 md:tracking-wide">
       {time} {today} {timeZone}
     </span>
   );
@@ -26,10 +27,12 @@ const LiveClock = () => {
 
 const Footer = () => {
   return (
-    <footer className="absolute bottom-0 left-0 w-full border-t border-slate-800 bg-slate-950 p-4">
-      <div className="container px-4 flex flex-col items-center gap-2">
-        <p className="text-center text-xs tracking-wide text-slate-300">
-          Designed and Developed by Madhukar Reddy.:::{' '}
+    <footer className="site-footer px-4 py-3">
+      <div className="site-footer__content mx-auto flex max-w-7xl flex-col items-center gap-2 sm:flex-row sm:justify-between">
+        <p className="text-center text-xs tracking-wide text-slate-500 sm:text-left">
+          Designed and Developed by Madhukar Reddy.:::
+        </p>
+        <p className="text-xs tracking-wide text-slate-500">
           <LiveClock />
         </p>
       </div>
