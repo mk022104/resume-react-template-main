@@ -5,11 +5,13 @@ import ProfileCover from './components/sections/ProfileCover/ProfileCover';
 import Sidebar from './components/sections/Sidebar/Sidebar';
 import ChatWidget from './components/Chatbot/ChatWidget';
 import PlausibleAnalytics from './components/Analytics/PlausibleAnalytics.jsx';
+import { PortfolioProvider } from './context/PortfolioContext';
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen relative overflow-x-hidden bg-slate-50 pb-16 md:pb-20">
+    <PortfolioProvider dataUrl={process.env.REACT_APP_PORTFOLIO_DATA_URL}>
+      <Router>
+        <div className="min-h-screen relative overflow-x-hidden bg-slate-50 pb-16 md:pb-20">
         <a className="skip-link" href="#main-content">
           Skip to main content
         </a>
@@ -27,8 +29,9 @@ function App() {
         </div>
         <Footer />
         <ChatWidget />
-      </div>
-    </Router>
+        </div>
+      </Router>
+    </PortfolioProvider>
   );
 }
 

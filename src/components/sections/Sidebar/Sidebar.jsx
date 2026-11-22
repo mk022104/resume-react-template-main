@@ -6,60 +6,39 @@ import {
   FaLinkedinIn,
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import Madhukar from '../../../images/portfolio/Madhukar.jpg';
 import Tooltip from './Tooltip';
 import { trackPortfolioEvent } from '../../Analytics/plausibleAnalyticsUtils';
+import { usePortfolioData } from '../../../context/PortfolioContext';
 import './Sidebar.css';
-const coxurl =
-  'https://www.pearson.com/en-us.html?srsltid=AfmBOopwZSntt62el17ePQOX0dYCH0X6o1B4osXkYcHYZkYq9qO8LJau';
-const socials = [
-  {
-    id: 1,
-    icon: <FaFacebookF />,
-    link: 'https://www.facebook.com/?react=AQAZDm4XIn_VKrxMR10',
-    text: 'Facebook',
-  },
-  {
-    id: 2,
-    icon: <FaGithub />,
-    link: 'https://github.com/mk022104/resume-react-template-main',
-    text: 'Github',
-  },
-  {
-    id: 3,
-    icon: <FaLinkedinIn />,
-    link: 'https://www.linkedin.com/in/ganga1935/',
-    text: 'LinkedIn',
-  },
-  {
-    id: 4,
-    icon: <FaInstagram />,
-    link: 'https://www.instagram.com/',
-    text: 'Instagram',
-  },
-];
 
 const Sidebar = () => {
+  const { profile, social, sidebar } = usePortfolioData();
+  const icons = {
+    facebook: <FaFacebookF />,
+    github: <FaGithub />,
+    linkedin: <FaLinkedinIn />,
+    instagram: <FaInstagram />,
+  };
   return (
     <aside className="sidebar-card lg:sticky lg:top-6 lg:-mt-36">
       <div className="sidebar-card-header" aria-hidden="true" />
       <div className="sidebar-profile">
         <div className="sidebar-avatar">
-          <img src={Madhukar} alt="Madhukar Ganga" />
+          <img src={profile.avatar} alt={profile.name} />
         </div>
-        <h1 className="sidebar-name">Madhukar Ganga</h1>
+        <h1 className="sidebar-name">{profile.name}</h1>
         <p className="sidebar-role">
-          Senior UI Developer
+          {profile.role}
           <span className="sidebar-role-divider">at</span>
-          <a href={coxurl}>Pearson Educational</a>
+          <a href={profile.companyUrl} target="_blank" rel="noreferrer">{profile.company}</a>
         </p>
         <a
-          href="/MadhukarReddyUpdated%20Resume.docx"
+          href={profile.resumeUrl}
           onClick={() =>
             trackPortfolioEvent('resume_download', { format: 'docx' })
           }
           className="sidebar-resume-button"
-          download="Madhukar-Ganga-Resume.docx"
+          download={profile.resumeDownloadName}
           aria-label="Download resume as DOCX"
         >
           <svg
@@ -70,44 +49,27 @@ const Sidebar = () => {
           >
             <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
           </svg>
-          Download Resume (DOCX)
+          {sidebar.resumeLabel}
         </a>
         <div className="sidebar-availability">
           <span className="sidebar-status">
             <span className="sidebar-status-dot" aria-hidden="true" />
-            Open to senior frontend opportunities
+            {sidebar.availability}
           </span>
           <Link to="/contact" className="sidebar-contact-link">
-            Contact Madhukar
+            {sidebar.contactLabel}
           </Link>
         </div>
         <ul className="sidebar-social-list" aria-label="Social profiles">
-          {socials.map((social) => {
-            const { id, icon, link, text } = social;
-            return <Tooltip key={id} text={text} link={link} icon={icon} />;
+          {social.map((item) => {
+            return <Tooltip key={item.id} text={item.name} link={item.url} icon={icons[item.icon]} />;
           })}
         </ul>
       </div>
       <details className="sidebar-about">
-        <summary className="sidebar-about-title">About Me</summary>
+        <summary className="sidebar-about-title">{sidebar.aboutTitle}</summary>
         <div className="sidebar-about-copy">
-          <p>
-            I specialize in React and modern frontend architecture — Redux,
-            Next.js, TypeScript, Storybook, Micro Frontends, and WCAG
-            accessibility.
-          </p>
-          <p>
-            As a Senior UI Developer at Pearson, I build secure authentication
-            platforms (SSO, MFA, passwordless) and scalable enterprise UIs.
-          </p>
-          <p>
-            I can help with architecture, performance, accessibility, testing,
-            and delivery best practices.
-          </p>
-          <p>
-            Ask me anything related to React or frontend development—I'm here
-            to help!
-          </p>
+          {sidebar.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         </div>
       </details>
     </aside>

@@ -6,6 +6,7 @@ import 'react-phone-number-input/style.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './contact.css';
 import { trackPortfolioEvent } from '../../Analytics/plausibleAnalyticsUtils';
+import { usePortfolioData } from '../../../context/PortfolioContext';
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
@@ -31,6 +32,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 };
 
 const Contact = () => {
+  const { contact } = usePortfolioData();
   const [input, setInput] = useState('');
   const [phoneNumber, setPhoneNumber] = useState();
   const [phoneNumberError, setPhoneNumberError] = useState('');
@@ -117,13 +119,12 @@ const Contact = () => {
           id="create-course-form"
         >
           <div className="contact-form-heading">
-            <p className="contact-eyebrow">Let&apos;s connect</p>
+            <p className="contact-eyebrow">{contact.eyebrow}</p>
             <h3 className="contact-title">
-              Get in Touch
+              {contact.title}
             </h3>
             <p className="contact-intro">
-              Have a project in mind or want to discuss an opportunity? Send me
-              a message.
+              {contact.intro}
             </p>
           </div>
           <ToastContainer />
@@ -211,7 +212,7 @@ const Contact = () => {
             </div>
             <div className="contact-submit-row">
               <button type="submit" className="contact-submit-button">
-                Send message
+                {contact.submitLabel}
                 <span aria-hidden="true">→</span>
               </button>
             </div>

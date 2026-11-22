@@ -15,47 +15,7 @@ import Qualification from '../../pages/Qualification/Qualification.jsx';
 import Group from '../../pages/Group/Group.js';
 import AnalyticsRouteTracker from '../../Analytics/AnalyticsRouteTracker';
 import './Navbar.css';
-
-const navbarData = [
-  { title: 'About', to: '/about' },
-  { title: 'Services', to: '/services' },
-  { title: 'Portfolio', to: '/portfolio' },
-  { title: 'Education', to: '/qualification' },
-  { title: 'Contact', to: '/contact' },
-  { title: 'Info', to: '/group' },
-];
-
-const routeMetadata = {
-  '/about': {
-    title: 'About | Madhukar Ganga',
-    description:
-      'Learn about Madhukar Ganga, a senior UI developer specializing in accessible, scalable React applications.',
-  },
-  '/services': {
-    title: 'Services | Madhukar Ganga',
-    description:
-      'Frontend development services including React architecture, accessibility, performance, and testing.',
-  },
-  '/portfolio': {
-    title: 'Portfolio | Madhukar Ganga',
-    description:
-      'Selected frontend projects and career experience from Madhukar Ganga.',
-  },
-  '/qualification': {
-    title: 'Education | Madhukar Ganga',
-    description:
-      'Education and professional qualifications for Madhukar Ganga.',
-  },
-  '/contact': {
-    title: 'Contact | Madhukar Ganga',
-    description:
-      'Contact Madhukar Ganga about frontend development opportunities and projects.',
-  },
-  '/group': {
-    title: 'Info | Madhukar Ganga',
-    description: 'Additional information about Madhukar Ganga.',
-  },
-};
+import { usePortfolioData } from '../../../context/PortfolioContext';
 
 const updateMetaTag = (selector, attribute, value, content) => {
   let metaTag = document.head.querySelector(selector);
@@ -69,6 +29,7 @@ const updateMetaTag = (selector, attribute, value, content) => {
 
 const RouteMetadata = () => {
   const { pathname } = useLocation();
+  const { routeMetadata } = usePortfolioData();
 
   useEffect(() => {
     const metadata = routeMetadata[pathname.toLowerCase()] || {
@@ -107,12 +68,13 @@ const RouteMetadata = () => {
       'twitter:description',
       metadata.description
     );
-  }, [pathname]);
+  }, [pathname, routeMetadata]);
 
   return null;
 };
 
 const Navbar = () => {
+  const { navigation } = usePortfolioData();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuButtonRef = useRef(null);
 
@@ -152,7 +114,7 @@ const Navbar = () => {
             isMenuOpen ? 'flex' : 'hidden'
           }`}
         >
-          {navbarData.map((item) => (
+          {navigation.map((item) => (
             <LinkItem
               item={item}
               key={item.to}

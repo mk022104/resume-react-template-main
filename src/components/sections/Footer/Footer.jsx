@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Footer.css';
+import { usePortfolioData } from '../../../context/PortfolioContext';
 
 const today = new Date().toDateString();
 const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -26,11 +27,12 @@ const LiveClock = () => {
 };
 
 const Footer = () => {
+  const { footer } = usePortfolioData();
   return (
     <footer className="site-footer px-4 py-3">
       <div className="site-footer__content mx-auto flex max-w-7xl flex-col items-center gap-2 sm:flex-row sm:justify-between">
         <p className="text-center text-xs tracking-wide text-slate-500 sm:text-left">
-          Designed and Developed by Madhukar Reddy.:::
+          {footer.credit}
         </p>
         <p className="text-xs tracking-wide text-slate-500">
           <LiveClock />

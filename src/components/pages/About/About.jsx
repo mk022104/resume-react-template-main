@@ -1,30 +1,25 @@
 import React from 'react';
 import Skills from './Skills/Skills';
+import { usePortfolioData } from '../../../context/PortfolioContext';
 
 const About = () => {
+  const { about } = usePortfolioData();
   return (
     <section className="px-5 py-8 md:px-8">
       <div className="flex flex-wrap md:px-4">
         <div className="w-full">
           <div className="md:mx-4">
             <h3 className="mb-4 text-2xl font-bold tracking-tight text-slate-900">
-              Who am I?
+              {about.heading}
             </h3>
-            <p className="mb-4 text-base leading-7 text-slate-600 aboutFontDecoration">
-              Senior React JS / Frontend Developer with 11+ years of IT
-              experience including 10+ years specializing in React.js,
-              TypeScript, Javascript and modern frontend architecture. Builds
-              scalable, secure, high-performance enterprise web apps across
-              insurance, finance, automotive, education, and cloud platforms.
-            </p>
-            <p className="mb-4 text-base leading-7 text-slate-600 aboutFontDecoration">
-              Currently Senior UI Developer at Pearson on the Access Management
-              & Authentication Platform (SSO, MFA, passwordless, WCAG,
-              Storybook, Micro Frontends, Vite, Cypress/Playwright). Strong in
-              Redux, Redux Toolkit, Next.js, REST/GraphQL, CI/CD, Docker,
-              AWS/Azure, and enterprise auth. Collaborates with teams, mentors
-              developers, and delivers production-ready applications.
-            </p>
+            {about.paragraphs.map((paragraph) => (
+              <p
+                key={paragraph}
+                className="mb-4 text-base leading-7 text-slate-600 aboutFontDecoration"
+              >
+                {paragraph}
+              </p>
+            ))}
           </div>
           <Skills />
         </div>
