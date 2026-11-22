@@ -1,0 +1,130 @@
+.skill-item {
+  --skill-delay: 0ms;
+  opacity: 0;
+  animation: skill-item-enter 550ms ease-out var(--skill-delay) forwards;
+}
+
+.skills-list > .skill-item:nth-child(2) {
+  --skill-delay: 0ms;
+}
+
+.skills-list > .skill-item:nth-child(3) {
+  --skill-delay: 90ms;
+}
+
+.skills-list > .skill-item:nth-child(4) {
+  --skill-delay: 180ms;
+}
+
+.skills-list > .skill-item:nth-child(5) {
+  --skill-delay: 270ms;
+}
+
+.skills-list > .skill-item:nth-child(6) {
+  --skill-delay: 360ms;
+}
+
+.skills-list > .skill-item:nth-child(7) {
+  --skill-delay: 450ms;
+}
+
+.skills-list > .skill-item:nth-child(8) {
+  --skill-delay: 540ms;
+}
+
+.skills-list > .skill-item:nth-child(9) {
+  --skill-delay: 630ms;
+}
+
+.skills-list > .skill-item:nth-child(10) {
+  --skill-delay: 720ms;
+}
+
+.skills-list > .skill-item:nth-child(11) {
+  --skill-delay: 810ms;
+}
+
+.skills-list > .skill-item:nth-child(12) {
+  --skill-delay: 900ms;
+}
+
+.skill-progress-fill {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #4338ca 0%, #7c3aed 58%, #a78bfa 100%);
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.45);
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: skill-progress-enter 1.15s cubic-bezier(0.16, 1, 0.3, 1)
+    calc(var(--skill-delay) + 180ms) forwards;
+}
+
+.skill-progress-fill::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 3px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 7px rgba(255, 255, 255, 0.9);
+  content: "";
+}
+
+.skill-progress-fill::after {
+  position: absolute;
+  top: -50%;
+  bottom: -50%;
+  left: -40%;
+  width: 35%;
+  background: linear-gradient(
+    105deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  content: "";
+  opacity: 0;
+  animation: skill-progress-shine 1.2s ease-out
+    calc(var(--skill-delay) + 1.3s) both;
+}
+
+@keyframes skill-item-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes skill-progress-enter {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes skill-progress-shine {
+  20% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(400%) skewX(-20deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-item,
+  .skill-progress-fill {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
+
+  .skill-progress-fill::after {
+    animation: none;
+    opacity: 0;
+  }
+}
