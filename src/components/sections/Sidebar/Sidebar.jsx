@@ -53,13 +53,18 @@ const Sidebar = () => {
         </h1>
         <p className="mb-4 text-sm text-slate-600">
           Senior UI Developer at
-          <a href={coxurl} className="pl-1 font-semibold text-indigo-700 hover:text-indigo-900">
+          <a
+            href={coxurl}
+            className="pl-1 font-semibold text-indigo-700 hover:text-indigo-900"
+          >
             Pearson Educational.
           </a>
         </p>
         <a
           href="/MadhukarReddyUpdated Resume.docx"
-          onClick={() => trackPortfolioEvent('resume_download', { format: 'docx' })}
+          onClick={() =>
+            trackPortfolioEvent('resume_download', { format: 'docx' })
+          }
           className="inline-flex items-center justify-center rounded-lg bg-indigo-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-indigo-800"
           download="Madhukar Resume"
         >
@@ -74,10 +79,16 @@ const Sidebar = () => {
         </a>
         <div className="mb-5 mt-4">
           <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-medium text-emerald-700 ring-1 ring-emerald-600/20">
-            <span className="mr-2 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true" />
+            <span
+              className="mr-2 h-2 w-2 rounded-full bg-emerald-500"
+              aria-hidden="true"
+            />
             Open to senior frontend opportunities
           </span>
-          <a href="/contact" className="mt-3 block text-sm font-semibold text-indigo-700 hover:text-indigo-900">
+          <a
+            href="/contact"
+            className="mt-3 block text-sm font-semibold text-indigo-700 hover:text-indigo-900"
+          >
             Contact Madhukar
           </a>
         </div>
@@ -88,7 +99,7 @@ const Sidebar = () => {
           })}
         </ul>
       </div>
-      <div className="border-t border-slate-100 pt-5 text-start">
+      <div className="border-slate-100 pt-5 text-start">
         <h3 className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-800">
           About Me
         </h3>
