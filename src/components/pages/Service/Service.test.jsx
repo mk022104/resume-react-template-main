@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import Service from "./Service";
 import ServiceItem from "./ServiceItem";
 
@@ -12,6 +12,18 @@ describe("Service", () => {
     expect(screen.getByText("Bootstrap Template")).toBeInTheDocument();
     expect(screen.getByText("Tailwindcss Template")).toBeInTheDocument();
     expect(screen.getByText("React Template")).toBeInTheDocument();
+  });
+
+  it("filters services when a category button is clicked", () => {
+    render(<Service />);
+
+    fireEvent.click(screen.getByRole("button", { name: "Templates" }));
+
+    expect(screen.getByText("Bootstrap Template")).toBeInTheDocument();
+    expect(screen.getByText("Tailwindcss Template")).toBeInTheDocument();
+    expect(screen.getByText("React Template")).toBeInTheDocument();
+    expect(screen.queryByText("Web Design")).not.toBeInTheDocument();
+    expect(screen.getByText("Showing 3 services.")).toBeInTheDocument();
   });
 });
 
