@@ -1,4 +1,5 @@
 import React from "react";
+import ProgressBar from "@ramonak/react-progress-bar";
 import "./SkillItem.css";
 
 const SkillItem = (props) => {
@@ -10,20 +11,22 @@ const SkillItem = (props) => {
         <div className="mb-1">
           <h5 className="text-sm font-medium text-slate-700">{title}</h5>
         </div>
-        <div
-          className="skill-progress-track"
-          role="progressbar"
-          aria-label={title}
-          aria-valuemin="0"
-          aria-valuemax="100"
-          aria-valuenow={numericPercentage}
-        >
-          <div
-            className="skill-progress-fill h-full rounded-full"
-            style={{ width: `${percentage}` }}
-          />
-          <span className="skill-progress-label">{percentage}</span>
-        </div>
+        <ProgressBar
+          completed={numericPercentage}
+          bgColor="#4338ca"
+          baseBgColor="#e2e8f0"
+          height="20px"
+          borderRadius="9999px"
+          labelAlignment="center"
+          labelColor="#fff"
+          labelSize="11px"
+          transitionDuration="1.15s"
+          transitionTimingFunction="ease-in-out"
+          animateOnRender
+          className="skill-progressbar"
+          barContainerClassName="skill-progress-track"
+          labelClassName="skill-progress-label"
+        />
       </div>
     </div>
   );

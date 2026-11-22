@@ -2,6 +2,7 @@ import React from "react";
 import QualificationList from "./QualificationList";
 import ScientInstituteOfEngineering from "../../../images/blog/ScientInstituteOfTechnology.jpg";
 import CSU from "../../../images/blog/ChicagoStateUniversity.jpg";
+import "./Qualification.css";
 
 const QualificationData = [
   {
@@ -22,8 +23,8 @@ const QualificationData = [
   ];
 const Qualification = () => {
   return (
-    <section className="pb-10">
-      <div className="flex flex-wrap md:px-4 fontDecoration">
+    <section className="qualification-section pb-10">
+      <div className="qualification-grid flex flex-wrap md:px-4 fontDecoration">
         {QualificationData.map((qualification) => (
           <QualificationList
             qualification={qualification}

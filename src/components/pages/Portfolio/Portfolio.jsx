@@ -4,7 +4,7 @@ import {
   CollapsibleHead,
   CollapsibleContent,
 } from 'react-collapsible-component';
-import './style.module.css';
+import './Portfolio.css';
 import { trackPortfolioEvent } from '../../Analytics/plausibleAnalyticsUtils';
 
 const featuredProjects = [
@@ -27,23 +27,36 @@ const featuredProjects = [
 
 function Portfolio() {
   return (
-    <div className="expBorder">
-      <section className="px-1 md:px-9 mb-8" aria-labelledby="featured-work-heading">
-        <h3 id="featured-work-heading" className="text-md mb-4 uppercase font-medium text-gray-800">
-          Featured Work
-        </h3>
-        <div className="grid gap-4 md:grid-cols-2">
+    <main className="portfolio-page">
+      <section className="portfolio-section" aria-labelledby="featured-work-heading">
+        <div className="portfolio-section-heading">
+          <div>
+            <p className="portfolio-eyebrow">Selected projects</p>
+            <h2 id="featured-work-heading" className="portfolio-heading">
+              Featured work
+            </h2>
+          </div>
+          <p className="portfolio-section-summary">
+            A selection of products and experiences built for real-world users.
+          </p>
+        </div>
+        <div className="portfolio-project-grid">
           {featuredProjects.map((project) => (
-            <article key={project.id} className="rounded-md bg-white shadow-md p-5">
-              <h4 className="text-lg font-semibold text-gray-800 mb-2">{project.title}</h4>
-              <p className="text-sm text-gray-600 mb-3">{project.description}</p>
-              <ul className="flex flex-wrap gap-2 mb-3">
+            <article key={project.id} className="portfolio-project-card">
+              <span className="portfolio-project-number" aria-hidden="true">
+                {String(project.id).padStart(2, '0')}
+              </span>
+              <h3 className="portfolio-project-title">{project.title}</h3>
+              <p className="portfolio-project-description">{project.description}</p>
+              <ul className="portfolio-technologies">
                 {project.technologies.map((technology) => (
-                  <li key={technology} className="rounded-full bg-purple-100 px-3 py-1 text-xs text-purple-900">{technology}</li>
+                  <li key={technology} className="portfolio-technology">{technology}</li>
                 ))}
               </ul>
-              <ul className="text-sm text-gray-700 list-disc ml-5 mb-4">
-                {project.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+              <ul className="portfolio-highlights">
+                {project.highlights.map((highlight) => (
+                  <li key={highlight}>{highlight}</li>
+                ))}
               </ul>
               {project.repository && (
                 <a
@@ -55,19 +68,28 @@ function Portfolio() {
                       project_title: project.title,
                     })
                   }
-                  className="text-sm font-medium text-purple-700 hover:underline"
+                  className="portfolio-repository-link"
                 >
-                  View repository
+                  View repository <span aria-hidden="true">↗</span>
                 </a>
               )}
             </article>
           ))}
         </div>
       </section>
-      <h3 className="text-md mb-4 truncate md:ml-9 lg:ml-9 ml-1	uppercase font-medium text-gray-800 hover:text-indigo-400">
-        Experience
-      </h3>
-      <CollapsibleComponent className="additionalClassForCollapsible ">
+      <section className="portfolio-section portfolio-experience" aria-labelledby="experience-heading">
+        <div className="portfolio-section-heading">
+          <div>
+            <p className="portfolio-eyebrow">Career journey</p>
+            <h2 id="experience-heading" className="portfolio-heading">
+              Experience
+            </h2>
+          </div>
+          <p className="portfolio-section-summary">
+            Roles and projects across enterprise products and platforms.
+          </p>
+        </div>
+      <CollapsibleComponent name="portfolio-experience">
         <CollapsibleHead className="additionalClassForHead ">
           Senior UI Developer, Pearson, Hybrid, Durham, NC (Oct 2024 –
           Present)
@@ -167,7 +189,8 @@ function Portfolio() {
           </p>
         </CollapsibleContent>
       </CollapsibleComponent>
-    </div>
+      </section>
+    </main>
   );
 }
 export default Portfolio;

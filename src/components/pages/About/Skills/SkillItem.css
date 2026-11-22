@@ -48,6 +48,10 @@
   --skill-delay: 900ms;
 }
 
+.skill-progressbar {
+  width: 100%;
+}
+
 .skill-progress-track {
   position: relative;
   height: 1.25rem;
@@ -73,23 +77,19 @@
   pointer-events: none;
 }
 
-.skill-progress-fill {
+.skill-progress-track > div {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   overflow: hidden;
-  background-color: #4338ca;
   box-shadow: 0 0 7px rgba(67, 56, 202, 0.3);
-  transform: scaleX(0);
-  transform-origin: left center;
   transition: filter 250ms ease;
-  animation: skill-progress-enter 1.15s cubic-bezier(0.16, 1, 0.3, 1)
-    calc(var(--skill-delay) + 180ms) forwards;
+  transition-delay: var(--skill-delay, 0ms) !important;
 }
 
 .skill-progress-label {
-  position: absolute;
-  z-index: 3;
-  inset: 0;
+  position: absolute !important;
+  z-index: 3 !important;
+  inset: 0 !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,16 +105,16 @@
   box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.12), 0 0 0 2px #e0e7ff;
 }
 
-.skill-item:hover .skill-progress-fill {
+.skill-item:hover .skill-progress-track > div {
   filter: brightness(1.12) saturate(1.1);
 }
 
-.skill-item:hover .skill-progress-fill::after {
+.skill-item:hover .skill-progress-track > div::after {
   opacity: 1;
   animation: skill-progress-hover-shine 900ms ease-out;
 }
 
-.skill-progress-fill::before {
+.skill-progress-track > div::before {
   position: absolute;
   top: 0;
   right: 0;
@@ -127,7 +127,7 @@
     calc(var(--skill-delay) + 1.35s) 2;
 }
 
-.skill-progress-fill::after {
+.skill-progress-track > div::after {
   position: absolute;
   top: -50%;
   bottom: -50%;
@@ -153,12 +153,6 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes skill-progress-enter {
-  to {
-    transform: scaleX(1);
   }
 }
 
@@ -198,15 +192,19 @@
 
 @media (prefers-reduced-motion: reduce) {
   .skill-item,
-  .skill-progress-fill,
-  .skill-progress-fill::before {
+  .skill-progress-track > div,
+  .skill-progress-track > div::before {
     opacity: 1;
     animation: none;
     transform: none;
     transition: none;
   }
 
-  .skill-progress-fill::after {
+  .skill-progress-track > div {
+    transition: none !important;
+  }
+
+  .skill-progress-track > div::after {
     opacity: 0;
     animation: none;
     transform: none;

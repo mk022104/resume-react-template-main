@@ -4,28 +4,31 @@ const QualificationList = ({ qualification, desc }) => {
   const { title, link, description, image } = qualification || desc;
 
   return (
-    <GridCard>
-      <div className="relative mb-6 w-full h-48 bg-purple-200 rounded-md overflow-hidden">
-        <img
-          src={image}
-          alt={`${title} institution`}
-          className="w-full h-full object-cover object-center"
-        />
-        <div className="absolute opacity-0 transition duration-200 bg-purple-100 bg-opacity-80 w-full flex items-center justify-center h-full left-0 top-0 group-hover:opacity-100 group-hover:visible">
-          <a
-            href={link}
-            target="_blank"
-            rel="noreferrer"
-            className="px-4 h-10 text-xl text-purple-600 flex items-center justify-center border-2 hover:text-green hover:bg-none-600"
-          >
-            {link}
-          </a>
+    <GridCard className="qualification-card">
+      <a
+        href={link}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`Visit ${title} institution website`}
+        className="qualification-image-link"
+      >
+        <div className="qualification-image-wrap relative mb-6 h-48 w-full overflow-hidden rounded-md">
+          <img
+            src={image}
+            alt={`${title} institution`}
+            className="qualification-image h-full w-full object-cover object-center"
+          />
+          <div className="qualification-overlay absolute left-0 top-0 flex h-full w-full items-center justify-center">
+            <span className="qualification-link flex h-10 items-center justify-center rounded-full border border-white/80 px-5 text-sm font-semibold text-white">
+              Visit institution
+            </span>
+          </div>
         </div>
-      </div>
-      <h3 className="text-lg font-medium text-gray-800 mb-2 hover:text-indigo-400">
+      </a>
+      <h3 className="qualification-title mb-2 text-lg font-semibold text-gray-800">
         {title}
       </h3>
-      <p className="text-gray-900">{description}</p>
+      <p className="qualification-description text-gray-900">{description}</p>
     </GridCard>
   );
 };

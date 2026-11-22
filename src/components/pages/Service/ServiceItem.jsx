@@ -1,17 +1,20 @@
 import GridCard from '../../common/GridCard';
 
 const ServiceItem = ({ service }) => {
-  const { icon, title, description } = service;
+  const { id, icon, title, description } = service;
 
   return (
-    <GridCard className="p-10 lg:p-6 md:p-10">
-      <div className="w-16 h-16 flex items-center justify-center rounded-md text-3xl mb-5 bg-gray-300 bg-opacity-500 text-pink-400 transition duration-100 group-hover:bg-indigo-900">
+    <GridCard className="service-card">
+      <span className="service-number" aria-hidden="true">
+        {String(id).padStart(2, "0")}
+      </span>
+      <div className="service-icon" aria-hidden="true">
         {icon}
       </div>
-      <h3 className="text-lg font-medium text-gray-800 mb-2 hover:text-indigo-400">
+      <h3 className="service-title">
         {title}
       </h3>
-      <p className="text-blue-900 serviceFontDecoration">{description}</p>
+      <p className="service-description">{description}</p>
     </GridCard>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { FaBootstrap, FaCode, FaHtml5, FaReact } from "react-icons/fa";
 import { SiTailwindcss } from "react-icons/si";
 import ServiceItem from "./ServiceItem";
+import "./Service.css";
 
 const serviceData = [
   {
@@ -50,8 +51,20 @@ const serviceData = [
 
 const Service = () => {
   return (
-    <section className="pb-10">
-      <div className="flex flex-wrap md:px-5">
+    <section className="service-section px-5 py-8 md:px-8">
+      <header className="service-intro mb-8">
+        <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-indigo-600">
+          What I can help with
+        </p>
+        <h2 className="mb-3 text-3xl font-bold tracking-tight text-slate-900">
+          Services
+        </h2>
+        <p className="max-w-2xl text-sm leading-6 text-slate-600 md:text-base">
+          Thoughtful design and reliable frontend development, tailored to your
+          project.
+        </p>
+      </header>
+      <div className="service-grid flex flex-wrap md:-mx-2">
         {serviceData.map((service) => (
           <ServiceItem service={service} key={service.id} />
         ))}

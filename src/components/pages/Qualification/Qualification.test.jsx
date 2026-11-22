@@ -33,7 +33,9 @@ describe("QualificationList", () => {
     expect(screen.getByText("Test description body")).toBeInTheDocument();
     const card = screen.getByText("Test degree").closest(".group");
     userEvent.hover(card);
-    const link = screen.getByRole("link", { name: desc.link });
+    const link = screen.getByRole("link", {
+      name: /visit test degree institution website/i,
+    });
     expect(link).toHaveAttribute("href", desc.link);
     expect(link).toHaveAttribute("target", "_blank");
   });
