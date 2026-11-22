@@ -41,7 +41,7 @@ describe("Contact", () => {
     expect(screen.getByRole("heading", { name: /get in touch/i })).toBeInTheDocument();
     const msg = screen.getByPlaceholderText("Your Message");
     fireEvent.change(msg, { target: { value: "abc" } });
-    expect(screen.getByText(/497 Characters/)).toBeInTheDocument();
+    expect(screen.getByText(/497 characters remaining/i)).toBeInTheDocument();
   });
 
   it("validates phone number length as the value changes", () => {
@@ -63,16 +63,16 @@ describe("Contact", () => {
     emailjs.sendForm.mockResolvedValueOnce({ text: "OK" });
     render(<Contact />);
     fillValidForm();
-    fireEvent.click(screen.getByRole("button", { name: /^send$/i }));
+    fireEvent.click(screen.getByRole("button", { name: /^send message$/i }));
 
     await waitFor(() => {
-      expect(screen.getByRole("heading", { name: /success!!/i })).toBeInTheDocument();
+      expect(screen.getByRole("heading", { name: /thank you/i })).toBeInTheDocument();
     });
     expect(screen.getByText(/successfully sent email/i)).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: /close/i }));
     await waitFor(() => {
-      expect(screen.queryByRole("heading", { name: /success!!/i })).not.toBeInTheDocument();
+      expect(screen.queryByRole("heading", { name: /thank you/i })).not.toBeInTheDocument();
     });
   });
 
@@ -80,7 +80,7 @@ describe("Contact", () => {
     emailjs.sendForm.mockRejectedValueOnce({ message: "network" });
     render(<Contact />);
     fillValidForm();
-    fireEvent.click(screen.getByRole("button", { name: /^send$/i }));
+    fireEvent.click(screen.getByRole("button", { name: /^send message$/i }));
 
     await waitFor(() => {
       expect(toast.error).toHaveBeenCalled();
@@ -91,15 +91,19 @@ describe("Contact", () => {
     emailjs.sendForm.mockResolvedValueOnce({ text: "OK" });
     render(<Contact />);
     fillValidForm();
-    fireEvent.click(screen.getByRole("button", { name: /^send$/i }));
+    fireEvent.click(screen.getByRole("button", { name: /^send message$/i }));
 
     await waitFor(() => {
-      expect(screen.getByRole("button", { name: "×" })).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: "Dismiss success message" })
+      ).toBeInTheDocument();
     });
-    fireEvent.click(screen.getByRole("button", { name: "×" }));
+    fireEvent.click(
+      screen.getByRole("button", { name: "Dismiss success message" })
+    );
 
     await waitFor(() => {
-      expect(screen.queryByRole("heading", { name: /success!!/i })).not.toBeInTheDocument();
+      expect(screen.queryByRole("heading", { name: /thank you/i })).not.toBeInTheDocument();
     });
   });
 
@@ -107,11 +111,11 @@ describe("Contact", () => {
     emailjs.sendForm.mockResolvedValueOnce(null);
     render(<Contact />);
     fillValidForm();
-    fireEvent.click(screen.getByRole("button", { name: /^send$/i }));
+    fireEvent.click(screen.getByRole("button", { name: /^send message$/i }));
 
     await waitFor(() => expect(emailjs.sendForm).toHaveBeenCalled());
 
-    expect(screen.queryByRole("heading", { name: /success!!/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: /thank you/i })).not.toBeInTheDocument();
   });
 
 });

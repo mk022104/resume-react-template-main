@@ -38,7 +38,7 @@ describe('Contact Component', () => {
     const textarea = screen.getByPlaceholderText('Your Message');
     fireEvent.change(textarea, { target: { value: 'Hello' } });
 
-    expect(screen.getByText('495 Characters')).toBeInTheDocument();
+    expect(screen.getByText('495 characters remaining')).toBeInTheDocument();
   });
 
   test('submits form successfully and opens modal', async () => {
@@ -67,7 +67,7 @@ describe('Contact Component', () => {
 
     await waitFor(() => {
       expect(mockSendForm).toHaveBeenCalled();
-      expect(screen.getByText('Success!!')).toBeInTheDocument();
+      expect(screen.getByText('Thank you!')).toBeInTheDocument();
       expect(screen.getByText('successfully sent email.')).toBeInTheDocument();
     });
   });
@@ -130,13 +130,13 @@ describe('Contact Component', () => {
     fireEvent.click(screen.getByRole('button', { name: /send/i }));
 
     await waitFor(() => {
-      expect(screen.getByText('Success!!')).toBeInTheDocument();
+      expect(screen.getByText('Thank you!')).toBeInTheDocument();
     });
 
     fireEvent.click(screen.getByRole('button', { name: /close/i }));
 
     await waitFor(() => {
-      expect(screen.queryByText('Success!!')).not.toBeInTheDocument();
+      expect(screen.queryByText('Thank you!')).not.toBeInTheDocument();
     });
   });
 });

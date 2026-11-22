@@ -10,11 +10,17 @@ const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
-      <div className="bg-white p-5 rounded-lg shadow-lg relative l:w-96	w-72 ml-0 md:w-96 md:ml-24 sm:p-6 md:p-8 lg:p-10 xl:p-12">
+    <div className="contact-modal-backdrop">
+      <div
+        className="contact-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="contact-success-title"
+      >
         <button
           onClick={onClose}
-          className="absolute top-2 right-4 text-gray-600 text-lg"
+          className="contact-modal-close"
+          aria-label="Dismiss success message"
         >
           &times;
         </button>
@@ -103,130 +109,127 @@ const Contact = () => {
   const numberofCharacters = maxCharacters - input.length;
   const hasInvalidPhoneNumberLength = Boolean(phoneNumberError);
   return (
-    <section className="pb-10">
-      <div className="flex flex-wrap md:px-4">
+    <section className="contact-section">
         <form
-          className="mt-8 p-8 md:mx-4 bg-white rounded-md shadow-md"
+          className="contact-form"
           ref={form}
           onSubmit={sendEmail}
           id="create-course-form"
         >
-          <div className="m-3">
-            <h3 className="text-2xl text-gray-800 font-bold mb-6 hover:text-indigo-400">
+          <div className="contact-form-heading">
+            <p className="contact-eyebrow">Let&apos;s connect</p>
+            <h3 className="contact-title">
               Get in Touch
             </h3>
+            <p className="contact-intro">
+              Have a project in mind or want to discuss an opportunity? Send me
+              a message.
+            </p>
           </div>
           <ToastContainer />
-          <div className="w-full flex flex-wrap">
-            <div className="w-full md:w-1/2">
-              <div className="m-3">
-                <input
-                  type="text"
-                  ref={useFocus}
-                  name="name"
-                  maxlength="30"
-                  placeholder="Your Name"
-                  required
-                  className="w-full border border-gray-800 rounded py-4 px-6 text-sm bg-white"
-                />
-              </div>
+          <div className="contact-fields">
+            <div className="contact-field">
+              <label htmlFor="contact-name">Name</label>
+              <input
+                id="contact-name"
+                type="text"
+                ref={useFocus}
+                name="name"
+                maxLength="30"
+                placeholder="Your Name"
+                required
+                className="contact-control"
+              />
             </div>
-            <div className="w-full md:w-1/2">
-              <div className="m-3">
-                <input
-                  type="email"
-                  required
-                  name="email"
-                  placeholder="Your Email"
-                  className="w-full border border-gray-800 rounded py-4 px-6 text-sm bg-white"
-                />
-              </div>
+            <div className="contact-field">
+              <label htmlFor="contact-email">Email</label>
+              <input
+                id="contact-email"
+                type="email"
+                required
+                name="email"
+                placeholder="Your Email"
+                className="contact-control"
+              />
             </div>
-            <div className="w-full">
-              <div className="m-3">
-                <PhoneInput
-                  className="contact-phone-input"
-                  defaultCountry="US"
-                  international
-                  value={phoneNumber}
-                  onChange={handlePhoneNumberChange}
-                  required
-                  placeholder="Phone Number"
-                  aria-label="Phone Number"
-                  aria-invalid={Boolean(hasInvalidPhoneNumberLength)}
-                  aria-describedby={
-                    hasInvalidPhoneNumberLength
-                      ? 'phone-number-error'
-                      : undefined
-                  }
-                />
-                <input type="hidden" name="phone" value={phoneNumber || ''} />
-                {hasInvalidPhoneNumberLength && (
-                  <p
-                    id="phone-number-error"
-                    className="mt-2 text-sm text-red-600"
-                    role="alert"
-                  >
-                    {phoneNumberError}
-                  </p>
-                )}
-              </div>
+            <div className="contact-field">
+              <label htmlFor="contact-phone">Phone</label>
+              <PhoneInput
+                id="contact-phone"
+                className="contact-phone-input"
+                defaultCountry="US"
+                international
+                value={phoneNumber}
+                onChange={handlePhoneNumberChange}
+                required
+                placeholder="Phone Number"
+                aria-label="Phone Number"
+                aria-invalid={Boolean(hasInvalidPhoneNumberLength)}
+                aria-describedby={
+                  hasInvalidPhoneNumberLength ? 'phone-number-error' : undefined
+                }
+              />
+              <input type="hidden" name="phone" value={phoneNumber || ''} />
+              {hasInvalidPhoneNumberLength && (
+                <p
+                  id="phone-number-error"
+                  className="contact-phone-error"
+                  role="alert"
+                >
+                  {phoneNumberError}
+                </p>
+              )}
             </div>
-            <div className="w-full">
-              <div className="m-3">
-                <input
-                  type="text"
-                  name="subject"
-                  maxlength="100"
-                  required
-                  placeholder="Subject"
-                  className="w-full border border-gray-800 rounded py-4 px-6 text-sm bg-white"
-                />
-              </div>
+            <div className="contact-field">
+              <label htmlFor="contact-subject">Subject</label>
+              <input
+                id="contact-subject"
+                type="text"
+                name="subject"
+                maxLength="100"
+                required
+                placeholder="Subject"
+                className="contact-control"
+              />
             </div>
-            <div className="w-full">
-              <div className="m-3">
-                <textarea
-                  name="message"
-                  required
-                  placeholder="Your Message"
-                  onChange={inputHandler}
-                  rows="6"
-                  maxLength="500"
-                  className="w-full border border-gray-800 rounded py-4 px-6 text-sm bg-white"
-                />
-                <span className="charLeft">
-                  {numberofCharacters} Characters
-                </span>
-              </div>
+            <div className="contact-field contact-field--message">
+              <label htmlFor="contact-message">Message</label>
+              <textarea
+                id="contact-message"
+                name="message"
+                required
+                placeholder="Your Message"
+                onChange={inputHandler}
+                rows="6"
+                maxLength={maxCharacters}
+                aria-describedby="contact-message-count"
+                className="contact-control contact-message"
+              />
+              <span className="contact-character-count" id="contact-message-count">
+                {numberofCharacters} characters remaining
+              </span>
             </div>
-            <div className="w-full">
-              <div className="m-3 text-right">
-                <input
-                  type="submit"
-                  value="Send"
-                  className="rounded bg-purple-900 text-center border-0 py-3 px-6 text-white leading-7 tracking-wide hover:bg-purple-800 cursor-pointer"
-                />
-              </div>
+            <div className="contact-submit-row">
+              <button type="submit" className="contact-submit-button">
+                Send message
+                <span aria-hidden="true">→</span>
+              </button>
             </div>
           </div>
         </form>
         <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-          <div class="wrapper">
-            <div class="circle">
-              <div class="checkMark"></div>
-            </div>
+          <div className="contact-success-icon" aria-hidden="true">
+            <div className="contact-success-check" />
           </div>
-          <h2 className="text-2xl font-bold mb-4 text-alignment">Success!!</h2>
-          <p className="mb-4 text-alignment">{message}</p>
-          <button
-            onClick={handleCloseModal}
-            className="sticky bg-green-900 text-white p-2 rounded float-right"
-          >
-            Close
-          </button>
+          <div className="contact-success-copy">
+            <p className="contact-eyebrow">Message sent</p>
+            <h2 id="contact-success-title">Thank you!</h2>
+            <p>{message}</p>
+            <button onClick={handleCloseModal} className="contact-modal-action">
+              Close
+            </button>
+          </div>
         </Modal>
-      </div>
     </section>
   );
 };
