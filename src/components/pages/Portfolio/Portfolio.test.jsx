@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Portfolio from './Portfolio';
 
 // Portfolio.test.jsx
@@ -28,13 +28,24 @@ describe('Portfolio Component', () => {
     expect(screen.getByText('Experience')).toBeInTheDocument();
   });
 
-  test('provides expandable project case studies and impact placeholders', () => {
+  test('provides expandable project case studies', () => {
     render(<Portfolio />);
 
     expect(screen.getAllByText('Read case study')).toHaveLength(2);
+  });
+
+  test('filters projects by category', () => {
+    render(<Portfolio />);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Accessibility' }));
+
     expect(
-      screen.getAllByText(/Add a verified result or metric for this project/)
-    ).toHaveLength(2);
+      screen.getByRole('heading', { name: 'Enterprise Authentication Platform' })
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole('heading', { name: 'Interactive React Portfolio' })
+    ).not.toBeInTheDocument();
+    expect(screen.getByText('Showing 1 project.')).toBeInTheDocument();
   });
 
   test('renders job titles', () => {

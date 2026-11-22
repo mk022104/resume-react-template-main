@@ -284,4 +284,8 @@
   .sidebar-avatar:hover img {
     transform: none;
   }
+
+  .sidebar-about-title::after {
+    transition: none;
+  }
 }

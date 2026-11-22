@@ -23,6 +23,7 @@ const featuredProjects = [
     description: 'Enterprise access-management experience covering secure sign-in, MFA, passwordless flows, and accessible onboarding.',
     technologies: ['React', 'TypeScript', 'Micro Frontends', 'WCAG'],
     categories: ['React', 'Accessibility', 'Authentication'],
+    role: 'Senior UI Developer at Pearson',
     highlights: ['SSO and MFA journeys', 'Accessible component library', 'CI/CD automation'],
   },
 ];
@@ -93,6 +94,11 @@ function Portfolio() {
                 <div className="portfolio-case-study-content">
                   <h4>Project context</h4>
                   <p>{project.description}</p>
+                  {project.role && (
+                    <p>
+                      <strong>Role:</strong> {project.role}
+                    </p>
+                  )}
                   <h4>Key contributions</h4>
                   <ul>
                     {project.highlights.map((highlight) => (

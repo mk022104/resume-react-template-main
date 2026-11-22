@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Sidebar from './Sidebar';
 
@@ -18,4 +18,19 @@ test('renders Sidebar component with user info', () => {
     'href',
     '/MadhukarReddyUpdated%20Resume.docx'
   );
+});
+
+test('collapses the About section until requested', () => {
+  render(
+    <MemoryRouter>
+      <Sidebar />
+    </MemoryRouter>
+  );
+
+  const aboutSummary = screen.getByText('About Me');
+  const aboutDetails = aboutSummary.closest('details');
+  expect(aboutDetails).not.toHaveAttribute('open');
+
+  fireEvent.click(aboutSummary);
+  expect(aboutDetails).toHaveAttribute('open');
 });
