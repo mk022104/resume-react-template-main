@@ -1,7 +1,5 @@
 .service-section {
-  background:
-    radial-gradient(ellipse at 92% 0, rgba(224, 231, 255, 0.35), transparent 34%),
-    #fff;
+  background: var(--theme-surface);
 }
 
 .service-intro {

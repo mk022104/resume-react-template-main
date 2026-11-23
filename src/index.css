@@ -73,6 +73,10 @@ body,
   color: var(--theme-text);
 }
 
+:root[data-theme="dark"] .contact-field > label {
+  color: var(--theme-text);
+}
+
 .theme-toggle {
   position: fixed;
   right: 1rem;

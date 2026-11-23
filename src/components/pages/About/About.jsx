@@ -15,7 +15,7 @@ const About = () => {
             {about.paragraphs.map((paragraph) => (
               <p
                 key={paragraph}
-                className="mb-4 text-base leading-7 text-slate-600 aboutFontDecoration"
+                className="mb-4 text-base leading-7 aboutFontDecoration"
               >
                 {paragraph}
               </p>
