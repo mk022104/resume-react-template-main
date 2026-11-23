@@ -76,7 +76,16 @@ const RouteMetadata = () => {
 const Navbar = () => {
   const { navigation } = usePortfolioData();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const menuButtonRef = useRef(null);
+
+  useEffect(() => {
+    const updateScrolledState = () => setIsScrolled(window.scrollY > 24);
+    updateScrolledState();
+    window.addEventListener('scroll', updateScrolledState, { passive: true });
+
+    return () => window.removeEventListener('scroll', updateScrolledState);
+  }, []);
 
   const closeMenuOnEscape = (event) => {
     if (event.key === 'Escape' && isMenuOpen) {
@@ -85,11 +94,19 @@ const Navbar = () => {
     }
   };
 
+  const handleNavigationSelect = () => {
+    setIsMenuOpen(false);
+    setIsScrolled(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <>
       <nav
         aria-label="Primary navigation"
-        className="z-30 mb-5 mt-5 rounded-2xl border border-slate-200/80 bg-white/95 px-3 py-2 shadow-lg shadow-slate-900/5 backdrop-blur md:sticky md:top-4"
+        className={`z-30 mb-5 mt-5 rounded-2xl border border-slate-200/80 bg-white/95 px-3 py-2 shadow-lg shadow-slate-900/5 backdrop-blur md:sticky md:top-4 ${
+          isScrolled ? 'primary-nav--scrolled' : ''
+        }`}
         onKeyDown={closeMenuOnEscape}
       >
         <div className="flex items-center justify-between md:hidden">
@@ -118,7 +135,7 @@ const Navbar = () => {
             <LinkItem
               item={item}
               key={item.to}
-              onSelect={() => setIsMenuOpen(false)}
+              onSelect={handleNavigationSelect}
             />
           ))}
         </ul>

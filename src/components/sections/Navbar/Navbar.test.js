@@ -32,6 +32,42 @@ test('exposes an accessible mobile menu toggle', () => {
   expect(menuButton).toHaveAttribute('aria-expanded', 'true');
 });
 
+test('changes navigation color after scrolling', () => {
+  render(
+    <MemoryRouter initialEntries={['/about']}>
+      <Navbar />
+    </MemoryRouter>
+  );
+
+  Object.defineProperty(window, 'scrollY', { configurable: true, value: 80 });
+  fireEvent.scroll(window);
+
+  expect(
+    screen.getByRole('navigation', { name: 'Primary navigation' })
+  ).toHaveClass('primary-nav--scrolled');
+});
+
+test('returns navigation to its normal background when a link is clicked', () => {
+  const scrollTo = jest.spyOn(window, 'scrollTo').mockImplementation(() => {});
+  render(
+    <MemoryRouter initialEntries={['/about']}>
+      <Navbar />
+    </MemoryRouter>
+  );
+
+  Object.defineProperty(window, 'scrollY', { configurable: true, value: 80 });
+  fireEvent.scroll(window);
+  fireEvent.click(screen.getByRole('link', { name: 'Services' }));
+
+  expect(scrollTo).toHaveBeenCalledWith({ top: 0, behavior: 'smooth' });
+  expect(
+    screen.getByRole('navigation', { name: 'Primary navigation' })
+  ).not.toHaveClass('primary-nav--scrolled');
+
+  scrollTo.mockRestore();
+  Object.defineProperty(window, 'scrollY', { configurable: true, value: 0 });
+});
+
 test('updates page title and description for the current route', () => {
   render(
     <MemoryRouter initialEntries={['/services']}>

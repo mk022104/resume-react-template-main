@@ -13,3 +13,32 @@
   background-color: #3730a3;
   color: #fff;
 }
+
+.primary-nav--scrolled {
+  border-color: #4338ca;
+  background-color: #312e81;
+  box-shadow: 0 12px 28px rgba(49, 46, 129, 0.24);
+}
+
+.primary-nav--scrolled .primary-nav-link {
+  color: #e0e7ff;
+}
+
+.primary-nav--scrolled .primary-nav-link:hover {
+  background-color: rgba(165, 180, 252, 0.16);
+  color: #fff;
+}
+
+.primary-nav--scrolled .primary-nav-link--active,
+.primary-nav--scrolled .primary-nav-link--active:hover {
+  background-color: #a5b4fc;
+  color: #1e1b4b;
+}
+
+.primary-nav--scrolled .primary-nav-toggle {
+  color: #e0e7ff;
+}
+
+.primary-nav--scrolled .primary-nav-toggle:hover {
+  background-color: rgba(165, 180, 252, 0.16);
+}
