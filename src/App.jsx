@@ -11,7 +11,7 @@ function App() {
   return (
     <PortfolioProvider dataUrl={process.env.REACT_APP_PORTFOLIO_DATA_URL}>
       <Router>
-        <div className="min-h-screen relative overflow-x-hidden bg-slate-50 pb-16 md:pb-20">
+        <div className="app-shell min-h-screen relative bg-slate-50 pb-20">
         <a className="skip-link" href="#main-content">
           Skip to main content
         </a>

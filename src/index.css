@@ -11,6 +11,10 @@ body {
   color: #0f172a;
 }
 
+.app-shell {
+  overflow-x: clip;
+}
+
 .skip-link {
   position: absolute;
   top: 0.75rem;

@@ -112,7 +112,7 @@ const Navbar = () => {
           id="primary-navigation"
           className={`mt-2 flex-col items-stretch md:mt-0 md:flex md:flex-row md:items-center ${
             isMenuOpen ? 'flex' : 'hidden'
-          }`}
+          } md:flex-nowrap md:overflow-x-auto md:overscroll-x-contain`}
         >
           {navigation.map((item) => (
             <LinkItem
@@ -177,12 +177,12 @@ const LinkItem = ({ item, onSelect }) => {
   const { title, to } = item;
 
   return (
-    <li className="mx-1 my-1">
+    <li className="mx-1 my-1 md:flex-shrink-0">
       <NavLink
         exact
         to={to}
         activeClassName="primary-nav-link--active"
-        className="primary-nav-link block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-indigo-50 hover:text-indigo-800"
+        className="primary-nav-link block whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-indigo-50 hover:text-indigo-800"
         onClick={() => {
           onSelect();
           window.gtag?.('event', 'nav_click', {
