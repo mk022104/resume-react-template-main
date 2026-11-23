@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './contact.css';
 import { trackPortfolioEvent } from '../../Analytics/plausibleAnalyticsUtils';
 import { usePortfolioData } from '../../../context/PortfolioContext';
+import { FaEnvelope, FaTag, FaUser } from 'react-icons/fa';
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
@@ -131,27 +132,33 @@ const Contact = () => {
           <div className="contact-fields">
             <div className="contact-field">
               <label htmlFor="contact-name">Name</label>
-              <input
-                id="contact-name"
-                type="text"
-                ref={useFocus}
-                name="name"
-                maxLength="30"
-                placeholder="Your Name"
-                required
-                className="contact-control"
-              />
+              <div className="contact-input-wrap">
+                <FaUser className="contact-input-icon" aria-hidden="true" />
+                <input
+                  id="contact-name"
+                  type="text"
+                  ref={useFocus}
+                  name="name"
+                  maxLength="30"
+                  placeholder="Your Name"
+                  required
+                  className="contact-control contact-control--icon"
+                />
+              </div>
             </div>
             <div className="contact-field">
               <label htmlFor="contact-email">Email</label>
-              <input
-                id="contact-email"
-                type="email"
-                required
-                name="email"
-                placeholder="Your Email"
-                className="contact-control"
-              />
+              <div className="contact-input-wrap">
+                <FaEnvelope className="contact-input-icon" aria-hidden="true" />
+                <input
+                  id="contact-email"
+                  type="email"
+                  required
+                  name="email"
+                  placeholder="Your Email"
+                  className="contact-control contact-control--icon"
+                />
+              </div>
             </div>
             <div className="contact-field">
               <label htmlFor="contact-phone">Phone</label>
@@ -183,15 +190,18 @@ const Contact = () => {
             </div>
             <div className="contact-field">
               <label htmlFor="contact-subject">Subject</label>
-              <input
-                id="contact-subject"
-                type="text"
-                name="subject"
-                maxLength="100"
-                required
-                placeholder="Subject"
-                className="contact-control"
-              />
+              <div className="contact-input-wrap">
+                <FaTag className="contact-input-icon" aria-hidden="true" />
+                <input
+                  id="contact-subject"
+                  type="text"
+                  name="subject"
+                  maxLength="100"
+                  required
+                  placeholder="Subject"
+                  className="contact-control contact-control--icon"
+                />
+              </div>
             </div>
             <div className="contact-field contact-field--message">
               <label htmlFor="contact-message">Message</label>

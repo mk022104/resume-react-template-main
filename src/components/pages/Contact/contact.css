@@ -61,6 +61,22 @@
   font-weight: 650;
 }
 
+.contact-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.contact-input-icon {
+  position: absolute;
+  z-index: 1;
+  left: 1rem;
+  width: 0.95rem;
+  height: 0.95rem;
+  color: #64748b;
+  pointer-events: none;
+}
+
 .contact-control,
 .contact-phone-input {
   display: flex;
@@ -77,6 +93,10 @@
     border-color 180ms ease,
     box-shadow 180ms ease,
     background-color 180ms ease;
+}
+
+.contact-control--icon {
+  padding-left: 2.75rem;
 }
 
 .contact-control::placeholder,
