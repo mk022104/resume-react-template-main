@@ -4,6 +4,10 @@
   outline-offset: 3px;
 }
 
+.primary-nav-label {
+  color: #fff;
+}
+
 .primary-nav-link--active {
   background-color: #4338ca;
   color: #fff;

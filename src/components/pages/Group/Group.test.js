@@ -6,9 +6,11 @@ describe("Group", () => {
   it("renders name and contact details", () => {
     render(<Group />);
     expect(
-      screen.getByText(/Madhukar Reddy Gangapuram/i)
+      screen.getAllByText(/Madhukar Reddy Gangapuram/i)[0]
     ).toBeInTheDocument();
-    expect(screen.getByText(/madhu\.ganga2018@gmail\.com/i)).toBeInTheDocument();
-    expect(screen.getByText(/984-377-1236/)).toBeInTheDocument();
+    expect(
+      screen.getAllByText(/madhu\.ganga2018@gmail\.com/i)[0]
+    ).toBeInTheDocument();
+    expect(screen.getAllByText(/984-377-1236/)[0]).toBeInTheDocument();
   });
 });

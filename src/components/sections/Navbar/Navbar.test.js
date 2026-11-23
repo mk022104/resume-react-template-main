@@ -23,6 +23,11 @@ test('exposes an accessible mobile menu toggle', () => {
     </MemoryRouter>
   );
 
+  expect(screen.getByText('Navigation')).toHaveClass(
+    'primary-nav-label',
+    'text-white'
+  );
+
   const menuButton = screen.getByRole('button', {
     name: 'Open navigation menu',
   });

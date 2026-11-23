@@ -110,7 +110,7 @@ const Navbar = () => {
         onKeyDown={closeMenuOnEscape}
       >
         <div className="flex items-center justify-between md:hidden">
-          <span className="px-3 py-2 text-sm font-semibold text-slate-700">
+          <span className="primary-nav-label rounded-lg bg-indigo-800 px-3 py-2 text-sm font-semibold text-white">
             Navigation
           </span>
           <button

@@ -11,6 +11,84 @@ body {
   color: #0f172a;
 }
 
+:root {
+  --theme-bg: #f8fafc;
+  --theme-surface: #ffffff;
+  --theme-text: #0f172a;
+  --theme-muted: #475569;
+  --theme-border: #e2e8f0;
+}
+
+:root[data-theme="dark"] {
+  --theme-bg: #0f172a;
+  --theme-surface: #1e293b;
+  --theme-text: #f8fafc;
+  --theme-muted: #cbd5e1;
+  --theme-border: #334155;
+}
+
+body,
+.app-shell,
+.service-section,
+.portfolio-page,
+.qualification-section,
+.contact-section,
+.group-card,
+.sidebar-card,
+#main-content {
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+:root[data-theme="dark"] .sidebar-card,
+:root[data-theme="dark"] #main-content,
+:root[data-theme="dark"] .portfolio-project-card,
+:root[data-theme="dark"] .service-card,
+:root[data-theme="dark"] .qualification-card,
+:root[data-theme="dark"] .contact-form,
+:root[data-theme="dark"] .chat-panel,
+:root[data-theme="dark"] nav[aria-label="Primary navigation"] {
+  background-color: var(--theme-surface);
+  border-color: var(--theme-border);
+  color: var(--theme-text);
+}
+
+:root[data-theme="dark"] p,
+:root[data-theme="dark"] .portfolio-section-summary,
+:root[data-theme="dark"] .service-description,
+:root[data-theme="dark"] .qualification-description,
+:root[data-theme="dark"] .contact-intro,
+:root[data-theme="dark"] .sidebar-role,
+:root[data-theme="dark"] .sidebar-about-copy {
+  color: var(--theme-muted);
+}
+
+:root[data-theme="dark"] h1,
+:root[data-theme="dark"] h2,
+:root[data-theme="dark"] h3,
+:root[data-theme="dark"] h4,
+:root[data-theme="dark"] h5,
+:root[data-theme="dark"] h6 {
+  color: var(--theme-text);
+}
+
+.theme-toggle {
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  z-index: 120;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  border-radius: 9999px;
+  background: #312e81;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.24);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
 .app-shell {
   overflow-x: clip;
 }

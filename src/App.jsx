@@ -7,12 +7,14 @@ import ChatWidget from './components/Chatbot/ChatWidget';
 import PlausibleAnalytics from './components/Analytics/PlausibleAnalytics.jsx';
 import { PortfolioProvider } from './context/PortfolioContext';
 import { ENV } from './constants';
+import ThemeToggle from './components/common/ThemeToggle';
 
 function App() {
   return (
     <PortfolioProvider dataUrl={ENV.PORTFOLIO_DATA_URL}>
       <Router>
         <div className="app-shell min-h-screen relative bg-slate-50 pb-20">
+        <ThemeToggle />
         <a className="skip-link" href="#main-content">
           Skip to main content
         </a>

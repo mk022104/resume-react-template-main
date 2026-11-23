@@ -21,14 +21,9 @@ export const GRID_CARD_CONTENT_CLASS_NAME =
 
 export const MAX_ERROR_DESCRIPTION_LENGTH = 500;
 export const MAX_ERROR_STACK_LENGTH = 1500;
-
-export const AUTH_INITIAL_STATUS = {
-  checking: true,
-  secureContext: false,
-  webAuthnSupported: false,
-  platformAuthenticator: null,
-  conditionalMediation: null,
-};
+export const THEME_STORAGE_KEY = 'portfolio_theme';
+export const DAY_START_HOUR = 7;
+export const NIGHT_START_HOUR = 19;
 
 export const GROUP_TEXT_FRAGMENTS = [
   'top-left',
