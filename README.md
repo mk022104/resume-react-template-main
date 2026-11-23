@@ -2,6 +2,37 @@
 
 Start the project running using command `npm start`
 
+## Automatic light and dark theme
+
+The portfolio automatically switches between light and dark themes based on local time:
+
+- Light mode: 7:00 AM–6:59 PM
+- Dark mode: 7:00 PM–6:59 AM
+- The application checks the time every minute while open.
+
+A theme toggle in the top-right corner allows a manual override. The manual
+choice is saved in local storage under `portfolio_theme` and remains active until
+the stored value is removed.
+
+```js
+localStorage.removeItem('portfolio_theme');
+location.reload();
+```
+
+Removing the stored override returns the theme to automatic time-based selection.
+
+### Testing the theme
+
+Run the theme unit tests and Playwright browser tests:
+
+```bash
+npm test -- --watchAll=false --runInBand src/components/common/ThemeToggle.test.jsx
+npm run test:e2e
+```
+
+The browser suite verifies that the toggle changes the document theme and that
+the selected theme persists after a page reload.
+
 ## Optional traffic analytics
 
 This project supports privacy-focused, cookieless traffic analytics with Plausible. It tracks page views and basic traffic sources; it does not identify individual visitors. Analytics are disabled unless a site domain is configured, and the script only loads in production builds by default.
