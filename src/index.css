@@ -73,6 +73,25 @@ body,
   color: var(--theme-text);
 }
 
+:root[data-theme="dark"] .service-grid .service-card {
+  background: var(--theme-surface);
+  border-color: var(--theme-border);
+}
+
+:root[data-theme="dark"] .sidebar-about {
+  background: var(--theme-bg);
+  border-top-color: var(--theme-border);
+}
+
+:root[data-theme="dark"] .site-footer {
+  background: var(--theme-bg);
+  border-top-color: var(--theme-border);
+}
+
+:root[data-theme="dark"] .site-footer::before {
+  display: none;
+}
+
 :root[data-theme="dark"] .contact-field > label {
   color: var(--theme-text);
 }
