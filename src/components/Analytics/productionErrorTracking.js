@@ -1,5 +1,7 @@
-const MAX_DESCRIPTION_LENGTH = 500;
-const MAX_STACK_LENGTH = 1500;
+import {
+  MAX_ERROR_DESCRIPTION_LENGTH,
+  MAX_ERROR_STACK_LENGTH,
+} from '../../constants';
 
 const sanitizeError = (error) => {
   const message =
@@ -9,12 +11,14 @@ const sanitizeError = (error) => {
       ? error
       : 'Unknown browser error';
 
-  return message.replace(/\s+/g, ' ').slice(0, MAX_DESCRIPTION_LENGTH);
+  return message
+    .replace(/\s+/g, ' ')
+    .slice(0, MAX_ERROR_DESCRIPTION_LENGTH);
 };
 
 const sanitizeStack = (error, componentStack) => {
   const stack = componentStack || (error instanceof Error ? error.stack : '');
-  return String(stack || '').slice(0, MAX_STACK_LENGTH);
+  return String(stack || '').slice(0, MAX_ERROR_STACK_LENGTH);
 };
 
 export const reportProductionError = (error, details = {}, windowRef = window) => {

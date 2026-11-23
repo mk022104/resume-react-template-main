@@ -6,10 +6,11 @@ import Sidebar from './components/sections/Sidebar/Sidebar';
 import ChatWidget from './components/Chatbot/ChatWidget';
 import PlausibleAnalytics from './components/Analytics/PlausibleAnalytics.jsx';
 import { PortfolioProvider } from './context/PortfolioContext';
+import { ENV } from './constants';
 
 function App() {
   return (
-    <PortfolioProvider dataUrl={process.env.REACT_APP_PORTFOLIO_DATA_URL}>
+    <PortfolioProvider dataUrl={ENV.PORTFOLIO_DATA_URL}>
       <Router>
         <div className="app-shell min-h-screen relative bg-slate-50 pb-20">
         <a className="skip-link" href="#main-content">

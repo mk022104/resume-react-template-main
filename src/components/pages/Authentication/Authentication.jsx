@@ -1,12 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-
-const initialStatus = {
-  checking: true,
-  secureContext: false,
-  webAuthnSupported: false,
-  platformAuthenticator: null,
-  conditionalMediation: null,
-};
+import { AUTH_INITIAL_STATUS } from '../../../constants';
 
 const checkPasskeySupport = async () => {
   const secureContext = typeof window !== 'undefined' && window.isSecureContext;
@@ -64,7 +57,7 @@ const StatusRow = ({ label, value, detail }) => (
 );
 
 const Authentication = () => {
-  const [status, setStatus] = useState(initialStatus);
+  const [status, setStatus] = useState(AUTH_INITIAL_STATUS);
 
   const refreshStatus = useCallback(async () => {
     setStatus((current) => ({ ...current, checking: true }));

@@ -2,16 +2,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import { getAssistantReply } from './portfolioKnowledge';
 import './ChatWidget.css';
 import { trackPortfolioEvent } from '../Analytics/plausibleAnalyticsUtils';
-
-const WELCOME =
-  "Hi! Ask me about Madhukar's resume (skills, jobs, education, contact) or any general question.";
+import { CHAT_WELCOME_MESSAGE } from '../../constants';
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([
-    { id: 1, role: 'bot', text: WELCOME },
+    { id: 1, role: 'bot', text: CHAT_WELCOME_MESSAGE },
   ]);
   const listRef = useRef(null);
   const inputRef = useRef(null);

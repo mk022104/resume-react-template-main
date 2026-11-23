@@ -8,6 +8,7 @@ import './contact.css';
 import { trackPortfolioEvent } from '../../Analytics/plausibleAnalyticsUtils';
 import { usePortfolioData } from '../../../context/PortfolioContext';
 import { FaEnvelope, FaTag, FaUser } from 'react-icons/fa';
+import { CONTACT_MAX_CHARACTERS } from '../../../constants';
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
@@ -40,7 +41,7 @@ const Contact = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [message, setMessage] = useState('');
 
-  const maxCharacters = 500;
+  const maxCharacters = CONTACT_MAX_CHARACTERS;
   const getPhoneNumberError = (value) =>
     value && !isPossiblePhoneNumber(value)
       ? 'This number has an invalid length for the selected country.'

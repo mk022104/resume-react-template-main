@@ -2,13 +2,12 @@ import React from "react";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
 import "./Group.css";
-
-const textFragments = ["top-left", "top-right", "bottom-left", "bottom-right"];
+import { GROUP_TEXT_FRAGMENTS } from "../../../constants";
 
 const ContactText = ({ children, className = "" }) => (
   <span className={`group-contact-text ${className}`}>
     <span className="group-contact-text__accessible">{children}</span>
-    {textFragments.map((fragment) => (
+    {GROUP_TEXT_FRAGMENTS.map((fragment) => (
       <span
         key={fragment}
         className={`group-contact-fragment group-contact-fragment--${fragment}`}

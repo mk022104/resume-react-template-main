@@ -1,4 +1,5 @@
 import { RESUME_TEXT } from './resumeKnowledge';
+import { ENV } from '../../constants';
 
 const SYSTEM_PROMPT = `You are a helpful ChatGPT-style assistant on Madhukar Gangapuram's portfolio website.
 
@@ -52,7 +53,7 @@ async function askNetlifyChat(message) {
  * Get a free key: https://aistudio.google.com/apikey
  */
 async function askGeminiDirect(message) {
-  const apiKey = process.env.REACT_APP_GEMINI_API_KEY;
+  const apiKey = ENV.GEMINI_API_KEY;
   if (!apiKey) return null;
 
   const url =

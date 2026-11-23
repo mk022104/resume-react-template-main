@@ -1,7 +1,12 @@
+import {
+  GRID_CARD_CONTENT_CLASS_NAME,
+  GRID_CARD_WRAPPER_CLASS_NAME,
+} from '../../constants';
+
 const GridCard = ({ children, className = '' }) => (
-  <div className="w-full lg:w-1/2">
+  <div className={GRID_CARD_WRAPPER_CLASS_NAME}>
     <div
-      className={`my-4 md:mx-4 shadow p-6 rounded-md bg-white group hover:shadow-md ${className}`}
+      className={`${GRID_CARD_CONTENT_CLASS_NAME} ${className}`}
     >
       {children}
     </div>

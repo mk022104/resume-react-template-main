@@ -5,8 +5,10 @@ import {
   normalizePlausibleDomain,
   setGoogleConsent,
 } from './plausibleAnalyticsUtils';
-
-const CONSENT_KEY = 'portfolio_analytics_consent';
+import {
+  ANALYTICS_CONSENT_KEY,
+  ENV,
+} from '../../constants';
 
 const AnalyticsConsent = ({ onConsent }) => (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
@@ -46,17 +48,13 @@ const AnalyticsConsent = ({ onConsent }) => (
 );
 
 const PlausibleAnalytics = () => {
-  const domain = normalizePlausibleDomain(
-    process.env.REACT_APP_PLAUSIBLE_DOMAIN
-  );
-  const enabledInDevelopment =
-    process.env.REACT_APP_PLAUSIBLE_ENABLE_IN_DEV === 'true';
-  const googleMeasurementId = process.env.REACT_APP_GA_MEASUREMENT_ID;
-  const googleAnalyticsEnabledInDevelopment =
-    process.env.REACT_APP_GA_ENABLE_IN_DEV === 'true';
+  const domain = normalizePlausibleDomain(ENV.PLAUSIBLE_DOMAIN);
+  const enabledInDevelopment = ENV.PLAUSIBLE_ENABLE_IN_DEV;
+  const googleMeasurementId = ENV.GOOGLE_MEASUREMENT_ID;
+  const googleAnalyticsEnabledInDevelopment = ENV.GOOGLE_ENABLE_IN_DEV;
   const [consent, setConsent] = useState(() => {
     try {
-      const savedConsent = localStorage.getItem(CONSENT_KEY);
+      const savedConsent = localStorage.getItem(ANALYTICS_CONSENT_KEY);
       return savedConsent === null ? null : savedConsent === 'granted';
     } catch {
       return null;
@@ -83,7 +81,10 @@ const PlausibleAnalytics = () => {
 
   const updateConsent = (granted) => {
     try {
-      localStorage.setItem(CONSENT_KEY, granted ? 'granted' : 'denied');
+      localStorage.setItem(
+        ANALYTICS_CONSENT_KEY,
+        granted ? 'granted' : 'denied'
+      );
     } catch {
       // Analytics remains disabled for visitors whose browser blocks storage.
     }
