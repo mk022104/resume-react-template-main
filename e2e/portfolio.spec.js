@@ -81,16 +81,25 @@ test.describe('Portfolio application', () => {
   }) => {
     await openPortfolio(page);
 
-    await page.getByRole('button', { name: /Switch to (dark|light) theme/ }).click();
+    await page.evaluate(() => {
+      localStorage.setItem('portfolio_theme', 'dark');
+      localStorage.setItem('portfolio_theme_override_at', String(Date.now()));
+    });
+    await page.reload();
+    await openPortfolio(page);
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    await expect
+      .poll(() => page.evaluate(() => localStorage.getItem('portfolio_theme')))
+      .toBe('dark');
 
-    const selectedTheme = await page
-      .locator('html')
-      .getAttribute('data-theme');
-    expect(['light', 'dark']).toContain(selectedTheme);
-    await expect(page.locator('html')).toHaveAttribute('data-theme', selectedTheme);
+    await page.getByRole('button', { name: 'Switch to light theme' }).click();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+    await expect
+      .poll(() => page.evaluate(() => localStorage.getItem('portfolio_theme')))
+      .toBe('light');
 
     await page.reload();
-    await expect(page.locator('html')).toHaveAttribute('data-theme', selectedTheme);
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
   });
 
   test('opens and uses the portfolio chatbot', async ({ page }) => {

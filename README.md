@@ -4,17 +4,23 @@ Start the project running using command `npm start`
 
 ## Automatic light and dark theme
 
-The portfolio automatically switches between light and dark themes based on local time:
+The portfolio automatically switches between light and dark themes based on local
+sunrise and sunset:
 
-- Light mode: 7:00 AM–6:59 PM
-- Dark mode: 7:00 PM–6:59 AM
-- The application checks the time every minute while open.
+- Browser geolocation is used once to determine latitude and longitude.
+- Coordinates are cached in `portfolio_theme_location`.
+- Sunrise and sunset are calculated locally in the browser.
+- Dark mode begins 30 minutes before sunset by default.
+- The sunset offset is configurable through `portfolio_theme_sunset_offset_minutes`.
+- If location permission or coordinates are unavailable, it falls back to 7 AM–7 PM.
+- The active theme is stored in `portfolio_theme`.
+
+The application checks solar conditions every minute while open.
 
 A theme toggle in the top-right corner allows a manual override. The manual
-choice is saved in local storage under `portfolio_theme`. It remains active while
-the manual choice is within the same 7 AM–7 PM or 7 PM–7 AM time period.
-At the next schedule boundary, the application automatically returns to
-time-based selection.
+choice is saved under `portfolio_theme`, with its timestamp under
+`portfolio_theme_override_at`. The override remains active until the next
+sunrise/sunset period changes.
 
 ```js
 localStorage.removeItem('portfolio_theme');
