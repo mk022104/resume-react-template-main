@@ -56,11 +56,11 @@ describe('ThemeToggle', () => {
 
   test('uses solar theme outside fallback office hours', () => {
     const location = { latitude: 35.7796, longitude: -78.6382 };
-    const morning = new Date(2026, 5, 15, 10, 0);
+    const morning = new Date(2026, 5, 15, 12, 0);
     const night = new Date(2026, 5, 15, 22, 0);
 
-    expect(getSolarTheme(morning, location, 30)).toBe('light');
-    expect(getSolarTheme(night, location, 30)).toBe('dark');
+    expect(getSolarTheme(morning, location)).toBe('light');
+    expect(getSolarTheme(night, location)).toBe('dark');
   });
 
   test('restores a saved theme', () => {

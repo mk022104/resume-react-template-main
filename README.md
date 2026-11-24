@@ -10,8 +10,6 @@ sunrise and sunset:
 - Browser geolocation is used once to determine latitude and longitude.
 - Coordinates are cached in `portfolio_theme_location`.
 - Sunrise and sunset are calculated locally in the browser.
-- Dark mode begins 30 minutes before sunset by default.
-- The sunset offset is configurable through `portfolio_theme_sunset_offset_minutes`.
 - If location permission or coordinates are unavailable, it falls back to 7 AM–7 PM.
 - The active theme is stored in `portfolio_theme`.
 

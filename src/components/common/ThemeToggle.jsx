@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
 import {
-  DEFAULT_SUNSET_OFFSET_MINUTES,
   THEME_LOCATION_KEY,
   THEME_OVERRIDE_TIMESTAMP_KEY,
   THEME_STORAGE_KEY,
-  THEME_SUNSET_OFFSET_KEY,
   DAY_START_HOUR,
   NIGHT_START_HOUR,
 } from '../../constants';
@@ -85,7 +83,7 @@ export const getSunTimes = (date, latitude, longitude) => {
     const minutes = Math.floor((utcHours - hours) * 60);
     const seconds = Math.round((((utcHours - hours) * 60) - minutes) * 60);
 
-    return new Date(Date.UTC(
+    const time = new Date(Date.UTC(
       date.getFullYear(),
       date.getMonth(),
       date.getDate(),
@@ -93,6 +91,12 @@ export const getSunTimes = (date, latitude, longitude) => {
       minutes,
       seconds
     ));
+
+    if (!isSunrise && time.getUTCHours() < 12) {
+      time.setUTCDate(time.getUTCDate() + 1);
+    }
+
+    return time;
   };
 
   return {
@@ -103,8 +107,7 @@ export const getSunTimes = (date, latitude, longitude) => {
 
 export const getSolarTheme = (
   date = new Date(),
-  location = null,
-  sunsetOffsetMinutes = DEFAULT_SUNSET_OFFSET_MINUTES
+  location = null
 ) => {
   if (!location) return getTimeBasedTheme(date);
 
@@ -112,11 +115,7 @@ export const getSolarTheme = (
   const sunTimes = getSunTimes(date, latitude, longitude);
   if (!sunTimes?.sunrise || !sunTimes?.sunset) return getTimeBasedTheme(date);
 
-  const darkAfter = new Date(
-    sunTimes.sunset.getTime() - sunsetOffsetMinutes * 60 * 1000
-  );
-
-  if (date >= sunTimes.sunrise && date < darkAfter) return 'light';
+  if (date >= sunTimes.sunrise && date < sunTimes.sunset) return 'light';
   return 'dark';
 };
 
@@ -146,19 +145,6 @@ export const getStoredLocation = () => {
   return null;
 };
 
-const getSunsetOffset = () => {
-  try {
-    const offset = Number(
-      localStorage.getItem(THEME_SUNSET_OFFSET_KEY)
-    );
-    return Number.isFinite(offset)
-      ? offset
-      : DEFAULT_SUNSET_OFFSET_MINUTES;
-  } catch {
-    return DEFAULT_SUNSET_OFFSET_MINUTES;
-  }
-};
-
 const getStoredOverrideTimestamp = () => {
   try {
     const timestamp = Number(
@@ -182,15 +168,14 @@ export const getActiveTheme = (
   date = new Date(),
   location = getStoredLocation()
 ) => {
-  const offset = getSunsetOffset();
-  const solarTheme = getSolarTheme(date, location, offset);
+  const solarTheme = getSolarTheme(date, location);
   const storedTheme = getStoredTheme();
   const overrideTimestamp = getStoredOverrideTimestamp();
 
   if (!storedTheme || !overrideTimestamp) return solarTheme;
 
   const overrideDate = new Date(overrideTimestamp);
-  const overrideTheme = getSolarTheme(overrideDate, location, offset);
+  const overrideTheme = getSolarTheme(overrideDate, location);
   if (overrideTheme === solarTheme) return storedTheme;
 
   try {
@@ -206,17 +191,6 @@ export default function ThemeToggle() {
   const [theme, setTheme] = useState(() => getActiveTheme(new Date(), getStoredLocation()));
 
   useEffect(() => {
-    try {
-      if (!localStorage.getItem(THEME_SUNSET_OFFSET_KEY)) {
-        localStorage.setItem(
-          THEME_SUNSET_OFFSET_KEY,
-          String(DEFAULT_SUNSET_OFFSET_MINUTES)
-        );
-      }
-    } catch {
-      // The default offset is used for the current visit.
-    }
-
     if (location || !navigator.geolocation) return undefined;
 
     navigator.geolocation.getCurrentPosition(

@@ -24,10 +24,8 @@ export const MAX_ERROR_STACK_LENGTH = 1500;
 export const THEME_STORAGE_KEY = 'portfolio_theme';
 export const THEME_OVERRIDE_TIMESTAMP_KEY = 'portfolio_theme_override_at';
 export const THEME_LOCATION_KEY = 'portfolio_theme_location';
-export const THEME_SUNSET_OFFSET_KEY = 'portfolio_theme_sunset_offset_minutes';
 export const DAY_START_HOUR = 7;
 export const NIGHT_START_HOUR = 19;
-export const DEFAULT_SUNSET_OFFSET_MINUTES = 30;
 
 export const GROUP_TEXT_FRAGMENTS = [
   'top-left',
