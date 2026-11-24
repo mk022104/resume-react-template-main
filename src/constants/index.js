@@ -8,6 +8,7 @@ export const ANALYTICS_ROUTE_TITLES = {
   '/qualification': 'Education Details',
   '/contact': 'Contact',
   '/group': 'Info',
+  '/weather': 'Weather',
 };
 
 export const CHAT_WELCOME_MESSAGE =

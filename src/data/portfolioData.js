@@ -51,6 +51,7 @@ export const portfolioData = {
     { title: 'Education', to: '/qualification' },
     { title: 'Contact', to: '/contact' },
     { title: 'Info', to: '/group' },
+    { title: 'Weather', to: '/weather' },
   ],
   routeMetadata: {
     '/about': {
@@ -81,6 +82,11 @@ export const portfolioData = {
     '/group': {
       title: 'Info | Madhukar Ganga',
       description: 'Additional information about Madhukar Ganga.',
+    },
+    '/weather': {
+      title: 'Local Weather | Madhukar Ganga',
+      description:
+        'Live local conditions and a four-day forecast based on your browser location.',
     },
   },
   about: {

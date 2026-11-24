@@ -13,6 +13,7 @@ import Portfolio from '../../pages/Portfolio/Portfolio';
 import Service from '../../pages/Service/Service';
 import Qualification from '../../pages/Qualification/Qualification.jsx';
 import Group from '../../pages/Group/Group.js';
+import Weather from '../../pages/Weather/Weather';
 import AnalyticsRouteTracker from '../../Analytics/AnalyticsRouteTracker';
 import './Navbar.css';
 import { usePortfolioData } from '../../../context/PortfolioContext';
@@ -158,6 +159,7 @@ const Navbar = () => {
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/qualification" component={Qualification} />
           <Route exact path="/group" component={Group} />
+          <Route exact path="/weather" component={Weather} />
           <Route component={NotFoundPage} />
         </Switch>
       </div>

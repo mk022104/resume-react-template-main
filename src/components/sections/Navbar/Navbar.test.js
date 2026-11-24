@@ -14,6 +14,7 @@ test('renders Navbar component with navigation links', () => {
   expect(screen.getByText('Education')).toBeInTheDocument();
   expect(screen.getByText('Contact')).toBeInTheDocument();
   expect(screen.getByText('Info')).toBeInTheDocument();
+  expect(screen.getByText('Weather')).toBeInTheDocument();
 });
 
 test('exposes an accessible mobile menu toggle', () => {
@@ -84,6 +85,20 @@ test('updates page title and description for the current route', () => {
   expect(document.querySelector('meta[name="description"]')).toHaveAttribute(
     'content',
     'Frontend development services including React architecture, accessibility, performance, and testing.'
+  );
+});
+
+test('updates page title and description for the weather route', () => {
+  render(
+    <MemoryRouter initialEntries={['/weather']}>
+      <Navbar />
+    </MemoryRouter>
+  );
+
+  expect(document.title).toBe('Local Weather | Madhukar Ganga');
+  expect(document.querySelector('meta[name="description"]')).toHaveAttribute(
+    'content',
+    'Live local conditions and a four-day forecast based on your browser location.'
   );
 });
 
