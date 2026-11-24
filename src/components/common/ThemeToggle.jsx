@@ -31,6 +31,26 @@ const clearStoredTheme = () => {
   }
 };
 
+const storeAutomaticTheme = (theme) => {
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
+    localStorage.removeItem(THEME_OVERRIDE_TIMESTAMP_KEY);
+  } catch {
+    // Theme still applies for the current visit if storage is unavailable.
+  }
+};
+
+const getStoredOverrideTimestamp = () => {
+  try {
+    const timestamp = Number(
+      localStorage.getItem(THEME_OVERRIDE_TIMESTAMP_KEY)
+    );
+    return Number.isFinite(timestamp) && timestamp > 0 ? timestamp : null;
+  } catch {
+    return null;
+  }
+};
+
 export const getActiveTheme = () => {
   const timeTheme = getTimeBasedTheme();
   const storedTheme = getStoredTheme();
@@ -69,11 +89,17 @@ export default function ThemeToggle() {
     };
 
     applyTheme(theme);
+    if (!getStoredOverrideTimestamp()) {
+      storeAutomaticTheme(theme);
+    }
 
     const updateByTime = () => {
       const activeTheme = getActiveTheme();
       setTheme(activeTheme);
       applyTheme(activeTheme);
+      if (!getStoredOverrideTimestamp()) {
+        storeAutomaticTheme(activeTheme);
+      }
     };
 
     const timer = window.setInterval(updateByTime, 60 * 1000);

@@ -19,6 +19,7 @@ describe('ThemeToggle', () => {
 
     const timeTheme = getTimeBasedTheme();
     expect(document.documentElement).toHaveAttribute('data-theme', timeTheme);
+    expect(localStorage.getItem('portfolio_theme')).toBe(timeTheme);
 
     const manualTheme = timeTheme === 'dark' ? 'light' : 'dark';
     fireEvent.click(
