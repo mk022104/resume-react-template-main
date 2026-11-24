@@ -96,6 +96,42 @@ body,
   color: var(--theme-text);
 }
 
+:root[data-theme="dark"] .sidebar-name,
+:root[data-theme="dark"] .sidebar-about-title,
+:root[data-theme="dark"] .sidebar-role-divider {
+  color: var(--theme-text);
+}
+
+:root[data-theme="dark"] .sidebar-avatar {
+  border-color: var(--theme-surface);
+  background: var(--theme-bg);
+}
+
+:root[data-theme="dark"] .sidebar-role a,
+:root[data-theme="dark"] .sidebar-contact-link,
+:root[data-theme="dark"] .tooltip-link {
+  color: #c7d2fe;
+}
+
+:root[data-theme="dark"] .sidebar-contact-link,
+:root[data-theme="dark"] .tooltip-link {
+  border-color: var(--theme-border);
+  background: var(--theme-bg);
+}
+
+:root[data-theme="dark"] .sidebar-contact-link:hover,
+:root[data-theme="dark"] .tooltip-link:hover {
+  border-color: #818cf8;
+  background: #1e1b4b;
+  color: #eef2ff;
+}
+
+:root[data-theme="dark"] .sidebar-status {
+  border-color: #166534;
+  background: #14532d;
+  color: #bbf7d0;
+}
+
 .theme-toggle {
   position: fixed;
   right: 1rem;

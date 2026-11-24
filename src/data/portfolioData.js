@@ -86,7 +86,7 @@ export const portfolioData = {
   about: {
     heading: 'Who am I?',
     paragraphs: [
-      'Senior React JS / Frontend Developer with 10+ years of IT experience including 10+ years specializing in React.js, TypeScript, Javascript and modern frontend architecture. Builds scalable, secure, high-performance enterprise web apps across insurance, finance, automotive, education, and cloud platforms.',
+      'Senior React JS / Frontend Developer with 11+ years of IT experience including 10+ years specializing in React.js, TypeScript, Javascript and modern frontend architecture. Builds scalable, secure, high-performance enterprise web apps across insurance, finance, automotive, education, and cloud platforms.',
       'Currently Senior UI Developer at Pearson on the Access Management & Authentication Platform (SSO, MFA, passwordless, WCAG, Storybook, Micro Frontends, Vite, Cypress/Playwright). Strong in Redux, Redux Toolkit, Next.js, REST/GraphQL, CI/CD, Docker, AWS/Azure, and enterprise auth. Collaborates with teams, mentors developers, and delivers production-ready applications.',
     ],
   },

@@ -15,14 +15,12 @@ sunrise and sunset:
 
 The application checks solar conditions every minute while open.
 
-A theme toggle in the top-right corner allows a manual override. The manual
-choice is saved under `portfolio_theme`, with its timestamp under
-`portfolio_theme_override_at`. The override remains active until the next
-sunrise/sunset period changes.
+A theme toggle in the top-right corner allows a manual override until the next
+sunrise/sunset period changes while the page is open. Reloading returns to
+automatic theme selection.
 
 ```js
 localStorage.removeItem('portfolio_theme');
-localStorage.removeItem('portfolio_theme_override_at');
 location.reload();
 ```
 

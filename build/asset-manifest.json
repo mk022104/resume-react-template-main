@@ -1,12 +1,12 @@
 {
   "files": {
-    "static/js/0.56030318.chunk.js": "/static/js/0.56030318.chunk.js",
-    "static/js/0.56030318.chunk.js.map": "/static/js/0.56030318.chunk.js.map",
-    "main.css": "/static/css/main.2db40df8.chunk.css",
-    "main.js": "/static/js/main.00f3a03e.chunk.js",
-    "main.js.map": "/static/js/main.00f3a03e.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.d1305d89.js",
-    "runtime-main.js.map": "/static/js/runtime-main.d1305d89.js.map",
+    "static/js/0.d6a36785.chunk.js": "/static/js/0.d6a36785.chunk.js",
+    "static/js/0.d6a36785.chunk.js.map": "/static/js/0.d6a36785.chunk.js.map",
+    "main.css": "/static/css/main.91b85935.chunk.css",
+    "main.js": "/static/js/main.6119bc9a.chunk.js",
+    "main.js.map": "/static/js/main.6119bc9a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.d0bfa217.js",
+    "runtime-main.js.map": "/static/js/runtime-main.d0bfa217.js.map",
     "static/css/3.e313dede.chunk.css": "/static/css/3.e313dede.chunk.css",
     "static/js/3.abed39ce.chunk.js": "/static/js/3.abed39ce.chunk.js",
     "static/js/3.abed39ce.chunk.js.map": "/static/js/3.abed39ce.chunk.js.map",
@@ -14,7 +14,7 @@
     "static/js/4.54b9bf70.chunk.js.map": "/static/js/4.54b9bf70.chunk.js.map",
     "index.html": "/index.html",
     "static/css/3.e313dede.chunk.css.map": "/static/css/3.e313dede.chunk.css.map",
-    "static/css/main.2db40df8.chunk.css.map": "/static/css/main.2db40df8.chunk.css.map",
+    "static/css/main.91b85935.chunk.css.map": "/static/css/main.91b85935.chunk.css.map",
     "static/js/3.abed39ce.chunk.js.LICENSE.txt": "/static/js/3.abed39ce.chunk.js.LICENSE.txt",
     "static/media/ChicagoStateUniversity.2550c9c0.jpg": "/static/media/ChicagoStateUniversity.2550c9c0.jpg",
     "static/media/Madhukar.2a88ca39.jpg": "/static/media/Madhukar.2a88ca39.jpg",
@@ -23,10 +23,10 @@
     "static/media/Group.css": "/static/media/mountain.34ce3c29.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.d1305d89.js",
+    "static/js/runtime-main.d0bfa217.js",
     "static/css/3.e313dede.chunk.css",
     "static/js/3.abed39ce.chunk.js",
-    "static/css/main.2db40df8.chunk.css",
-    "static/js/main.00f3a03e.chunk.js"
+    "static/css/main.91b85935.chunk.css",
+    "static/js/main.6119bc9a.chunk.js"
   ]
 }

@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   THEME_LOCATION_KEY,
-  THEME_OVERRIDE_TIMESTAMP_KEY,
   THEME_STORAGE_KEY,
   DAY_START_HOUR,
   NIGHT_START_HOUR,
@@ -119,17 +118,6 @@ export const getSolarTheme = (
   return 'dark';
 };
 
-const getStoredTheme = () => {
-  try {
-    const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-    return storedTheme === 'light' || storedTheme === 'dark'
-      ? storedTheme
-      : null;
-  } catch {
-    return null;
-  }
-};
-
 export const getStoredLocation = () => {
   try {
     const value = JSON.parse(localStorage.getItem(THEME_LOCATION_KEY));
@@ -145,17 +133,6 @@ export const getStoredLocation = () => {
   return null;
 };
 
-const getStoredOverrideTimestamp = () => {
-  try {
-    const timestamp = Number(
-      localStorage.getItem(THEME_OVERRIDE_TIMESTAMP_KEY)
-    );
-    return Number.isFinite(timestamp) && timestamp > 0 ? timestamp : null;
-  } catch {
-    return null;
-  }
-};
-
 const storeTheme = (theme) => {
   try {
     localStorage.setItem(THEME_STORAGE_KEY, theme);
@@ -167,30 +144,25 @@ const storeTheme = (theme) => {
 export const getActiveTheme = (
   date = new Date(),
   location = getStoredLocation()
-) => {
-  const solarTheme = getSolarTheme(date, location);
-  const storedTheme = getStoredTheme();
-  const overrideTimestamp = getStoredOverrideTimestamp();
-
-  if (!storedTheme || !overrideTimestamp) return solarTheme;
-
-  const overrideDate = new Date(overrideTimestamp);
-  const overrideTheme = getSolarTheme(overrideDate, location);
-  if (overrideTheme === solarTheme) return storedTheme;
-
-  try {
-    localStorage.removeItem(THEME_OVERRIDE_TIMESTAMP_KEY);
-  } catch {
-    // Theme still follows the solar schedule for the current visit.
-  }
-  return solarTheme;
-};
+) => getSolarTheme(date, location);
 
 export default function ThemeToggle() {
   const [location, setLocation] = useState(getStoredLocation);
   const [theme, setTheme] = useState(() => getActiveTheme(new Date(), getStoredLocation()));
+  const manualOverride = useRef(null);
 
   useEffect(() => {
+    try {
+      localStorage.removeItem('portfolio_theme_sunset_offset_minutes');
+      localStorage.removeItem('portfolio_theme_override_at');
+      localStorage.removeItem('shopifySelectors');
+      localStorage.removeItem(
+        'ph_phc_C8xtXKxDp8DDyZ96ZVPoF27P2iiH35iuhh42piHrCpcr_posthog'
+      );
+    } catch {
+      // Obsolete settings are ignored when storage is unavailable.
+    }
+
     if (location || !navigator.geolocation) return undefined;
 
     navigator.geolocation.getCurrentPosition(
@@ -228,7 +200,17 @@ export default function ThemeToggle() {
     };
 
     const updateTheme = () => {
-      const activeTheme = getActiveTheme(new Date(), location);
+      const now = new Date();
+      const solarTheme = getSolarTheme(now, location);
+      const activeTheme =
+        manualOverride.current?.solarTheme === solarTheme
+          ? manualOverride.current.theme
+          : solarTheme;
+
+      if (manualOverride.current?.solarTheme !== solarTheme) {
+        manualOverride.current = null;
+      }
+
       setTheme(activeTheme);
       applyTheme(activeTheme);
     };
@@ -240,6 +222,10 @@ export default function ThemeToggle() {
 
   const toggleTheme = () => {
     const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    manualOverride.current = {
+      solarTheme: getSolarTheme(new Date(), location),
+      theme: nextTheme,
+    };
     setTheme(nextTheme);
     document.documentElement.dataset.theme = nextTheme;
     document.documentElement.classList.toggle('dark', nextTheme === 'dark');
@@ -247,7 +233,6 @@ export default function ThemeToggle() {
 
     try {
       localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
-      localStorage.setItem(THEME_OVERRIDE_TIMESTAMP_KEY, String(Date.now()));
     } catch {
       // Theme still works for the current visit if storage is unavailable.
     }

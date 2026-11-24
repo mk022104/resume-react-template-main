@@ -37,6 +37,43 @@ describe('ThemeToggle', () => {
       manualTheme === 'dark'
     );
     expect(localStorage.getItem('portfolio_theme')).toBe(manualTheme);
+    expect(localStorage.getItem('portfolio_theme_override_at')).toBeNull();
+  });
+
+  test('removes the obsolete sunset offset from local storage', () => {
+    localStorage.setItem('portfolio_theme_sunset_offset_minutes', '30');
+
+    render(<ThemeToggle />);
+
+    expect(
+      localStorage.getItem('portfolio_theme_sunset_offset_minutes')
+    ).toBeNull();
+  });
+
+  test('removes the obsolete override timestamp from local storage', () => {
+    localStorage.setItem('portfolio_theme_override_at', String(Date.now()));
+
+    render(<ThemeToggle />);
+
+    expect(localStorage.getItem('portfolio_theme_override_at')).toBeNull();
+  });
+
+  test('removes the obsolete Shopify selectors from local storage', () => {
+    localStorage.setItem('shopifySelectors', '[]');
+
+    render(<ThemeToggle />);
+
+    expect(localStorage.getItem('shopifySelectors')).toBeNull();
+  });
+
+  test('removes the obsolete PostHog entry from local storage', () => {
+    const key =
+      'ph_phc_C8xtXKxDp8DDyZ96ZVPoF27P2iiH35iuhh42piHrCpcr_posthog';
+    localStorage.setItem(key, '{}');
+
+    render(<ThemeToggle />);
+
+    expect(localStorage.getItem(key)).toBeNull();
   });
 
   test('uses light at daytime boundaries and dark at night boundaries', () => {
@@ -63,10 +100,8 @@ describe('ThemeToggle', () => {
     expect(getSolarTheme(night, location)).toBe('dark');
   });
 
-  test('restores a saved theme', () => {
+  test('uses the automatic theme when no manual override is active', () => {
     const savedTheme = getTimeBasedTheme();
-    localStorage.setItem('portfolio_theme', savedTheme);
-    localStorage.setItem('portfolio_theme_override_at', String(Date.now()));
 
     render(<ThemeToggle />);
 
