@@ -42,13 +42,17 @@ describe('ThemeToggle', () => {
   });
 
   test('restores a saved theme', () => {
-    localStorage.setItem('portfolio_theme', 'dark');
+    const savedTheme = getTimeBasedTheme();
+    localStorage.setItem('portfolio_theme', savedTheme);
+    localStorage.setItem('portfolio_theme_override_at', String(Date.now()));
 
     render(<ThemeToggle />);
 
-    expect(document.documentElement).toHaveAttribute('data-theme', 'dark');
+    expect(document.documentElement).toHaveAttribute('data-theme', savedTheme);
     expect(
-      screen.getByRole('button', { name: 'Switch to light theme' })
+      screen.getByRole('button', {
+        name: `Switch to ${savedTheme === 'dark' ? 'light' : 'dark'} theme`,
+      })
     ).toBeInTheDocument();
   });
 });

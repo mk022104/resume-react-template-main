@@ -22,6 +22,7 @@ export const GRID_CARD_CONTENT_CLASS_NAME =
 export const MAX_ERROR_DESCRIPTION_LENGTH = 500;
 export const MAX_ERROR_STACK_LENGTH = 1500;
 export const THEME_STORAGE_KEY = 'portfolio_theme';
+export const THEME_OVERRIDE_TIMESTAMP_KEY = 'portfolio_theme_override_at';
 export const DAY_START_HOUR = 7;
 export const NIGHT_START_HOUR = 19;
 

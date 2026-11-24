@@ -4,14 +4,21 @@ import { usePortfolioData } from '../../../context/PortfolioContext';
 
 const today = new Date().toDateString();
 const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+const formatTime = (date) =>
+  date.toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true,
+  });
 
 const LiveClock = () => {
-  const [time, setTime] = useState(() => new Date().toLocaleTimeString());
+  const [time, setTime] = useState(() => formatTime(new Date()));
 
   useEffect(() => {
     const timer = setInterval(() => {
       setTime((currentTime) => {
-        const nextTime = new Date().toLocaleTimeString();
+        const nextTime = formatTime(new Date());
         return nextTime === currentTime ? currentTime : nextTime;
       });
     }, 1000);

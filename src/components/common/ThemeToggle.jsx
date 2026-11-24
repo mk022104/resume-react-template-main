@@ -3,6 +3,7 @@ import {
   DAY_START_HOUR,
   NIGHT_START_HOUR,
   THEME_STORAGE_KEY,
+  THEME_OVERRIDE_TIMESTAMP_KEY,
 } from '../../constants';
 
 export const getTimeBasedTheme = (date = new Date()) => {
@@ -21,8 +22,44 @@ const getStoredTheme = () => {
   }
 };
 
+const clearStoredTheme = () => {
+  try {
+    localStorage.removeItem(THEME_STORAGE_KEY);
+    localStorage.removeItem(THEME_OVERRIDE_TIMESTAMP_KEY);
+  } catch {
+    // Theme can continue to follow time for the current visit.
+  }
+};
+
+export const getActiveTheme = () => {
+  const timeTheme = getTimeBasedTheme();
+  const storedTheme = getStoredTheme();
+
+  if (!storedTheme) return timeTheme;
+
+  try {
+    const overrideTimestamp = Number(
+      localStorage.getItem(THEME_OVERRIDE_TIMESTAMP_KEY)
+    );
+
+    if (
+      Number.isFinite(overrideTimestamp) &&
+      overrideTimestamp > 0 &&
+      getTimeBasedTheme(new Date(overrideTimestamp)) === timeTheme
+    ) {
+      return storedTheme;
+    }
+
+    clearStoredTheme();
+  } catch {
+    clearStoredTheme();
+  }
+
+  return timeTheme;
+};
+
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState(() => getStoredTheme() || getTimeBasedTheme());
+  const [theme, setTheme] = useState(getActiveTheme);
 
   useEffect(() => {
     const applyTheme = (nextTheme) => {
@@ -34,11 +71,9 @@ export default function ThemeToggle() {
     applyTheme(theme);
 
     const updateByTime = () => {
-      if (!getStoredTheme()) {
-        const timeTheme = getTimeBasedTheme();
-        setTheme(timeTheme);
-        applyTheme(timeTheme);
-      }
+      const activeTheme = getActiveTheme();
+      setTheme(activeTheme);
+      applyTheme(activeTheme);
     };
 
     const timer = window.setInterval(updateByTime, 60 * 1000);
@@ -50,6 +85,7 @@ export default function ThemeToggle() {
     setTheme(nextTheme);
     try {
       localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+      localStorage.setItem(THEME_OVERRIDE_TIMESTAMP_KEY, String(Date.now()));
     } catch {
       // Theme still works for the current visit if storage is unavailable.
     }

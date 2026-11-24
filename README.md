@@ -11,11 +11,14 @@ The portfolio automatically switches between light and dark themes based on loca
 - The application checks the time every minute while open.
 
 A theme toggle in the top-right corner allows a manual override. The manual
-choice is saved in local storage under `portfolio_theme` and remains active until
-the stored value is removed.
+choice is saved in local storage under `portfolio_theme`. It remains active while
+the manual choice is within the same 7 AM–7 PM or 7 PM–7 AM time period.
+At the next schedule boundary, the application automatically returns to
+time-based selection.
 
 ```js
 localStorage.removeItem('portfolio_theme');
+localStorage.removeItem('portfolio_theme_override_at');
 location.reload();
 ```
 

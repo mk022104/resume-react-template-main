@@ -23,5 +23,6 @@ describe("Footer", () => {
     });
 
     expect(screen.getByRole("contentinfo")).toBeInTheDocument();
+    expect(screen.getByText(/\b(?:AM|PM)\b/)).toBeInTheDocument();
   });
 });
