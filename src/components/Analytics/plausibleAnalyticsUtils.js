@@ -52,6 +52,22 @@ export const installPlausibleAnalytics = (
   return true;
 };
 
+export const installVercelAnalytics = ({
+  environment = process.env.NODE_ENV,
+  documentRef = document,
+} = {}) => {
+  if (environment !== 'production') return false;
+  if (documentRef.querySelector('script[data-vercel-analytics]')) return false;
+
+  const script = documentRef.createElement('script');
+  script.src = '/_vercel/insights/script.js';
+  script.defer = true;
+  script.dataset.vercelAnalytics = 'true';
+  documentRef.head.appendChild(script);
+
+  return true;
+};
+
 export const trackPortfolioEvent = (name, props = {}, windowRef = window) => {
   if (typeof windowRef.plausible === 'function') {
     windowRef.plausible(name, { props });

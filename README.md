@@ -52,6 +52,17 @@ This project supports privacy-focused, cookieless traffic analytics with Plausib
 
 Do not send names, email addresses, passkeys, or other personal data as analytics event properties. Review applicable privacy notice and consent requirements for your audience.
 
+### Optional Vercel Web Analytics
+
+Vercel Web Analytics is integrated separately from Plausible. Enable it from the
+project's **Analytics** tab in Vercel. The app loads Vercel's analytics script
+only after visitors accept analytics consent; declining keeps it disabled. No
+extra Vercel analytics domain environment variable is needed.
+
+For Plausible deployments on Vercel, add `REACT_APP_PLAUSIBLE_DOMAIN` under
+**Project Settings → Environment Variables** with the Plausible site hostname,
+then redeploy.
+
 ## Optional Google Analytics 4
 
 Google Analytics 4 can run alongside Plausible, but this sends analytics data to both providers. Configure consent and privacy disclosures for your audience before enabling Google Analytics.

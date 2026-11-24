@@ -1,6 +1,7 @@
 import {
   installGoogleAnalytics,
   installPlausibleAnalytics,
+  installVercelAnalytics,
   normalizeGoogleMeasurementId,
   normalizePlausibleDomain,
 } from './plausibleAnalyticsUtils';
@@ -8,7 +9,7 @@ import {
 afterEach(() => {
   document
     .querySelectorAll(
-      'script[data-plausible-analytics], script[data-google-analytics]'
+      'script[data-plausible-analytics], script[data-google-analytics], script[data-vercel-analytics]'
     )
     .forEach((script) => script.remove());
   delete window.gtag;
@@ -58,6 +59,20 @@ test('allows local development tracking only when explicitly enabled', () => {
   expect(
     document.querySelector('script[data-plausible-analytics]')
   ).toHaveAttribute('data-domain', 'localhost');
+});
+
+test('installs Vercel Analytics once in production', () => {
+  expect(installVercelAnalytics({ environment: 'production' })).toBe(true);
+  expect(installVercelAnalytics({ environment: 'production' })).toBe(false);
+
+  const script = document.querySelector('script[data-vercel-analytics]');
+  expect(script).toHaveAttribute('src', '/_vercel/insights/script.js');
+  expect(script).toHaveAttribute('defer');
+});
+
+test('does not install Vercel Analytics outside production', () => {
+  expect(installVercelAnalytics({ environment: 'development' })).toBe(false);
+  expect(document.querySelector('script[data-vercel-analytics]')).toBeNull();
 });
 
 test('normalizes a domain or URL to the hostname expected by Plausible', () => {

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import {
   installGoogleAnalytics,
   installPlausibleAnalytics,
+  installVercelAnalytics,
   normalizePlausibleDomain,
   setGoogleConsent,
 } from './plausibleAnalyticsUtils';
@@ -67,6 +68,7 @@ const PlausibleAnalytics = () => {
       installGoogleAnalytics(googleMeasurementId, {
         enabledInDevelopment: googleAnalyticsEnabledInDevelopment,
       });
+      installVercelAnalytics();
       setGoogleConsent(true);
     } else if (consent === false) {
       setGoogleConsent(false);
