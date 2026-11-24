@@ -15,6 +15,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@vercel/analytics": "^2.0.1",
     "autoprefixer": "^9.8.8",
     "emailjs-com": "^2.6.4",
     "framer-motion": "^4.1.17",
@@ -63,7 +64,10 @@
       "text-summary",
       "lcov",
       "html"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^@vercel/analytics/react$": "<rootDir>/node_modules/@vercel/analytics/dist/react/index.js"
+    }
   },
   "eslintConfig": {
     "extends": [

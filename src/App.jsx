@@ -8,6 +8,7 @@ import PlausibleAnalytics from './components/Analytics/PlausibleAnalytics.jsx';
 import { PortfolioProvider } from './context/PortfolioContext';
 import { ENV } from './constants';
 import ThemeToggle from './components/common/ThemeToggle';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         </div>
         <Footer />
         <ChatWidget />
+        <Analytics />
         </div>
       </Router>
     </PortfolioProvider>
