@@ -7,4 +7,7 @@ module.exports = {
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
   },
+  moduleNameMapper: {
+    '^@vercel/speed-insights/react$': '<rootDir>/node_modules/@vercel/speed-insights/dist/react/index.js',
+  },
 };
